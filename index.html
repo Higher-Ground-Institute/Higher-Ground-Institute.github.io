@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Higher Ground Institute</title>
-  <meta name="description" content="The Higher Ground Institute helps progressive organizations harness emerging technologies to create lasting change.">
+  <meta name="description" content="Higher Ground Institute builds AI literacy, strategic capacity, and innovation infrastructure for the progressive political community.">
   <meta property="og:title" content="Higher Ground Institute">
-  <meta property="og:description" content="Helping progressive organizations harness emerging technologies to create lasting change.">
+  <meta property="og:description" content="Building AI literacy, strategic capacity, and innovation infrastructure for the progressive political community.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://higherground.institute">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,9 +32,7 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
-
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       color: var(--text);
@@ -42,526 +40,250 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
-
     a { color: var(--sky-dark); text-decoration: none; transition: color 0.2s; }
     a:hover { color: var(--navy); }
-
     img { max-width: 100%; height: auto; }
-
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 2rem; }
 
     /* ---- NAV ---- */
     nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--gray-200);
-      transition: box-shadow 0.3s;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-200); transition: box-shadow 0.3s;
     }
     nav.scrolled { box-shadow: 0 2px 20px rgba(10,37,64,0.08); }
     .nav-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 72px;
+      max-width: var(--max-width); margin: 0 auto; padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between; height: 72px;
     }
-    .nav-logo {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-    }
+    .nav-logo { display: flex; flex-direction: column; line-height: 1.1; }
     .nav-logo-top {
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--sky);
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--sky);
     }
     .nav-logo-bottom {
-      font-size: 1.05rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--navy);
+      font-size: 1.05rem; font-weight: 800; letter-spacing: 0.04em;
+      text-transform: uppercase; color: var(--navy);
     }
-    .nav-links { display: flex; gap: 2rem; align-items: center; }
-    .nav-links a {
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--text-light);
-      transition: color 0.2s;
-    }
+    .nav-links { display: flex; gap: 1.75rem; align-items: center; }
+    .nav-links a { font-size: 0.88rem; font-weight: 500; color: var(--text-light); transition: color 0.2s; }
     .nav-links a:hover { color: var(--navy); }
     .nav-cta {
-      background: var(--navy) !important;
-      color: var(--white) !important;
-      padding: 0.6rem 1.4rem;
-      border-radius: 8px;
-      font-weight: 600 !important;
-      font-size: 0.85rem !important;
-      transition: background 0.2s !important;
+      background: var(--navy) !important; color: var(--white) !important;
+      padding: 0.6rem 1.4rem; border-radius: 8px;
+      font-weight: 600 !important; font-size: 0.85rem !important; transition: background 0.2s !important;
     }
     .nav-cta:hover { background: var(--navy-light) !important; }
-
-    .mobile-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0.5rem;
-    }
-    .mobile-toggle span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--navy);
-      margin: 5px 0;
-      transition: 0.3s;
-    }
+    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+    .mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--navy); margin: 5px 0; transition: 0.3s; }
 
     /* ---- HERO ---- */
-    .hero {
-      padding: 10rem 0 6rem;
-      background: var(--offwhite);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-content {
-      max-width: 720px;
-      position: relative;
-      z-index: 2;
-    }
+    .hero { padding: 10rem 0 6rem; background: var(--offwhite); position: relative; overflow: hidden; }
+    .hero-content { max-width: 720px; position: relative; z-index: 2; }
     .hero-label {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--sky);
-      margin-bottom: 1.25rem;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--sky); margin-bottom: 1.25rem;
     }
-    .hero h1 {
-      font-size: 3.2rem;
-      font-weight: 800;
-      line-height: 1.15;
-      color: var(--navy);
-      margin-bottom: 1.5rem;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      color: var(--text-light);
-      max-width: 560px;
-      line-height: 1.7;
-      margin-bottom: 2.5rem;
-    }
+    .hero h1 { font-size: 3.2rem; font-weight: 800; line-height: 1.15; color: var(--navy); margin-bottom: 1.5rem; }
+    .hero p { font-size: 1.2rem; color: var(--text-light); max-width: 580px; line-height: 1.7; margin-bottom: 2.5rem; }
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.85rem 2rem;
-      border-radius: 10px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      border: none;
-      transition: all 0.2s;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.85rem 2rem; border-radius: 10px; font-size: 0.95rem;
+      font-weight: 600; cursor: pointer; border: none; transition: all 0.2s;
     }
-    .btn-primary {
-      background: var(--navy);
-      color: var(--white);
-    }
+    .btn-primary { background: var(--navy); color: var(--white); }
     .btn-primary:hover { background: var(--navy-light); color: var(--white); }
-    .btn-outline {
-      background: transparent;
-      color: var(--navy);
-      border: 2px solid var(--gray-200);
-    }
+    .btn-outline { background: transparent; color: var(--navy); border: 2px solid var(--gray-200); }
     .btn-outline:hover { border-color: var(--navy); color: var(--navy); }
-
-    /* Chevron decoration */
-    .hero-chevrons {
-      position: absolute;
-      right: -60px;
-      top: 50%;
-      transform: translateY(-50%);
-      opacity: 0.07;
-      z-index: 1;
-    }
+    .btn-sky { background: var(--sky); color: var(--navy); }
+    .btn-sky:hover { background: var(--sky-dark); color: var(--navy); }
+    .hero-chevrons { position: absolute; right: -60px; top: 50%; transform: translateY(-50%); opacity: 0.07; z-index: 1; }
     .hero-chevrons svg { width: 500px; height: 400px; }
 
     /* ---- SECTION SHARED ---- */
     section { padding: 6rem 0; }
     .section-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--sky);
-      margin-bottom: 0.75rem;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--sky); margin-bottom: 0.75rem;
     }
-    .section-title {
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: var(--navy);
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-    .section-subtitle {
-      font-size: 1.1rem;
-      color: var(--text-light);
-      max-width: 600px;
-      line-height: 1.7;
-    }
+    .section-title { font-size: 2.2rem; font-weight: 800; color: var(--navy); margin-bottom: 1rem; line-height: 1.2; }
+    .section-subtitle { font-size: 1.1rem; color: var(--text-light); max-width: 600px; line-height: 1.7; }
 
     /* ---- APPROACH ---- */
     .approach { background: var(--white); }
     .approach-header { margin-bottom: 3.5rem; }
-    .approach-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
+    .approach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
     .approach-card {
-      padding: 2.25rem;
-      border-radius: 16px;
-      background: var(--offwhite);
-      border: 1px solid var(--gray-200);
-      transition: all 0.3s;
+      padding: 2.25rem; border-radius: 16px; background: var(--offwhite);
+      border: 1px solid var(--gray-200); transition: all 0.3s;
     }
-    .approach-card:hover {
-      border-color: var(--sky);
-      box-shadow: 0 8px 30px rgba(110,205,232,0.12);
-    }
+    .approach-card:hover { border-color: var(--sky); box-shadow: 0 8px 30px rgba(110,205,232,0.12); }
     .approach-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: var(--ice);
-      color: var(--sky-dark);
-      font-weight: 800;
-      font-size: 1.1rem;
-      margin-bottom: 1.25rem;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--ice); color: var(--sky-dark); font-weight: 800; font-size: 1.1rem; margin-bottom: 1.25rem;
     }
-    .approach-card h3 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 0.75rem;
-    }
-    .approach-card p {
-      font-size: 0.95rem;
-      color: var(--text-light);
-      line-height: 1.65;
-    }
+    .approach-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: 0.75rem; }
+    .approach-card p { font-size: 0.95rem; color: var(--text-light); line-height: 1.65; }
 
     /* ---- PROGRAMS ---- */
     .programs { background: var(--offwhite); }
     .programs-header { margin-bottom: 3.5rem; }
-    .programs-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.75rem;
-    }
+    .programs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
     .program-card {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 2.5rem;
-      border: 1px solid var(--gray-200);
-      transition: all 0.3s;
-      display: flex;
-      flex-direction: column;
+      background: var(--white); border-radius: 16px; padding: 2.5rem;
+      border: 1px solid var(--gray-200); transition: all 0.3s; display: flex; flex-direction: column;
     }
-    .program-card:hover {
-      border-color: var(--sky);
-      box-shadow: 0 8px 30px rgba(10,37,64,0.06);
-    }
+    .program-card:hover { border-color: var(--sky); box-shadow: 0 8px 30px rgba(10,37,64,0.06); }
     .program-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      background: var(--ice);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.5rem;
+      width: 48px; height: 48px; border-radius: 12px; background: var(--ice);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;
     }
     .program-icon svg { width: 24px; height: 24px; color: var(--sky-dark); }
-    .program-card h3 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 0.75rem;
-    }
-    .program-card p {
-      font-size: 0.95rem;
-      color: var(--text-light);
-      line-height: 1.65;
-      flex: 1;
-    }
+    .program-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: 0.75rem; }
+    .program-card p { font-size: 0.95rem; color: var(--text-light); line-height: 1.65; flex: 1; }
     .program-link {
-      margin-top: 1.25rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--sky-dark);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
+      margin-top: 1.25rem; font-size: 0.9rem; font-weight: 600; color: var(--sky-dark);
+      display: inline-flex; align-items: center; gap: 0.35rem;
     }
     .program-link:hover { color: var(--navy); }
     .program-link svg { width: 16px; height: 16px; transition: transform 0.2s; }
     .program-link:hover svg { transform: translateX(3px); }
 
-    /* ---- FELLOWS FEATURE ---- */
-    .fellows {
-      background: var(--navy);
-      color: var(--white);
-      position: relative;
-      overflow: hidden;
+    /* ---- AI PROGRAMS ---- */
+    .ai-programs { background: var(--navy); color: var(--white); position: relative; overflow: hidden; }
+    .ai-programs .section-label { color: var(--sky); }
+    .ai-programs .section-title { color: var(--white); }
+    .ai-header { margin-bottom: 3rem; }
+    .ai-framing {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px; padding: 2.5rem; margin-bottom: 3.5rem;
+      border-left: 4px solid var(--sky);
     }
-    .fellows .section-label { color: var(--sky); }
-    .fellows .section-title { color: var(--white); }
-    .fellows .section-subtitle { color: rgba(255,255,255,0.7); }
-    .fellows-header { margin-bottom: 3rem; }
-    .fellows-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+    .ai-framing p {
+      font-size: 1.1rem; line-height: 1.75; color: rgba(255,255,255,0.8);
     }
-    .fellow-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 14px;
-      padding: 2rem;
-      transition: all 0.3s;
+    .ai-framing p + p { margin-top: 1rem; }
+    .ai-framing strong { color: var(--white); font-weight: 700; }
+    .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem; }
+    .ai-card {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 2.25rem; transition: all 0.3s;
     }
-    .fellow-card:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: var(--sky);
+    .ai-card:hover { background: rgba(255,255,255,0.08); border-color: var(--sky); }
+    .ai-card-featured {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, rgba(110,205,232,0.12) 0%, rgba(255,255,255,0.05) 100%);
+      border-color: rgba(110,205,232,0.3);
+      display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center;
     }
-    .fellow-card h4 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: var(--white);
-    }
-    .fellow-card .fellow-project {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--sky);
+    .ai-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+    .ai-card .ai-tag {
+      display: inline-block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.08em; padding: 0.25rem 0.75rem; border-radius: 6px;
       margin-bottom: 0.75rem;
     }
-    .fellow-card p {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.65);
-      line-height: 1.6;
+    .ai-tag-live { background: rgba(110,205,232,0.2); color: var(--sky); }
+    .ai-tag-new { background: rgba(110,205,232,0.15); color: var(--sky); }
+    .ai-tag-dev { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
+    .ai-card p { font-size: 0.95rem; color: rgba(255,255,255,0.65); line-height: 1.65; }
+    .ai-card .partners { margin-top: 0.75rem; font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+    .ai-stats {
+      display: flex; gap: 2rem; text-align: center;
     }
+    .ai-stat-number { font-size: 2.5rem; font-weight: 800; color: var(--sky); line-height: 1; }
+    .ai-stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 0.35rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .ai-chevrons { position: absolute; right: -40px; bottom: -40px; opacity: 0.04; }
+    .ai-chevrons svg { width: 350px; height: 280px; }
+
+    /* ---- FELLOWS FEATURE ---- */
+    .fellows { background: var(--offwhite); }
+    .fellows-header { margin-bottom: 3rem; }
+    .fellows-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .fellow-card {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: 14px; padding: 2rem; transition: all 0.3s;
+    }
+    .fellow-card:hover { border-color: var(--sky); box-shadow: 0 8px 30px rgba(10,37,64,0.06); }
+    .fellow-card h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--navy); }
+    .fellow-card .fellow-project { font-size: 0.8rem; font-weight: 600; color: var(--sky-dark); margin-bottom: 0.75rem; }
+    .fellow-card p { font-size: 0.9rem; color: var(--text-light); line-height: 1.6; }
     .fellows-footer {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
+      margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--gray-200);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
     }
-    .fellows-footer p {
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.6);
-    }
-    .fellows-footer .btn {
-      background: var(--sky);
-      color: var(--navy);
-    }
-    .fellows-footer .btn:hover {
-      background: var(--sky-dark);
-      color: var(--navy);
-    }
-    .fellows-chevrons {
-      position: absolute;
-      right: -40px;
-      bottom: -40px;
-      opacity: 0.04;
-    }
-    .fellows-chevrons svg { width: 350px; height: 280px; }
+    .fellows-footer p { font-size: 0.95rem; color: var(--text-light); }
 
     /* ---- RESOURCES ---- */
     .resources { background: var(--white); }
     .resources-header { margin-bottom: 3.5rem; }
-    .resources-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.75rem;
-    }
+    .resources-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
     .resource-card {
-      border-radius: 16px;
-      border: 1px solid var(--gray-200);
-      overflow: hidden;
-      transition: all 0.3s;
-      display: flex;
-      flex-direction: column;
+      border-radius: 16px; border: 1px solid var(--gray-200);
+      overflow: hidden; transition: all 0.3s; display: flex; flex-direction: column;
     }
-    .resource-card:hover {
-      border-color: var(--sky);
-      box-shadow: 0 8px 30px rgba(10,37,64,0.06);
-    }
-    .resource-top {
-      background: var(--ice);
-      padding: 2.5rem 2rem;
-      text-align: center;
-    }
-    .resource-top svg { width: 48px; height: 48px; color: var(--sky-dark); }
-    .resource-body {
-      padding: 1.75rem 2rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .resource-body h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 0.5rem;
-    }
-    .resource-body p {
-      font-size: 0.9rem;
-      color: var(--text-light);
-      line-height: 1.6;
-      flex: 1;
-    }
+    .resource-card:hover { border-color: var(--sky); box-shadow: 0 8px 30px rgba(10,37,64,0.06); }
+    .resource-top { background: var(--ice); padding: 2rem 2rem; text-align: center; }
+    .resource-top svg { width: 40px; height: 40px; color: var(--sky-dark); }
+    .resource-body { padding: 1.5rem 1.75rem; flex: 1; display: flex; flex-direction: column; }
+    .resource-body h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+    .resource-body p { font-size: 0.88rem; color: var(--text-light); line-height: 1.6; flex: 1; }
     .resource-body .program-link { margin-top: 1rem; }
 
     /* ---- CTA ---- */
-    .cta-section {
-      background: var(--ice);
-      text-align: center;
-    }
-    .cta-inner {
-      max-width: 640px;
-      margin: 0 auto;
-    }
+    .cta-section { background: var(--ice); text-align: center; }
+    .cta-inner { max-width: 640px; margin: 0 auto; }
     .cta-inner .section-title { margin-bottom: 1rem; }
-    .cta-inner p {
-      font-size: 1.1rem;
-      color: var(--text-light);
-      margin-bottom: 2.5rem;
-      line-height: 1.7;
-    }
-    .cta-actions {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+    .cta-inner p { font-size: 1.1rem; color: var(--text-light); margin-bottom: 2.5rem; line-height: 1.7; }
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
     /* ---- FOOTER ---- */
-    footer {
-      background: var(--navy);
-      color: rgba(255,255,255,0.6);
-      padding: 4rem 0 2.5rem;
-    }
+    footer { background: var(--navy); color: rgba(255,255,255,0.6); padding: 4rem 0 2.5rem; }
     .footer-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 3rem;
-      padding-bottom: 3rem;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 3rem;
+      padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     .footer-brand .nav-logo-top { color: var(--sky); }
     .footer-brand .nav-logo-bottom { color: var(--white); }
-    .footer-brand p {
-      margin-top: 1rem;
-      font-size: 0.85rem;
-      max-width: 280px;
-      line-height: 1.6;
-    }
-    .footer-links {
-      display: flex;
-      gap: 4rem;
-    }
+    .footer-brand p { margin-top: 1rem; font-size: 0.85rem; max-width: 280px; line-height: 1.6; }
+    .footer-links { display: flex; gap: 4rem; }
     .footer-col h4 {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--white);
-      margin-bottom: 1rem;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--white); margin-bottom: 1rem;
     }
-    .footer-col a {
-      display: block;
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 0.6rem;
-    }
+    .footer-col a { display: block; font-size: 0.9rem; color: rgba(255,255,255,0.6); margin-bottom: 0.6rem; }
     .footer-col a:hover { color: var(--sky); }
     .footer-bottom {
-      padding-top: 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      font-size: 0.8rem;
+      padding-top: 2rem; display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem; font-size: 0.8rem;
     }
-    .footer-social {
-      display: flex;
-      gap: 1rem;
-    }
+    .footer-social { display: flex; gap: 1rem; }
     .footer-social a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      background: rgba(255,255,255,0.08);
-      transition: background 0.2s;
+      display: flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 8px;
+      background: rgba(255,255,255,0.08); transition: background 0.2s;
     }
     .footer-social a:hover { background: rgba(255,255,255,0.15); }
     .footer-social svg { width: 18px; height: 18px; fill: rgba(255,255,255,0.7); }
 
     /* ---- RESPONSIVE ---- */
     @media (max-width: 900px) {
-      .approach-grid { grid-template-columns: 1fr; }
-      .programs-grid { grid-template-columns: 1fr; }
-      .fellows-grid { grid-template-columns: 1fr; }
-      .resources-grid { grid-template-columns: 1fr; }
+      .approach-grid, .programs-grid, .fellows-grid, .resources-grid, .ai-grid { grid-template-columns: 1fr; }
+      .ai-card-featured { grid-column: auto; grid-template-columns: 1fr; }
+      .ai-stats { justify-content: flex-start; }
       .hero h1 { font-size: 2.4rem; }
       .section-title { font-size: 1.8rem; }
       .footer-top { flex-direction: column; }
       .footer-links { gap: 2rem; }
     }
-
     @media (max-width: 640px) {
       .nav-links { display: none; }
       .nav-links.open {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 72px;
-        left: 0;
-        right: 0;
-        background: var(--white);
-        border-bottom: 1px solid var(--gray-200);
-        padding: 1.5rem 2rem;
-        gap: 1rem;
-        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        display: flex; flex-direction: column; position: absolute;
+        top: 72px; left: 0; right: 0; background: var(--white);
+        border-bottom: 1px solid var(--gray-200); padding: 1.5rem 2rem;
+        gap: 1rem; box-shadow: 0 8px 30px rgba(0,0,0,0.08);
       }
       .mobile-toggle { display: block; }
       .hero { padding: 8rem 0 4rem; }
@@ -573,6 +295,7 @@
       .btn { width: 100%; justify-content: center; }
       .cta-actions { flex-direction: column; align-items: center; }
       .fellows-footer { flex-direction: column; text-align: center; }
+      .ai-stats { flex-direction: column; gap: 1rem; text-align: left; }
     }
   </style>
 </head>
@@ -588,6 +311,7 @@
     <div class="nav-links" id="navLinks">
       <a href="#approach">Approach</a>
       <a href="#programs">Programs</a>
+      <a href="#ai-programs">AI Programs</a>
       <a href="#fellows">Fellows</a>
       <a href="#resources">Resources</a>
       <a href="#contact" class="nav-cta">Get in Touch</a>
@@ -603,15 +327,14 @@
   <div class="container">
     <div class="hero-content">
       <div class="hero-label">Higher Ground Institute</div>
-      <h1>Helping progressive organizations harness emerging technologies to create lasting change.</h1>
-      <p>We identify breakthrough solutions, test them rigorously, and create pathways for adoption across the progressive movement.</p>
+      <h1>Building AI literacy and strategic capacity for the progressive movement.</h1>
+      <p>We help progressive organizations adopt emerging technologies effectively through hands-on programs, practitioner communities, and open resources.</p>
       <div class="hero-actions">
-        <a href="#programs" class="btn btn-primary">Explore Our Programs</a>
+        <a href="#ai-programs" class="btn btn-primary">Our AI Programs</a>
         <a href="#contact" class="btn btn-outline">Partner With Us</a>
       </div>
     </div>
   </div>
-  <!-- Decorative chevrons -->
   <div class="hero-chevrons">
     <svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M80 40L200 160L80 280" stroke="#0A2540" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
@@ -626,23 +349,23 @@
     <div class="approach-header">
       <div class="section-label">Our Approach</div>
       <h2 class="section-title">From discovery to lasting impact</h2>
-      <p class="section-subtitle">We unite movement leaders, technologists, and strategic partners to build lasting solutions for progressive campaigns and organizations.</p>
+      <p class="section-subtitle">We unite movement leaders, technologists, and strategic partners to close the gaps that keep progressive organizations from moving at the speed this moment demands.</p>
     </div>
     <div class="approach-grid">
       <div class="approach-card">
         <div class="approach-number">1</div>
-        <h3>Discovery</h3>
-        <p>Understanding movement needs and spotting emerging opportunities. We listen to organizers, researchers, and technologists to find where the biggest gaps and possibilities are.</p>
+        <h3>Build Literacy</h3>
+        <p>Hands-on programming that meets practitioners where they are. From entry-level study halls to advanced AI applications, we make emerging technology accessible to everyone in the movement.</p>
       </div>
       <div class="approach-card">
         <div class="approach-number">2</div>
-        <h3>Transformation</h3>
-        <p>Developing and testing breakthrough solutions. Through fellowships, hackathons, and research, we build and validate new tools and approaches before they scale.</p>
+        <h3>Test &amp; Prototype</h3>
+        <p>Fellowships, hackathons, and experiments that move ideas from concept to working tools. We validate new approaches before asking the movement to adopt them.</p>
       </div>
       <div class="approach-card">
         <div class="approach-number">3</div>
-        <h3>Scale &amp; Sustain</h3>
-        <p>Creating clear pathways for widespread adoption. We publish guides, run trainings, and build communities of practice so innovations reach the organizations that need them.</p>
+        <h3>Scale &amp; Connect</h3>
+        <p>Open resources, communities of practice, and infrastructure so innovations spread. We're building the connective tissue the progressive ecosystem needs to move together.</p>
       </div>
     </div>
   </div>
@@ -654,16 +377,17 @@
     <div class="programs-header">
       <div class="section-label">Programs</div>
       <h2 class="section-title">What we do</h2>
-      <p class="section-subtitle">Our programs span research, experimentation, convenings, and hands-on innovation to advance progressive technology.</p>
+      <p class="section-subtitle">Our programs span AI adoption, media innovation, research, and hands-on experimentation across the progressive technology ecosystem.</p>
     </div>
     <div class="programs-grid">
 
       <div class="program-card">
         <div class="program-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"/></svg>
         </div>
-        <h3>Convenings &amp; Events</h3>
-        <p>Salons, hackathons, fellowships, and simulations focused on reimagining campaign design, building community, and prototyping new tools for the progressive ecosystem.</p>
+        <h3>AI Programs</h3>
+        <p>Open Mics, Study Halls, Salons, and a forthcoming Fellows program building AI literacy and practitioner capacity across the progressive ecosystem.</p>
+        <a href="#ai-programs" class="program-link">See all AI programs <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
       </div>
 
       <div class="program-card">
@@ -671,7 +395,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>
         </div>
         <h3>Media Innovation Fellows</h3>
-        <p>A three-month fellowship providing $15,000 grants, strategic coaching, and showcase opportunities to leaders developing breakthrough media and organizing tools.</p>
+        <p>A three-month fellowship providing $15,000 grants, coaching, and showcase opportunities to leaders building breakthrough media and organizing tools.</p>
         <a href="#fellows" class="program-link">Meet the 2025 fellows <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
       </div>
 
@@ -679,20 +403,85 @@
         <div class="program-icon">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/></svg>
         </div>
-        <h3>Research &amp; Experimentation</h3>
-        <p>Publishing landscape reports, building interactive tools like the Progressive CRM Guide, and conducting original research on technology trends affecting the movement.</p>
+        <h3>Research &amp; Reports</h3>
+        <p>Landscape reports, interactive tools like the Progressive CRM Guide, and original research on technology trends reshaping the movement.</p>
         <a href="#resources" class="program-link">See our resources <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
       </div>
 
-      <div class="program-card">
-        <div class="program-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- AI PROGRAMS -->
+<section class="ai-programs" id="ai-programs">
+  <div class="container">
+    <div class="ai-header">
+      <div class="section-label">AI Programs</div>
+      <h2 class="section-title" style="color: var(--white);">Closing the AI gap for progressives</h2>
+    </div>
+
+    <div class="ai-framing">
+      <p>The question for the progressive ecosystem is no longer <strong>whether AI will reshape democracy</strong> &mdash; it will. The question is whether the people who care most about democratic health will help shape how.</p>
+      <p>The movements that adopt these tools effectively in the next 12&ndash;18 months will have structural advantages that compound into 2028 and beyond. HGI is building the programs to make that happen.</p>
+    </div>
+
+    <div class="ai-grid">
+
+      <!-- Featured: AI Open Mics -->
+      <div class="ai-card ai-card-featured">
+        <div>
+          <div class="ai-tag ai-tag-live">Monthly</div>
+          <h3>AI Open Mics</h3>
+          <p>Monthly virtual convenings where practitioners bring real, specific needs: voter targeting, message testing, social media data extraction, agentic workflow automation, campaign data security, and AI applications for democracy and human rights.</p>
+          <div class="partners">Co-hosted with Analyst Institute &amp; Research Collaborative</div>
         </div>
-        <h3>Progressive AI Lab</h3>
-        <p>A community of practice for values-aligned AI adoption. Use case sharing, ethics discussions, and hands-on experimentation built on our AI Hackathons and Open Mics.</p>
+        <div class="ai-stats">
+          <div>
+            <div class="ai-stat-number">500+</div>
+            <div class="ai-stat-label">Registrations<br>per session</div>
+          </div>
+          <div>
+            <div class="ai-stat-number">230+</div>
+            <div class="ai-stat-label">Attendees<br>per session</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Claude Code Study Halls -->
+      <div class="ai-card">
+        <div class="ai-tag ai-tag-live">Bi-weekly</div>
+        <h3>Claude Code Study Halls</h3>
+        <p>Entry-level, hands-on sessions for practitioners who have never written a line of code. Participants build working tools in two hours. A field organizer spending four hours manually pulling data could automate that in thirty minutes &mdash; they just don't know it yet.</p>
+      </div>
+
+      <!-- Salon Discussions -->
+      <div class="ai-card">
+        <div class="ai-tag ai-tag-new">Ongoing</div>
+        <h3>Salon Discussions</h3>
+        <p>Small-group convenings focused on specific projects and challenges, designed for the kind of focused, cross-pollinating conversation that doesn't happen in larger formats. Recent topics include Generative Engine Optimization (GEO).</p>
+      </div>
+
+      <!-- AI Fellows Program -->
+      <div class="ai-card">
+        <div class="ai-tag ai-tag-dev">Launching 2026</div>
+        <h3>AI Fellows Program</h3>
+        <p>A cohort-based program building practitioner expertise and thought leadership. Fellows will hold domains including: agentic AI in organizing, tool evaluation, organizational AI policy, vibe coding, use case development, and defensive applications.</p>
+      </div>
+
+      <!-- Speaking & Events -->
+      <div class="ai-card">
+        <div class="ai-tag ai-tag-new">Ongoing</div>
+        <h3>Speaking &amp; Events</h3>
+        <p>HGI staff speak at convenings across the progressive tech and organizing ecosystem, bringing AI literacy and strategic framing to practitioner audiences wherever they gather.</p>
       </div>
 
     </div>
+  </div>
+  <div class="ai-chevrons">
+    <svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M80 40L200 160L80 280" stroke="#FFFFFF" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M200 40L320 160L200 280" stroke="#FFFFFF" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
   </div>
 </section>
 
@@ -738,14 +527,8 @@
     </div>
     <div class="fellows-footer">
       <p>Each fellow receives a $15,000 grant, mentorship, coaching, and showcase opportunities.</p>
-      <a href="mailto:institute@highergroundlabs.com" class="btn">Apply for Next Cohort</a>
+      <a href="mailto:institute@highergroundlabs.com" class="btn btn-primary">Apply for Next Cohort</a>
     </div>
-  </div>
-  <div class="fellows-chevrons">
-    <svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M80 40L200 160L80 280" stroke="#FFFFFF" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M200 40L320 160L200 280" stroke="#FFFFFF" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
   </div>
 </section>
 
@@ -755,9 +538,42 @@
     <div class="resources-header">
       <div class="section-label">Resources</div>
       <h2 class="section-title">Tools and research for the movement</h2>
-      <p class="section-subtitle">Open resources built to help progressive organizations navigate technology decisions.</p>
+      <p class="section-subtitle">Open resources built to help progressive organizations navigate technology and AI decisions.</p>
     </div>
     <div class="resources-grid">
+
+      <div class="resource-card">
+        <div class="resource-top">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"/></svg>
+        </div>
+        <div class="resource-body">
+          <h3>HGI AI Resource Guide</h3>
+          <p>A practical starting point for organizations trying to understand AI tools, use cases, and how to begin.</p>
+          <a href="https://highergroundlabs.com/hgi-ai-resource-guide/" target="_blank" class="program-link">Read the guide <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <div class="resource-top">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.429 9.75 2.25 12l4.179 2.25m0-4.5 5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L12 12.75l-5.571-3m11.142 0L22 12l-4.179 2.25m0 0L12 17.25l-5.571-3m11.142 0L22 16.5l-9.75 5.25L2.25 16.5l4.179-2.25"/></svg>
+        </div>
+        <div class="resource-body">
+          <h3>AI Campaign Stack</h3>
+          <p>Navigate the AI tool landscape, build your campaign tech stack, and share workflows with other practitioners.</p>
+          <a href="https://aicampaignstack.org/" target="_blank" class="program-link">Explore tools <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <div class="resource-top">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"/></svg>
+        </div>
+        <div class="resource-body">
+          <h3>Progressive AI Skills</h3>
+          <p>Drop-in AI automations for campaigns, organizing, and progressive infrastructure. Open source and ready to use.</p>
+          <a href="https://higher-ground-institute.github.io/progressive-ai-skills/" target="_blank" class="program-link">Browse skills <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
+        </div>
+      </div>
 
       <div class="resource-card">
         <div class="resource-top">
@@ -765,7 +581,7 @@
         </div>
         <div class="resource-body">
           <h3>Progressive CRM Guide</h3>
-          <p>An interactive Airtable tool for navigating relationship management platforms used across the progressive ecosystem.</p>
+          <p>An interactive tool for navigating relationship management platforms used across the progressive ecosystem.</p>
           <a href="https://airtable.com/appVMBeNO5YW0y7lA/" target="_blank" class="program-link">Explore the guide <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
         </div>
       </div>
@@ -776,19 +592,8 @@
         </div>
         <div class="resource-body">
           <h3>2024 Landscape Report</h3>
-          <p>A foundational resource on the state of political and progressive technology, covering trends, tools, and adoption patterns.</p>
+          <p>The state of political and progressive technology: trends, tools, and adoption patterns across the ecosystem.</p>
           <a href="mailto:institute@highergroundlabs.com" class="program-link">Request access <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
-        </div>
-      </div>
-
-      <div class="resource-card">
-        <div class="resource-top">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"/></svg>
-        </div>
-        <div class="resource-body">
-          <h3>Progressive AI Skills</h3>
-          <p>Drop-in AI automations for campaigns, organizing, and progressive infrastructure. Open source and ready to use.</p>
-          <a href="https://higher-ground-institute.github.io/progressive-ai-skills/" target="_blank" class="program-link">Browse skills <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
         </div>
       </div>
 
@@ -802,7 +607,7 @@
     <div class="cta-inner">
       <div class="section-label">Get Involved</div>
       <h2 class="section-title">Let's shape the future of progressive technology together</h2>
-      <p>Whether you're a movement leader, technologist, funder, or strategic partner, we'd love to hear from you.</p>
+      <p>Whether you're a campaign practitioner, technologist, funder, or strategic partner, we'd love to hear from you.</p>
       <div class="cta-actions">
         <a href="mailto:institute@highergroundlabs.com" class="btn btn-primary">Get in Touch</a>
         <a href="https://highergroundlabs.us16.list-manage.com/subscribe" target="_blank" class="btn btn-outline">Join Our Newsletter</a>
@@ -820,15 +625,21 @@
           <span class="nav-logo-top">Higher Ground</span>
           <span class="nav-logo-bottom">Institute</span>
         </div>
-        <p>Helping progressive organizations harness emerging technologies to create lasting change.</p>
+        <p>Building AI literacy, strategic capacity, and innovation infrastructure for the progressive movement.</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
           <h4>Programs</h4>
-          <a href="#programs">Convenings &amp; Events</a>
+          <a href="#ai-programs">AI Open Mics</a>
+          <a href="#ai-programs">Claude Code Study Halls</a>
           <a href="#fellows">Media Innovation Fellows</a>
-          <a href="#programs">Progressive AI Lab</a>
-          <a href="#resources">Research</a>
+          <a href="#resources">Research &amp; Reports</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="https://highergroundlabs.com/hgi-ai-resource-guide/" target="_blank">AI Resource Guide</a>
+          <a href="https://aicampaignstack.org/" target="_blank">AI Campaign Stack</a>
+          <a href="https://higher-ground-institute.github.io/progressive-ai-skills/" target="_blank">Progressive AI Skills</a>
         </div>
         <div class="footer-col">
           <h4>Connect</h4>
@@ -854,12 +665,9 @@
 </footer>
 
 <script>
-  // Nav scroll effect
   window.addEventListener('scroll', () => {
     document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
   });
-
-  // Close mobile nav on link click
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
       document.getElementById('navLinks').classList.remove('open');
