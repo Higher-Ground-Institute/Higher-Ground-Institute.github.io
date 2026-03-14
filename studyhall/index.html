@@ -204,8 +204,8 @@
   .form-group label {
     display: block;
     font-family: 'Caveat', cursive;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 24px;
+    font-weight: 700;
     color: var(--pencil-gray);
     line-height: 32px;
   }
@@ -321,15 +321,15 @@
   }
 
   .radio-label {
-    font-size: 14px;
+    font-size: 16px;
     color: var(--pencil-gray);
     line-height: 32px;
     transition: background 0.15s;
     border-radius: 2px;
   }
   .radio-label strong {
-    font-family: 'Caveat', cursive;
-    font-size: 17px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
     font-weight: 600;
   }
 
@@ -754,10 +754,11 @@
     try {
       await fetch(SCRIPT_URL, {
         method: 'POST',
+        mode: 'no-cors',
         body: new URLSearchParams(formData)
       });
 
-      // Show success
+      // With no-cors the response is opaque, but the data still goes through
       form.style.display = 'none';
       successMsg.classList.add('visible');
     } catch (err) {
