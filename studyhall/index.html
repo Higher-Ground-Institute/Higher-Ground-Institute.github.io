@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Code Study Halls — Sign Up</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Inter:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page-white: #fffef9;
+    --line-blue: #c0d5e8;
+    --margin-red: #d4686a;
+    --pencil-gray: #444;
+    --pencil-light: #888;
+    --eraser-pink: #f0b0b0;
+    --cover-dark: #1a1a1a;
+    --cover-mid: #2a2a2a;
+    --label-bg: #fffef5;
+    --label-border: #111;
+    --highlight-yellow: #fff4a3;
+    --success-green: #4a8c5c;
+    --error-red: #c0392b;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    color: var(--pencil-gray);
+  }
+
+  /* === MARBLED BACKGROUND === */
+  .marble-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-color: #e8e5df;
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(30,30,30,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(30,30,30,0.06) 0%, transparent 40%),
+      radial-gradient(ellipse at 40% 80%, rgba(30,30,30,0.07) 0%, transparent 45%),
+      radial-gradient(circle at 60% 30%, rgba(0,0,0,0.04) 0%, transparent 30%),
+      radial-gradient(circle at 10% 90%, rgba(0,0,0,0.05) 0%, transparent 35%);
+  }
+  .marble-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    opacity: 0.6;
+  }
+
+  /* === COVER / HEADER === */
+  .cover {
+    width: 100%;
+    max-width: 680px;
+    margin: 40px auto 0;
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+  }
+
+  .cover-label {
+    display: inline-block;
+    background: var(--label-bg);
+    border: 3px solid var(--label-border);
+    border-radius: 4px;
+    padding: 28px 40px 24px;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .cover-label h1 {
+    font-family: 'Special Elite', cursive;
+    font-size: 26px;
+    letter-spacing: 0.04em;
+    color: var(--label-border);
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+
+  .cover-label .subtitle {
+    font-family: 'Caveat', cursive;
+    font-size: 18px;
+    color: var(--pencil-light);
+  }
+
+  /* === NOTEBOOK PAGE === */
+  .notebook {
+    width: 100%;
+    max-width: 680px;
+    margin: 30px auto;
+    background: var(--page-white);
+    border-radius: 2px;
+    box-shadow:
+      2px 2px 12px rgba(0,0,0,0.12),
+      0 0 0 1px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Spiral binding holes */
+  .notebook::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 36px;
+    width: 0;
+    height: 100%;
+    border-left: 2px solid var(--margin-red);
+    opacity: 0.7;
+    z-index: 1;
+  }
+
+  .notebook-inner {
+    padding: 32px 40px 40px 56px;
+    background-image: repeating-linear-gradient(
+      transparent,
+      transparent 31px,
+      var(--line-blue) 31px,
+      var(--line-blue) 32px
+    );
+    background-position: 0 20px;
+    min-height: 200px;
+  }
+
+  /* Spiral holes along left edge */
+  .spiral {
+    position: absolute;
+    left: -6px;
+    top: 0;
+    width: 20px;
+    height: 100%;
+    z-index: 2;
+  }
+  .spiral-hole {
+    width: 14px;
+    height: 14px;
+    background: #e8e5df;
+    border: 2px solid #bbb;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+  }
+
+  /* === INFO SECTION === */
+  .info-section {
+    margin-bottom: 28px;
+  }
+
+  .info-section h2 {
+    font-family: 'Caveat', cursive;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--pencil-gray);
+    margin-bottom: 14px;
+    line-height: 32px;
+  }
+
+  .info-section p {
+    font-size: 15px;
+    line-height: 32px;
+    color: var(--pencil-gray);
+  }
+
+  .session-format {
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 0;
+  }
+  .session-format li {
+    font-size: 14px;
+    line-height: 32px;
+    color: var(--pencil-light);
+    padding-left: 20px;
+    position: relative;
+  }
+  .session-format li::before {
+    content: '✎';
+    position: absolute;
+    left: 0;
+    color: var(--pencil-light);
+    font-size: 13px;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px dashed var(--line-blue);
+    margin: 24px 0;
+  }
+
+  /* === FORM === */
+  .form-group {
+    margin-bottom: 6px;
+  }
+
+  .form-group label {
+    display: block;
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--pencil-gray);
+    line-height: 32px;
+  }
+
+  .form-group .optional-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--pencil-light);
+    margin-left: 6px;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid transparent;
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+    color: var(--pencil-gray);
+    padding: 4px 0;
+    line-height: 32px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-bottom-color: var(--line-blue);
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: #ccc;
+    font-family: 'Caveat', cursive;
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 64px;
+    line-height: 32px;
+  }
+
+  .field-error {
+    font-size: 12px;
+    color: var(--error-red);
+    margin-top: 2px;
+    display: none;
+    line-height: 32px;
+  }
+  .field-error.visible {
+    display: block;
+  }
+
+  /* === RADIO SCALE OPTIONS === */
+  .radio-scale {
+    margin: 6px 0 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 4px 0;
+    line-height: 32px;
+  }
+
+  .radio-option input[type="radio"] {
+    display: none;
+  }
+
+  .radio-dot {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    background: var(--page-white);
+    transition: all 0.15s;
+    position: relative;
+  }
+  .radio-dot::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--pencil-gray);
+    transform: scale(0);
+    transition: transform 0.15s;
+  }
+
+  .radio-option input[type="radio"]:checked + .radio-dot {
+    border-color: var(--pencil-gray);
+  }
+  .radio-option input[type="radio"]:checked + .radio-dot::after {
+    transform: scale(1);
+  }
+  .radio-option input[type="radio"]:checked ~ .radio-label {
+    background: linear-gradient(to top, rgba(255,230,0,0.55) 0%, rgba(255,230,0,0.55) 60%, transparent 60%);
+    padding: 0 4px;
+    margin: 0 -4px;
+  }
+
+  .radio-option:hover .radio-dot {
+    border-color: var(--pencil-light);
+  }
+
+  .radio-label {
+    font-size: 14px;
+    color: var(--pencil-gray);
+    line-height: 32px;
+    transition: background 0.15s;
+    border-radius: 2px;
+  }
+  .radio-label strong {
+    font-family: 'Caveat', cursive;
+    font-size: 17px;
+    font-weight: 600;
+  }
+
+  /* === SUBMIT === */
+  .submit-row {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    line-height: 32px;
+  }
+
+  .submit-btn {
+    font-family: 'Special Elite', cursive;
+    font-size: 16px;
+    letter-spacing: 0.03em;
+    padding: 12px 32px;
+    background: var(--pencil-gray);
+    color: var(--page-white);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s;
+    position: relative;
+  }
+  .submit-btn:hover {
+    background: #333;
+  }
+  .submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .submit-btn .spinner {
+    display: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .submit-btn.loading .spinner {
+    display: inline-block;
+  }
+  .submit-btn.loading .btn-text {
+    opacity: 0.7;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* === SUCCESS / ERROR STATES === */
+  .form-message {
+    display: none;
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 16px;
+    line-height: 32px;
+  }
+  .form-message.visible {
+    display: block;
+  }
+
+  .form-message.success {
+    background: #eef6f0;
+    border: 1px solid #b8d8be;
+  }
+  .form-message.success h3 {
+    font-family: 'Caveat', cursive;
+    font-size: 24px;
+    color: var(--success-green);
+    margin-bottom: 4px;
+  }
+  .form-message.success p {
+    font-size: 14px;
+    color: var(--pencil-gray);
+  }
+
+  .form-message.error {
+    background: #fdf0ef;
+    border: 1px solid #e8c4c0;
+  }
+  .form-message.error p {
+    font-size: 14px;
+    color: var(--error-red);
+  }
+  .form-message.error a {
+    color: var(--error-red);
+  }
+
+  .reset-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-family: 'Caveat', cursive;
+    font-size: 18px;
+    color: var(--pencil-light);
+    cursor: pointer;
+    text-decoration: underline;
+    background: none;
+    border: none;
+  }
+
+  /* === FOOTER === */
+  .footer {
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto 40px;
+    padding: 16px 0;
+    text-align: center;
+    font-size: 13px;
+    color: var(--pencil-light);
+  }
+  .footer a {
+    color: var(--pencil-gray);
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 720px) {
+    .cover {
+      padding: 30px 20px;
+      margin-top: 20px;
+    }
+    .cover-label {
+      padding: 20px 24px 18px;
+    }
+    .cover-label h1 {
+      font-size: 20px;
+    }
+    .notebook {
+      margin: 20px 12px;
+      border-radius: 0;
+    }
+    .notebook-inner {
+      padding: 24px 20px 32px 46px;
+    }
+    .notebook::before {
+      left: 28px;
+    }
+    .spiral-hole {
+      left: -2px;
+    }
+    .scale-wrapper {
+      flex-wrap: wrap;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="marble-bg"></div>
+
+<!-- === COVER === -->
+<div class="cover">
+  <div class="cover-label">
+    <h1>CLAUDE CODE<br>STUDY HALLS</h1>
+    <div class="subtitle">Higher Ground Institute</div>
+  </div>
+</div>
+
+<!-- === NOTEBOOK === -->
+<div class="notebook">
+  <div class="spiral" id="spiral"></div>
+
+  <div class="notebook-inner">
+
+    <!-- Info Section -->
+    <div class="info-section">
+      <h2>What is this?</h2>
+      <p>
+        A hands-on, 2-hour session where you'll build real projects with Claude Code
+        and other AI tools. Perfect for beginners — we cap each session at 10 people
+        so everyone gets support.
+      </p>
+      <p style="margin-top: 4px;">
+        When we schedule a session we'll send the registration to this list — sign up
+        when you see that come through because space will be limited!
+      </p>
+      <p style="margin-top: 4px;">
+        Want to know more about adopting and learning about AI? Check out our <a href="https://highergroundlabs.com/hgi-ai-resource-guide/" target="_blank" style="color: var(--pencil-gray); text-decoration: underline;">Resource Guide</a>!
+      </p>
+
+      <hr class="divider">
+
+      <h2>What you'll need</h2>
+      <ul class="session-format">
+        <li>A Claude (Anthropic) account — ideally a Max account if possible</li>
+        <li>The Claude desktop app on your laptop</li>
+        <li>Curiosity and willingness to learn!</li>
+        <li>Optional: A data set (csv, api, anything really!) you want to work with</li>
+      </ul>
+
+      <hr class="divider">
+
+      <h2>How it works</h2>
+      <ul class="session-format">
+        <li>30 min — Setup &amp; intros</li>
+        <li>20 min — Project brainstorm &amp; feedback</li>
+        <li>40 min — Build time (with breakout help)</li>
+        <li>30 min — Show &amp; tell + reflection</li>
+      </ul>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Registration Form -->
+    <h2 style="font-family:'Caveat',cursive; font-size:28px; font-weight:700; margin-bottom:16px; line-height:32px;">Sign up</h2>
+
+    <form id="signup-form" novalidate>
+      <div class="form-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="Full Name" placeholder="Your name" required>
+        <div class="field-error" id="fullname-error">Please enter your name</div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="Email Address" placeholder="you@example.com" required>
+        <div class="field-error" id="email-error">Please enter a valid email</div>
+      </div>
+
+      <div class="form-group">
+        <label for="org">Organization <span class="optional-tag">optional</span></label>
+        <input type="text" id="org" name="Organization" placeholder="Where you work or volunteer">
+      </div>
+
+      <div class="form-group">
+        <label>Experience with AI</label>
+        <div class="radio-scale">
+          <label class="radio-option">
+            <input type="radio" name="AI Experience" value="Beginner: Just started">
+            <span class="radio-dot"></span>
+            <span class="radio-label"><strong>Beginner:</strong> Just started</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="AI Experience" value="Some Experience: I use AI occasionally">
+            <span class="radio-dot"></span>
+            <span class="radio-label"><strong>Some Experience:</strong> I use AI occasionally</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="AI Experience" value="Regular User: I use AI regularly in my work/life">
+            <span class="radio-dot"></span>
+            <span class="radio-label"><strong>Regular User:</strong> I use AI regularly in my work/life</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="AI Experience" value="Advanced: I build with AI and teach others">
+            <span class="radio-dot"></span>
+            <span class="radio-label"><strong>Advanced:</strong> I build with AI and teach others</span>
+          </label>
+        </div>
+        <div class="field-error" id="ai-experience-error">Please select your experience with AI</div>
+      </div>
+
+      <div class="form-group">
+        <label>Experience with AI coding tools</label>
+        <div class="radio-scale">
+          <label class="radio-option">
+            <input type="radio" name="Experience Level" value="1: I haven't tried yet">
+            <span class="radio-dot"></span>
+            <span class="radio-label"><strong>1:</strong> I haven't tried yet</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="Experience Level" value="2: I've tried a few things with skills">
+            <span class="radio-dot"></span>
+            <span class="radio-label"><strong>2:</strong> I've tried a few things with skills</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="Experience Level" value="3: I've built something using code">
+            <span class="radio-dot"></span>
+            <span class="radio-label"><strong>3:</strong> I've built something using code</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="Experience Level" value="4: I'm regularly building with AI coding tools">
+            <span class="radio-dot"></span>
+            <span class="radio-label"><strong>4:</strong> I'm regularly building with AI coding tools</span>
+          </label>
+        </div>
+        <div class="field-error" id="experience-level-error">Please select your experience with AI coding tools</div>
+      </div>
+
+      <div class="form-group">
+        <label for="project">What is something you're hoping to build?</label>
+        <textarea id="project" name="Project Description" rows="2" placeholder="If you don't know that's ok! Put some time-consuming challenge you might have..." required></textarea>
+        <div class="field-error" id="project-error">Please describe what you're hoping to build or a challenge you have</div>
+      </div>
+
+      <div class="form-group">
+        <label for="anything-else">Is there anything else you'd like to learn or we should know? <span class="optional-tag">optional</span></label>
+        <textarea id="anything-else" name="Anything Else" rows="2" placeholder=""></textarea>
+      </div>
+
+      <div class="submit-row">
+        <button type="submit" class="submit-btn" id="submit-btn">
+          <span class="btn-text">Sign Me Up</span>
+          <span class="spinner"></span>
+        </button>
+      </div>
+    </form>
+
+    <!-- Success Message -->
+    <div class="form-message success" id="success-msg">
+      <h3>You're signed up! ✏️</h3>
+      <p>We'll send session details to your email. See you at the study hall!</p>
+      <button class="reset-link" id="reset-btn">Register another person</button>
+    </div>
+
+    <!-- Error Message -->
+    <div class="form-message error" id="error-msg">
+      <p>Something went wrong — please try again, or email
+        <a href="mailto:kate@cooperativeimpactlab.org">kate@cooperativeimpactlab.org</a> directly.</p>
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+  Questions? <a href="mailto:kate@cooperativeimpactlab.org">kate@cooperativeimpactlab.org</a>
+</div>
+
+<script>
+  // ============================================================
+  // CONFIGURATION — Replace with your Google Apps Script URL
+  // ============================================================
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzcVkYmVEucITy0yS7u3gWEIrIt8C0bqw7I-WT4pHxsYMoCl3INmVWZbOyJMa5k0vyMew/exec';
+
+  // ============================================================
+  // Spiral holes
+  // ============================================================
+  const spiral = document.getElementById('spiral');
+  const notebook = document.querySelector('.notebook');
+  function renderSpiral() {
+    spiral.innerHTML = '';
+    const height = notebook.offsetHeight;
+    const spacing = 48;
+    const startY = 30;
+    for (let y = startY; y < height - 20; y += spacing) {
+      const hole = document.createElement('div');
+      hole.className = 'spiral-hole';
+      hole.style.top = y + 'px';
+      spiral.appendChild(hole);
+    }
+  }
+  renderSpiral();
+  window.addEventListener('resize', renderSpiral);
+
+  // ============================================================
+  // Form submission
+  // ============================================================
+  const form = document.getElementById('signup-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const successMsg = document.getElementById('success-msg');
+  const errorMsg = document.getElementById('error-msg');
+  const resetBtn = document.getElementById('reset-btn');
+
+  function showError(fieldId, show) {
+    const el = document.getElementById(fieldId + '-error');
+    if (el) el.classList.toggle('visible', show);
+  }
+
+  function validateForm() {
+    let valid = true;
+    const name = document.getElementById('fullname');
+    const email = document.getElementById('email');
+    const project = document.getElementById('project');
+    const aiExp = document.querySelector('input[name="AI Experience"]:checked');
+    const codingExp = document.querySelector('input[name="Experience Level"]:checked');
+
+    if (!name.value.trim()) {
+      showError('fullname', true);
+      valid = false;
+    } else {
+      showError('fullname', false);
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.value.trim() || !emailRegex.test(email.value.trim())) {
+      showError('email', true);
+      valid = false;
+    } else {
+      showError('email', false);
+    }
+
+    if (!aiExp) {
+      showError('ai-experience', true);
+      valid = false;
+    } else {
+      showError('ai-experience', false);
+    }
+
+    if (!codingExp) {
+      showError('experience-level', true);
+      valid = false;
+    } else {
+      showError('experience-level', false);
+    }
+
+    if (!project.value.trim()) {
+      showError('project', true);
+      valid = false;
+    } else {
+      showError('project', false);
+    }
+
+    return valid;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (!validateForm()) return;
+
+    // Loading state
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
+    errorMsg.classList.remove('visible');
+
+    const formData = new FormData(form);
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        body: new URLSearchParams(formData)
+      });
+
+      // Show success
+      form.style.display = 'none';
+      successMsg.classList.add('visible');
+    } catch (err) {
+      errorMsg.classList.add('visible');
+    } finally {
+      submitBtn.classList.remove('loading');
+      submitBtn.disabled = false;
+    }
+  });
+
+  // Reset form
+  resetBtn.addEventListener('click', () => {
+    form.reset();
+    showError('fullname', false);
+    showError('email', false);
+    form.style.display = 'block';
+    successMsg.classList.remove('visible');
+    errorMsg.classList.remove('visible');
+  });
+
+  // Clear errors on input
+  document.getElementById('fullname').addEventListener('input', () => showError('fullname', false));
+  document.getElementById('email').addEventListener('input', () => showError('email', false));
+  document.getElementById('project').addEventListener('input', () => showError('project', false));
+  document.querySelectorAll('input[name="AI Experience"]').forEach(r => r.addEventListener('change', () => showError('ai-experience', false)));
+  document.querySelectorAll('input[name="Experience Level"]').forEach(r => r.addEventListener('change', () => showError('experience-level', false)));
+</script>
+
+</body>
+</html>
