@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Code Study Halls — Register</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Inter:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page-white: #fffef9;
+    --line-blue: #c0d5e8;
+    --margin-red: #d4686a;
+    --pencil-gray: #444;
+    --pencil-light: #888;
+    --eraser-pink: #f0b0b0;
+    --cover-dark: #1a1a1a;
+    --cover-mid: #2a2a2a;
+    --label-bg: #fffef5;
+    --label-border: #111;
+    --highlight-yellow: #fff4a3;
+    --success-green: #4a8c5c;
+    --error-red: #c0392b;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    color: var(--pencil-gray);
+  }
+
+  /* === MARBLED BACKGROUND === */
+  .marble-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-color: #e8e5df;
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(30,30,30,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(30,30,30,0.06) 0%, transparent 40%),
+      radial-gradient(ellipse at 40% 80%, rgba(30,30,30,0.07) 0%, transparent 45%),
+      radial-gradient(circle at 60% 30%, rgba(0,0,0,0.04) 0%, transparent 30%),
+      radial-gradient(circle at 10% 90%, rgba(0,0,0,0.05) 0%, transparent 35%);
+  }
+  .marble-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    opacity: 0.6;
+  }
+
+  /* === COVER / HEADER === */
+  .cover {
+    width: 100%;
+    max-width: 680px;
+    margin: 40px auto 0;
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+  }
+
+  .cover-label {
+    display: inline-block;
+    background: var(--label-bg);
+    border: 3px solid var(--label-border);
+    border-radius: 4px;
+    padding: 28px 40px 24px;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .cover-label h1 {
+    font-family: 'Special Elite', cursive;
+    font-size: 26px;
+    letter-spacing: 0.04em;
+    color: var(--label-border);
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+
+  .cover-label .subtitle {
+    font-family: 'Caveat', cursive;
+    font-size: 18px;
+    color: var(--pencil-light);
+  }
+
+  /* === NOTEBOOK PAGE === */
+  .notebook {
+    width: 100%;
+    max-width: 680px;
+    margin: 30px auto;
+    background: var(--page-white);
+    border-radius: 2px;
+    box-shadow:
+      2px 2px 12px rgba(0,0,0,0.12),
+      0 0 0 1px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Spiral binding holes */
+  .notebook::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 36px;
+    width: 0;
+    height: 100%;
+    border-left: 2px solid var(--margin-red);
+    opacity: 0.7;
+    z-index: 1;
+  }
+
+  .notebook-inner {
+    padding: 32px 40px 40px 56px;
+    background-image: repeating-linear-gradient(
+      transparent,
+      transparent 31px,
+      var(--line-blue) 31px,
+      var(--line-blue) 32px
+    );
+    background-position: 0 20px;
+    min-height: 200px;
+  }
+
+  /* Spiral holes along left edge */
+  .spiral {
+    position: absolute;
+    left: -6px;
+    top: 0;
+    width: 20px;
+    height: 100%;
+    z-index: 2;
+  }
+  .spiral-hole {
+    width: 14px;
+    height: 14px;
+    background: #e8e5df;
+    border: 2px solid #bbb;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+  }
+
+  /* === INFO SECTION === */
+  .info-section {
+    margin-bottom: 28px;
+  }
+
+  .info-section h2 {
+    font-family: 'Caveat', cursive;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--pencil-gray);
+    margin-bottom: 14px;
+    line-height: 32px;
+  }
+
+  .info-section p {
+    font-size: 15px;
+    line-height: 32px;
+    color: var(--pencil-gray);
+  }
+
+  .session-format {
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 0;
+  }
+  .session-format li {
+    font-size: 14px;
+    line-height: 32px;
+    color: var(--pencil-light);
+    padding-left: 20px;
+    position: relative;
+  }
+  .session-format li::before {
+    content: '\270E';
+    position: absolute;
+    left: 0;
+    color: var(--pencil-light);
+    font-size: 13px;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px dashed var(--line-blue);
+    margin: 24px 0;
+  }
+
+  /* === FORM === */
+  .form-group {
+    margin-bottom: 6px;
+  }
+
+  .form-group label {
+    display: block;
+    font-family: 'Caveat', cursive;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--pencil-gray);
+    line-height: 32px;
+  }
+
+  .form-group .optional-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--pencil-light);
+    margin-left: 6px;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid transparent;
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+    color: var(--pencil-gray);
+    padding: 4px 0;
+    line-height: 32px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-bottom-color: var(--line-blue);
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: #ccc;
+    font-family: 'Caveat', cursive;
+  }
+
+  .form-group select {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 4px center;
+    padding-right: 24px;
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 64px;
+    line-height: 32px;
+  }
+
+  .field-error {
+    font-size: 12px;
+    color: var(--error-red);
+    margin-top: 2px;
+    display: none;
+    line-height: 32px;
+  }
+  .field-error.visible {
+    display: block;
+  }
+
+  /* === RADIO SCALE OPTIONS === */
+  .radio-scale {
+    margin: 6px 0 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-left: 20px;
+  }
+
+  .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 4px 0;
+    line-height: 32px;
+  }
+
+  .radio-option input[type="radio"] {
+    display: none;
+  }
+
+  .radio-dot {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    background: var(--page-white);
+    transition: all 0.15s;
+    position: relative;
+  }
+  .radio-dot::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--pencil-gray);
+    transform: scale(0);
+    transition: transform 0.15s;
+  }
+
+  .radio-option input[type="radio"]:checked + .radio-dot {
+    border-color: var(--pencil-gray);
+  }
+  .radio-option input[type="radio"]:checked + .radio-dot::after {
+    transform: scale(1);
+  }
+  .radio-option input[type="radio"]:checked ~ .radio-label {
+    background: linear-gradient(to top, rgba(255,230,0,0.55) 0%, rgba(255,230,0,0.55) 60%, transparent 60%);
+    padding: 0 4px;
+    margin: 0 -4px;
+  }
+
+  .radio-option:hover .radio-dot {
+    border-color: var(--pencil-light);
+  }
+
+  .radio-label {
+    font-size: 16px;
+    color: var(--pencil-gray);
+    line-height: 32px;
+    transition: background 0.15s;
+    border-radius: 2px;
+  }
+  .radio-label strong {
+    font-weight: 600;
+  }
+
+  /* === SUBMIT === */
+  .submit-row {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    line-height: 32px;
+  }
+
+  .submit-btn {
+    font-family: 'Special Elite', cursive;
+    font-size: 16px;
+    letter-spacing: 0.03em;
+    padding: 12px 32px;
+    background: var(--pencil-gray);
+    color: var(--page-white);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s;
+    position: relative;
+  }
+  .submit-btn:hover {
+    background: #333;
+  }
+  .submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .submit-btn .spinner {
+    display: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .submit-btn.loading .spinner {
+    display: inline-block;
+  }
+  .submit-btn.loading .btn-text {
+    opacity: 0.7;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* === SUCCESS / ERROR STATES === */
+  .form-message {
+    display: none;
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 16px;
+    line-height: 32px;
+  }
+  .form-message.visible {
+    display: block;
+  }
+
+  .form-message.success {
+    background: #eef6f0;
+    border: 1px solid #b8d8be;
+  }
+  .form-message.success h3 {
+    font-family: 'Caveat', cursive;
+    font-size: 24px;
+    color: var(--success-green);
+    margin-bottom: 4px;
+  }
+  .form-message.success p {
+    font-size: 14px;
+    color: var(--pencil-gray);
+  }
+
+  .form-message.error {
+    background: #fdf0ef;
+    border: 1px solid #e8c4c0;
+  }
+  .form-message.error p {
+    font-size: 14px;
+    color: var(--error-red);
+  }
+  .form-message.error a {
+    color: var(--error-red);
+  }
+
+  .reset-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-family: 'Caveat', cursive;
+    font-size: 18px;
+    color: var(--pencil-light);
+    cursor: pointer;
+    text-decoration: underline;
+    background: none;
+    border: none;
+  }
+
+  /* === FOOTER === */
+  .footer {
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto 40px;
+    padding: 16px 0;
+    text-align: center;
+    font-size: 13px;
+    color: var(--pencil-light);
+  }
+  .footer a {
+    color: var(--pencil-gray);
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 720px) {
+    .cover {
+      padding: 30px 20px;
+      margin-top: 20px;
+    }
+    .cover-label {
+      padding: 20px 24px 18px;
+    }
+    .cover-label h1 {
+      font-size: 20px;
+    }
+    .notebook {
+      margin: 20px 12px;
+      border-radius: 0;
+    }
+    .notebook-inner {
+      padding: 24px 20px 32px 46px;
+    }
+    .notebook::before {
+      left: 28px;
+    }
+    .spiral-hole {
+      left: -2px;
+    }
+    .scale-wrapper {
+      flex-wrap: wrap;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="marble-bg"></div>
+
+<!-- === COVER === -->
+<div class="cover">
+  <div class="cover-label">
+    <h1>CLAUDE CODE<br>STUDY HALLS</h1>
+    <div class="subtitle">Higher Ground Institute</div>
+  </div>
+</div>
+
+<!-- === NOTEBOOK === -->
+<div class="notebook">
+  <div class="spiral" id="spiral"></div>
+
+  <div class="notebook-inner">
+
+    <!-- Info Section -->
+    <div class="info-section">
+      <h2>Register for a Session</h2>
+      <p>
+        A hands-on, 2-hour session where you'll build real projects with Claude Code
+        and other AI tools. Each session is capped at 10 people
+        so everyone gets support.
+      </p>
+
+      <hr class="divider">
+
+      <h2>What you'll need</h2>
+      <ul class="session-format">
+        <li>A Claude (Anthropic) account — ideally a Max account if possible</li>
+        <li>The Claude desktop app on your laptop</li>
+        <li>Curiosity and willingness to learn!</li>
+        <li>Optional: A data set (csv, api, anything really!) you want to work with</li>
+      </ul>
+
+      <hr class="divider">
+
+      <h2>How it works</h2>
+      <ul class="session-format">
+        <li>30 min — Setup &amp; intros</li>
+        <li>20 min — Project brainstorm &amp; feedback</li>
+        <li>40 min — Build time (with breakout help)</li>
+        <li>30 min — Show &amp; tell + reflection</li>
+      </ul>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Registration Form -->
+    <h2 style="font-family:'Caveat',cursive; font-size:28px; font-weight:700; margin-bottom:16px; line-height:32px;">Register</h2>
+
+    <form id="register-form" novalidate>
+      <div class="form-group">
+        <label for="session">Session</label>
+        <select id="session" name="Session" required>
+          <!-- Populated from SESSIONS config -->
+        </select>
+        <div class="field-error" id="session-error">Please select a session</div>
+      </div>
+
+      <div class="form-group">
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" name="First Name" placeholder="Your first name" required>
+        <div class="field-error" id="firstname-error">Please enter your first name</div>
+      </div>
+
+      <div class="form-group">
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" name="Last Name" placeholder="Your last name" required>
+        <div class="field-error" id="lastname-error">Please enter your last name</div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="Email Address" placeholder="you@example.com" required>
+        <div class="field-error" id="email-error">Please enter a valid email</div>
+      </div>
+
+      <div class="form-group">
+        <label for="org">Organization <span class="optional-tag">optional</span></label>
+        <input type="text" id="org" name="Organization" placeholder="Where you work or volunteer">
+      </div>
+
+      <div class="form-group">
+        <label>Were you able to read the pre-work doc?</label>
+        <div class="radio-scale">
+          <label class="radio-option">
+            <input type="radio" name="Read Pre-work" value="Yes">
+            <span class="radio-dot"></span>
+            <span class="radio-label">Yes</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="Read Pre-work" value="No">
+            <span class="radio-dot"></span>
+            <span class="radio-label">No</span>
+          </label>
+        </div>
+        <div class="field-error" id="read-prework-error">Please select an option</div>
+      </div>
+
+      <div class="form-group">
+        <label>Will you be able to do the pre-work before the meeting?</label>
+        <div class="radio-scale">
+          <label class="radio-option">
+            <input type="radio" name="Will Do Pre-work" value="Yes">
+            <span class="radio-dot"></span>
+            <span class="radio-label">Yes</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="Will Do Pre-work" value="No">
+            <span class="radio-dot"></span>
+            <span class="radio-label">No</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="Will Do Pre-work" value="Hopefully!">
+            <span class="radio-dot"></span>
+            <span class="radio-label">Hopefully!</span>
+          </label>
+        </div>
+        <div class="field-error" id="will-do-prework-error">Please select an option</div>
+      </div>
+
+      <div class="form-group">
+        <label for="questions">Any other questions? <span class="optional-tag">optional</span></label>
+        <textarea id="questions" name="Questions" rows="2" placeholder=""></textarea>
+      </div>
+
+      <div class="submit-row">
+        <button type="submit" class="submit-btn" id="submit-btn">
+          <span class="btn-text">Register for this session</span>
+          <span class="spinner"></span>
+        </button>
+      </div>
+    </form>
+
+    <!-- Success Message -->
+    <div class="form-message success" id="success-msg">
+      <h3>You're registered!</h3>
+      <p>We'll send your Zoom link to your email before the session. See you there!</p>
+      <button class="reset-link" id="reset-btn">Register another person</button>
+    </div>
+
+    <!-- Error Message -->
+    <div class="form-message error" id="error-msg">
+      <p>Something went wrong — please try again, or email
+        <a href="mailto:kate@cooperativeimpactlab.org">kate@cooperativeimpactlab.org</a> directly.</p>
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+  Questions? <a href="mailto:kate@cooperativeimpactlab.org">kate@cooperativeimpactlab.org</a>
+</div>
+
+<!--
+  ============================================================
+  GOOGLE APPS SCRIPT — Paste this into your Apps Script editor
+  ============================================================
+
+  function doPost(e) {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Registrations');
+    if (!sheet) {
+      sheet = SpreadsheetApp.getActiveSpreadsheet().insertSheet('Registrations');
+      sheet.appendRow(['Timestamp', 'Session', 'First Name', 'Last Name', 'Email', 'Organization', 'Read Pre-work?', 'Will Do Pre-work?', 'Questions']);
+    }
+    var data = e.parameter;
+    sheet.appendRow([
+      new Date(),
+      data['Session'] || '',
+      data['First Name'] || '',
+      data['Last Name'] || '',
+      data['Email Address'] || '',
+      data['Organization'] || '',
+      data['Read Pre-work'] || '',
+      data['Will Do Pre-work'] || '',
+      data['Questions'] || ''
+    ]);
+    return ContentService.createTextOutput(JSON.stringify({result: 'success'}))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+-->
+
+<script>
+  // ============================================================
+  // CONFIGURATION
+  // ============================================================
+
+  // Add or remove sessions here. Each entry appears in the dropdown.
+  const SESSIONS = [
+    { label: 'Friday, March 27, 2026, 1:00\u20133:00 PM ET', value: '2026-03-27' },
+    // { label: 'Friday, April 10, 2026, 1:00–3:00 PM ET', value: '2026-04-10' },
+  ];
+
+  // Replace with your Google Apps Script deployment URL
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxBsPVSS-YvAAl9XpyzRMRV5K2bizNLNNZFvxtzWavsvNpcItfqs-si9qhNZQVpMAiLjg/exec';
+
+  // ============================================================
+  // Populate session dropdown
+  // ============================================================
+  const sessionSelect = document.getElementById('session');
+  if (SESSIONS.length === 1) {
+    // Single session — just show it selected, no placeholder needed
+    const opt = document.createElement('option');
+    opt.value = SESSIONS[0].value;
+    opt.textContent = SESSIONS[0].label;
+    sessionSelect.appendChild(opt);
+  } else {
+    // Multiple sessions — show placeholder
+    const placeholder = document.createElement('option');
+    placeholder.value = '';
+    placeholder.textContent = 'Choose a session...';
+    placeholder.disabled = true;
+    placeholder.selected = true;
+    sessionSelect.appendChild(placeholder);
+    SESSIONS.forEach(s => {
+      const opt = document.createElement('option');
+      opt.value = s.value;
+      opt.textContent = s.label;
+      sessionSelect.appendChild(opt);
+    });
+  }
+
+  // ============================================================
+  // Spiral holes
+  // ============================================================
+  const spiral = document.getElementById('spiral');
+  const notebook = document.querySelector('.notebook');
+  function renderSpiral() {
+    spiral.innerHTML = '';
+    const height = notebook.offsetHeight;
+    const spacing = 48;
+    const startY = 30;
+    for (let y = startY; y < height - 20; y += spacing) {
+      const hole = document.createElement('div');
+      hole.className = 'spiral-hole';
+      hole.style.top = y + 'px';
+      spiral.appendChild(hole);
+    }
+  }
+  renderSpiral();
+  window.addEventListener('resize', renderSpiral);
+
+  // ============================================================
+  // Form submission
+  // ============================================================
+  const form = document.getElementById('register-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const successMsg = document.getElementById('success-msg');
+  const errorMsg = document.getElementById('error-msg');
+  const resetBtn = document.getElementById('reset-btn');
+
+  function showError(fieldId, show) {
+    const el = document.getElementById(fieldId + '-error');
+    if (el) el.classList.toggle('visible', show);
+  }
+
+  function validateForm() {
+    let valid = true;
+
+    const session = document.getElementById('session');
+    if (!session.value) {
+      showError('session', true);
+      valid = false;
+    } else {
+      showError('session', false);
+    }
+
+    const firstname = document.getElementById('firstname');
+    if (!firstname.value.trim()) {
+      showError('firstname', true);
+      valid = false;
+    } else {
+      showError('firstname', false);
+    }
+
+    const lastname = document.getElementById('lastname');
+    if (!lastname.value.trim()) {
+      showError('lastname', true);
+      valid = false;
+    } else {
+      showError('lastname', false);
+    }
+
+    const email = document.getElementById('email');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.value.trim() || !emailRegex.test(email.value.trim())) {
+      showError('email', true);
+      valid = false;
+    } else {
+      showError('email', false);
+    }
+
+    const readPrework = document.querySelector('input[name="Read Pre-work"]:checked');
+    if (!readPrework) {
+      showError('read-prework', true);
+      valid = false;
+    } else {
+      showError('read-prework', false);
+    }
+
+    const willDoPrework = document.querySelector('input[name="Will Do Pre-work"]:checked');
+    if (!willDoPrework) {
+      showError('will-do-prework', true);
+      valid = false;
+    } else {
+      showError('will-do-prework', false);
+    }
+
+    return valid;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (!validateForm()) return;
+
+    // Loading state
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
+    errorMsg.classList.remove('visible');
+
+    const formData = new FormData(form);
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: new URLSearchParams(formData)
+      });
+
+      // With no-cors the response is opaque, but the data still goes through
+      form.style.display = 'none';
+      successMsg.classList.add('visible');
+    } catch (err) {
+      errorMsg.classList.add('visible');
+    } finally {
+      submitBtn.classList.remove('loading');
+      submitBtn.disabled = false;
+    }
+  });
+
+  // Reset form
+  resetBtn.addEventListener('click', () => {
+    form.reset();
+    showError('firstname', false);
+    showError('lastname', false);
+    showError('email', false);
+    showError('session', false);
+    showError('read-prework', false);
+    showError('will-do-prework', false);
+    form.style.display = 'block';
+    successMsg.classList.remove('visible');
+    errorMsg.classList.remove('visible');
+  });
+
+  // Clear errors on input
+  document.getElementById('session').addEventListener('change', () => showError('session', false));
+  document.getElementById('firstname').addEventListener('input', () => showError('firstname', false));
+  document.getElementById('lastname').addEventListener('input', () => showError('lastname', false));
+  document.getElementById('email').addEventListener('input', () => showError('email', false));
+  document.querySelectorAll('input[name="Read Pre-work"]').forEach(r => r.addEventListener('change', () => showError('read-prework', false)));
+  document.querySelectorAll('input[name="Will Do Pre-work"]').forEach(r => r.addEventListener('change', () => showError('will-do-prework', false)));
+</script>
+
+</body>
+</html>
