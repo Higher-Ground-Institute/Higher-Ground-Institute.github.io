@@ -626,8 +626,95 @@
     }
     .ai-programs-chevrons svg { width: 350px; height: 280px; }
 
+    /* ---- STACK FEATURE ---- */
+    .stack { background: var(--ice); }
+    .stack-inner {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+    .stack-content .section-title { font-size: 2.6rem; }
+    .stack-content .section-subtitle { max-width: 520px; margin-bottom: 2rem; }
+    .stack-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .stack-meta {
+      margin-top: 1.75rem;
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+    .stack-visual {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 18px;
+      padding: 2rem;
+      box-shadow: 0 12px 40px rgba(10,37,64,0.08);
+    }
+    .stack-visual-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sky-dark);
+      margin-bottom: 1rem;
+    }
+    .stack-links { display: flex; flex-direction: column; gap: 0.5rem; }
+    .stack-links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1.1rem;
+      border-radius: 10px;
+      background: var(--offwhite);
+      border: 1px solid var(--gray-200);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+      transition: all 0.2s;
+    }
+    .stack-links a:hover { border-color: var(--sky); background: var(--ice); }
+    .stack-links a span { font-size: 1.1rem; color: var(--sky-dark); }
+
+    /* Links inside dark AI cards */
+    .ai-card-link {
+      margin-top: 1.25rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--sky);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .ai-card-link:hover { color: var(--white); }
+    .ai-card-link svg { width: 15px; height: 15px; transition: transform 0.2s; }
+    .ai-card-link:hover svg { transform: translateX(3px); }
+
+    /* ---- FELLOWS SLIM ---- */
+    .fellows-slim { background: var(--white); }
+    .fellows-slim-card {
+      background: var(--offwhite);
+      border: 1px solid var(--gray-200);
+      border-left: 4px solid var(--sky);
+      border-radius: 0 16px 16px 0;
+      padding: 2.5rem 2.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .fellows-slim-card .section-label { margin-bottom: 0.5rem; }
+    .fellows-slim-card h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .fellows-slim-card p { font-size: 0.95rem; color: var(--text-light); max-width: 560px; }
+
     /* ---- RESPONSIVE ---- */
     @media (max-width: 900px) {
+      .stack-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .stack-content .section-title { font-size: 2rem; }
       .approach-grid { grid-template-columns: 1fr; }
       .programs-grid { grid-template-columns: 1fr; }
       .ai-grid { grid-template-columns: 1fr; }
@@ -677,11 +764,10 @@
       <span class="nav-logo-bottom">Institute</span>
     </a>
     <div class="nav-links" id="navLinks">
-      <a href="#approach">Approach</a>
+      <a href="#stack">AI Campaign Stack</a>
       <a href="#programs">Programs</a>
-      <a href="#ai-programs">AI Programs</a>
-      <a href="#fellows">Fellows</a>
       <a href="#resources">Resources</a>
+      <a href="https://medium.com/the-cooperative-impact-lab" target="_blank">Blog</a>
       <a href="#contact" class="nav-cta">Get in Touch</a>
     </div>
     <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">
@@ -696,10 +782,10 @@
     <div class="hero-content">
       <div class="hero-label">Higher Ground Institute</div>
       <h1>Helping progressive organizations harness emerging technologies to create lasting change.</h1>
-      <p>We identify breakthrough solutions, test them rigorously, and create pathways for adoption across the progressive movement.</p>
+      <p>We build practical tools, run hands-on programs, and create pathways for AI adoption across the progressive movement - starting with AI Campaign Stack, our directory of tools and workflows for organizers.</p>
       <div class="hero-actions">
-        <a href="#programs" class="btn btn-primary">Explore Our Programs</a>
-        <a href="#contact" class="btn btn-outline">Partner With Us</a>
+        <a href="https://aicampaignstack.org/" target="_blank" class="btn btn-primary">Explore AI Campaign Stack</a>
+        <a href="#programs" class="btn btn-outline">See Our Programs</a>
       </div>
     </div>
   </div>
@@ -712,93 +798,40 @@
   </div>
 </section>
 
-<!-- APPROACH -->
-<section class="approach" id="approach">
+<!-- AI CAMPAIGN STACK FEATURE -->
+<section class="stack" id="stack">
   <div class="container">
-    <div class="approach-header">
-      <div class="section-label">Our Approach</div>
-      <h2 class="section-title">From discovery to lasting impact</h2>
-      <p class="section-subtitle">We unite movement leaders, technologists, and strategic partners to build lasting solutions for progressive campaigns and organizations.</p>
-    </div>
-    <div class="approach-grid">
-      <div class="approach-card">
-        <div class="approach-number">1</div>
-        <h3>Discovery</h3>
-        <p>Understanding movement needs and spotting emerging opportunities. We listen to organizers, researchers, and technologists to find where the biggest gaps and possibilities are.</p>
+    <div class="stack-inner">
+      <div class="stack-content">
+        <div class="section-label">Our Flagship Resource</div>
+        <h2 class="section-title">AI Campaign Stack</h2>
+        <p class="section-subtitle">The community-powered directory of AI tools and workflows for organizers and organizations. Explore 50+ vetted tools across comms, fundraising, field, and research &mdash; plus guides, skills, and a beginner-friendly starting point.</p>
+        <div class="stack-actions">
+          <a href="https://aicampaignstack.org/" target="_blank" class="btn btn-primary">Explore the Stack</a>
+          <a href="https://aicampaignstack.org/faq" target="_blank" class="btn btn-outline">Getting Started FAQ</a>
+        </div>
+        <p class="stack-meta">Built and maintained by the Higher Ground Institute Progressive AI Lab.</p>
       </div>
-      <div class="approach-card">
-        <div class="approach-number">2</div>
-        <h3>Transformation</h3>
-        <p>Developing and testing breakthrough solutions. Through fellowships, hackathons, and research, we build and validate new tools and approaches before they scale.</p>
-      </div>
-      <div class="approach-card">
-        <div class="approach-number">3</div>
-        <h3>Scale &amp; Sustain</h3>
-        <p>Creating clear pathways for widespread adoption. We publish guides, run trainings, and build communities of practice so innovations reach the organizations that need them.</p>
+      <div class="stack-visual">
+        <div class="stack-visual-label">Jump in</div>
+        <div class="stack-links">
+          <a href="https://aicampaignstack.org/" target="_blank">Browse AI tools <span>&rarr;</span></a>
+          <a href="https://aicampaignstack.org/faq" target="_blank">Getting Started FAQ <span>&rarr;</span></a>
+          <a href="https://aicampaignstack.org/skills" target="_blank">Progressive AI Skills <span>&rarr;</span></a>
+          <a href="https://aicampaignstack.org/open-mic" target="_blank">AI Open Mic <span>&rarr;</span></a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PROGRAMS -->
-<section class="programs" id="programs">
-  <div class="container">
-    <div class="programs-header">
-      <div class="section-label">Programs</div>
-      <h2 class="section-title">What we do</h2>
-      <p class="section-subtitle">Our programs span research, experimentation, convenings, and hands-on innovation to advance progressive technology.</p>
-    </div>
-    <div class="programs-grid">
-
-      <div class="program-card">
-        <div class="program-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/></svg>
-        </div>
-        <h3>Convenings &amp; Events</h3>
-        <p>Salons, hackathons, fellowships, and simulations focused on reimagining campaign design, building community, and prototyping new tools for the progressive ecosystem.</p>
-      </div>
-
-      <div class="program-card">
-        <div class="program-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>
-        </div>
-        <h3>Media Innovation Fellows</h3>
-        <p>A three-month fellowship providing $15,000 grants, strategic coaching, and showcase opportunities to leaders developing breakthrough media and organizing tools.</p>
-        <a href="#fellows" class="program-link">Meet the 2025 fellows <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
-      </div>
-
-      <div class="program-card">
-        <div class="program-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/></svg>
-        </div>
-        <h3>Research &amp; Experimentation</h3>
-        <p>Publishing landscape reports, building interactive tools like the Progressive CRM Guide, and conducting original research on technology trends affecting the movement.</p>
-        <a href="#resources" class="program-link">See our resources <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
-      </div>
-
-      <div class="program-card">
-        <div class="program-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"/></svg>
-        </div>
-        <h3>Progressive AI Lab</h3>
-        <p>A community of practice for values-aligned AI adoption. Use case sharing, ethics discussions, and hands-on experimentation built on our AI Hackathons and Open Mics.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- AI PROGRAMS -->
-<section class="ai-programs" id="ai-programs">
+<section class="ai-programs" id="programs">
   <div class="container">
     <div class="ai-programs-header">
-      <div class="section-label">AI Programs</div>
+      <div class="section-label">Programs</div>
       <h2 class="section-title">Closing the AI gap for progressives</h2>
-    </div>
-
-    <div class="ai-framing">
-      <p>The question for the progressive ecosystem is no longer <strong>whether AI will reshape democracy</strong> &mdash; it will. The question is whether the people who care most about democratic health will help shape how.</p>
-      <p style="margin-top: 1rem;">The movements that adopt these tools effectively in the next 12&ndash;18 months will have structural advantages that compound into 2028 and beyond. HGI is building the programs to make that happen.</p>
+      <p class="section-subtitle">The movements that adopt these tools well in the next 12&ndash;18 months will have advantages that compound into 2028 and beyond. Our programs help make that happen.</p>
     </div>
 
     <div class="ai-grid">
@@ -806,7 +839,7 @@
       <div class="ai-card featured">
         <div class="ai-card-tag">Monthly</div>
         <h3>AI Open Mics</h3>
-        <p>Monthly virtual convenings where practitioners bring real, specific needs: voter targeting, message testing, social media data extraction, agentic workflow automation, campaign data security, and AI applications for democracy and human rights.</p>
+        <p>Monthly virtual convenings where practitioners bring real, specific needs: voter targeting, message testing, agentic workflow automation, campaign data security, and AI applications for democracy and human rights.</p>
         <div class="co-host">Co-hosted with Analyst Institute &amp; Research Collaborative</div>
         <div class="ai-stats">
           <div>
@@ -818,27 +851,29 @@
             <div class="ai-stat-label">Attendees per session</div>
           </div>
         </div>
+        <a href="https://aicampaignstack.org/open-mic" target="_blank" class="ai-card-link">Register &amp; see past sessions <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
       </div>
 
       <!-- Claude Code Study Halls -->
       <div class="ai-card">
-        <div class="ai-card-tag">Bi-weekly</div>
+        <div class="ai-card-tag">Ongoing</div>
         <h3>Claude Code Study Halls</h3>
-        <p>Entry-level, hands-on sessions for practitioners who have never written a line of code. Participants build working tools in two hours. A field organizer spending four hours manually pulling data could automate that in thirty minutes &mdash; they just don't know it yet.</p>
+        <p>Entry-level, hands-on sessions for practitioners who have never written a line of code. Participants build working tools in two hours &mdash; no technical experience needed.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfLEXqOXKqBA01RDkAWEkkl8kGyevdgjNuxANLi78rTh13Kkg/viewform" target="_blank" class="ai-card-link">Sign up <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
       </div>
 
       <!-- Salon Discussions -->
       <div class="ai-card">
         <div class="ai-card-tag">Ongoing</div>
         <h3>Salon Discussions</h3>
-        <p>Small-group convenings focused on specific projects and challenges, designed to create the kind of focused, cross-pollinating conversation that doesn't happen in larger formats. First salon focused on GEO (Generative Engine Optimization).</p>
+        <p>Small-group convenings focused on specific projects and challenges, designed to create the kind of focused, cross-pollinating conversation that doesn't happen in larger formats.</p>
       </div>
 
       <!-- AI Fellows Program -->
       <div class="ai-card">
-        <div class="ai-card-tag">Launching 2026</div>
+        <div class="ai-card-tag">New</div>
         <h3>AI Fellows Program</h3>
-        <p>A cohort-based program building practitioner expertise and thought leadership. Fellows will hold domains including: agentic AI in organizing, tool evaluation, organizational AI policy, vibe coding, use case development, and defensive applications.</p>
+        <p>A cohort-based program building practitioner expertise and thought leadership across agentic AI in organizing, tool evaluation, organizational AI policy, and defensive applications.</p>
       </div>
 
       <!-- Speaking & Events -->
@@ -857,56 +892,17 @@
   </div>
 </section>
 
-<!-- FELLOWS -->
-<section class="fellows" id="fellows">
+<!-- FELLOWS (slim) -->
+<section class="fellows-slim" id="fellows">
   <div class="container">
-    <div class="fellows-header">
-      <div class="section-label">2025 Media Innovation Fellows</div>
-      <h2 class="section-title">Six projects reimagining progressive media</h2>
-      <p class="section-subtitle">Selected from over 100 proposals, our inaugural fellows are building tools and playbooks at the intersection of media, technology, and organizing.</p>
+    <div class="fellows-slim-card">
+      <div>
+        <div class="section-label">Media Innovation Fellows</div>
+        <h3>Our 2025 inaugural cohort</h3>
+        <p>Selected from over 100 proposals, our first six fellows built tools and playbooks at the intersection of media, technology, and organizing &mdash; each backed by a $15,000 grant, mentorship, and coaching.</p>
+      </div>
+      <a href="mailto:institute@highergroundlabs.com" class="btn btn-primary">Ask about the next cohort</a>
     </div>
-    <div class="fellows-grid">
-      <div class="fellow-card">
-        <h4>Laura Liibbe</h4>
-        <div class="fellow-project">WhatsApp Channels Playbook</div>
-        <p>A playbook for using WhatsApp Channels as high-trust infrastructure to engage Latino and immigrant audiences where they already congregate.</p>
-      </div>
-      <div class="fellow-card">
-        <h4>Andrew Markoff</h4>
-        <div class="fellow-project">M3 Media Planning Platform</div>
-        <p>Cross-channel media optimization helping campaigns allocate budgets more effectively for voter persuasion and turnout.</p>
-      </div>
-      <div class="fellow-card">
-        <h4>Steven McAlpine</h4>
-        <div class="fellow-project">INTRVL Creator Audience Profiling</div>
-        <p>Political and behavioral insights into creator audiences, helping advocacy campaigns measure and target their creator partnerships.</p>
-      </div>
-      <div class="fellow-card">
-        <h4>Jesse Thomas</h4>
-        <div class="fellow-project">Project Shoutout</div>
-        <p>Testing sponsorships with livestream creators on YouTube, Twitch, and Kick to drive measurable civic engagement actions.</p>
-      </div>
-      <div class="fellow-card">
-        <h4>Liz Utrup</h4>
-        <div class="fellow-project">Real People Project</div>
-        <p>Online ethnography research uncovering how real voters engage with digital content, informing smarter outreach strategies.</p>
-      </div>
-      <div class="fellow-card">
-        <h4>Gabriella Zutrau</h4>
-        <div class="fellow-project">Instagram Chatbot Playbook</div>
-        <p>Recommendations for social media chatbot usage in politics and advocacy, turning online enthusiasm into real-world action.</p>
-      </div>
-    </div>
-    <div class="fellows-footer">
-      <p>Each fellow receives a $15,000 grant, mentorship, coaching, and showcase opportunities.</p>
-      <a href="mailto:institute@highergroundlabs.com" class="btn">Apply for Next Cohort</a>
-    </div>
-  </div>
-  <div class="fellows-chevrons">
-    <svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M80 40L200 160L80 280" stroke="#0A2540" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M200 40L320 160L200 280" stroke="#0A2540" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
   </div>
 </section>
 
@@ -922,23 +918,23 @@
 
       <div class="resource-card">
         <div class="resource-top">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.429 9.75 2.25 12l4.179 2.25m0-4.5 5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L12 12.75l-5.571-3m11.142 0 4.179 2.25L12 17.25l-9.75-5.25 4.179-2.25m11.142 0 4.179 2.25-9.75 5.25L2.25 12l4.179-2.25"/></svg>
         </div>
         <div class="resource-body">
-          <h3>Progressive CRM Guide</h3>
-          <p>An interactive Airtable tool for navigating relationship management platforms used across the progressive ecosystem.</p>
-          <a href="https://airtable.com/appVMBeNO5YW0y7lA/" target="_blank" class="program-link">Explore the guide <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
+          <h3>AI Campaign Stack</h3>
+          <p>Our flagship resource. Navigate the AI tool landscape, build your campaign tech stack, and share workflows with the progressive community.</p>
+          <a href="https://aicampaignstack.org/" target="_blank" class="program-link">Explore the stack <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
         </div>
       </div>
 
       <div class="resource-card">
         <div class="resource-top">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"/></svg>
         </div>
         <div class="resource-body">
-          <h3>2024 Landscape Report</h3>
-          <p>A foundational resource on the state of political and progressive technology, covering trends, tools, and adoption patterns.</p>
-          <a href="mailto:institute@highergroundlabs.com" class="program-link">Request access <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
+          <h3>Getting Started with AI: FAQs</h3>
+          <p>A beginner's guide for campaign staff, organizers, and practitioners: where to start, how to stay safe, what it costs, and how to connect.</p>
+          <a href="https://aicampaignstack.org/faq" target="_blank" class="program-link">Read the FAQ <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
         </div>
       </div>
 
@@ -949,7 +945,7 @@
         <div class="resource-body">
           <h3>Progressive AI Skills</h3>
           <p>Drop-in AI automations for campaigns, organizing, and progressive infrastructure. Open source and ready to use.</p>
-          <a href="https://higher-ground-institute.github.io/progressive-ai-skills/" target="_blank" class="program-link">Browse skills <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
+          <a href="https://aicampaignstack.org/skills" target="_blank" class="program-link">Browse skills <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
         </div>
       </div>
 
@@ -958,20 +954,9 @@
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/></svg>
         </div>
         <div class="resource-body">
-          <h3>HGI AI Resource Guide</h3>
-          <p>A practical starting point for organizations trying to understand AI tools, use cases, and how to begin.</p>
-          <a href="https://highergroundlabs.com/hgi-ai-resource-guide/" target="_blank" class="program-link">Read the guide <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
-        </div>
-      </div>
-
-      <div class="resource-card">
-        <div class="resource-top">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.429 9.75 2.25 12l4.179 2.25m0-4.5 5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L12 12.75l-5.571-3m11.142 0 4.179 2.25L12 17.25l-9.75-5.25 4.179-2.25m11.142 0 4.179 2.25-9.75 5.25L2.25 12l4.179-2.25"/></svg>
-        </div>
-        <div class="resource-body">
-          <h3>AI Campaign Stack</h3>
-          <p>Navigate the AI tool landscape, build your campaign tech stack, and share workflows with the progressive community.</p>
-          <a href="https://aicampaignstack.org/" target="_blank" class="program-link">Explore the stack <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
+          <h3>AI Resource Guide</h3>
+          <p>A curated, regularly updated library of trainings, reading, guides, policy templates, and case studies for progressive AI adoption.</p>
+          <a href="https://aicampaignstack.org/resources" target="_blank" class="program-link">Read the guide <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
         </div>
       </div>
 
@@ -1008,16 +993,17 @@
       <div class="footer-links">
         <div class="footer-col">
           <h4>Programs</h4>
-          <a href="#programs">Convenings &amp; Events</a>
-          <a href="#ai-programs">AI Open Mics</a>
-          <a href="#ai-programs">Claude Code Study Halls</a>
+          <a href="https://aicampaignstack.org/open-mic" target="_blank">AI Open Mics</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfLEXqOXKqBA01RDkAWEkkl8kGyevdgjNuxANLi78rTh13Kkg/viewform" target="_blank">Claude Code Study Halls</a>
+          <a href="#programs">Salons &amp; Events</a>
           <a href="#fellows">Media Innovation Fellows</a>
         </div>
         <div class="footer-col">
           <h4>Resources</h4>
-          <a href="https://highergroundlabs.com/hgi-ai-resource-guide/" target="_blank">AI Resource Guide</a>
           <a href="https://aicampaignstack.org/" target="_blank">AI Campaign Stack</a>
-          <a href="https://higher-ground-institute.github.io/progressive-ai-skills/" target="_blank">Progressive AI Skills</a>
+          <a href="https://aicampaignstack.org/faq" target="_blank">Getting Started FAQ</a>
+          <a href="https://aicampaignstack.org/resources" target="_blank">AI Resource Guide</a>
+          <a href="https://aicampaignstack.org/skills" target="_blank">Progressive AI Skills</a>
         </div>
         <div class="footer-col">
           <h4>Connect</h4>
@@ -1029,7 +1015,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2025 Higher Ground Institute. A project of <a href="https://highergroundlabs.com" target="_blank" style="color: var(--sky);">Higher Ground Labs</a> &amp; <a href="https://cooperativeimpactlab.org" target="_blank" style="color: var(--sky);">Cooperative Impact Lab</a>.</span>
+      <span>&copy; 2026 Higher Ground Institute. A project of <a href="https://highergroundlabs.com" target="_blank" style="color: var(--sky);">Higher Ground Labs</a> &amp; <a href="https://cooperativeimpactlab.org" target="_blank" style="color: var(--sky);">Cooperative Impact Lab</a>.</span>
       <div class="footer-social">
         <a href="https://linkedin.com/company/highergroundlabs" target="_blank" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
