@@ -7,10 +7,10 @@
 - Full name: Progressive AI Lab
 - Parent organization: Higher Ground Institute (a joint initiative of Cooperative Impact Lab and Higher Ground Labs)
 - History: The work began at Higher Ground Labs and now runs through the Higher Ground Institute, which launched in January 2025.
-- Flagship resource: AI Campaign Stack, a community-powered directory of 50+ vetted AI tools and workflows for organizers.
-- Impact: Tools supported by the Lab have saved the progressive ecosystem more than 21,000 hours and $16 million; 14 incubation grants awarded.
-- Programs: AI Open Mics (500+ registrations, 230+ attendees per session), Claude Code Study Halls, Salon Discussions, Speaking and Events.
-- Media Innovation Fellows: 2025 inaugural cohort of 6, selected from 100+ proposals, each with a $15,000 grant.
+- Flagship resource: AI Campaign Stack, a community-powered directory of vetted AI tools and workflows for organizers.
+- Programs: AI Open Mics, Claude Code Study Halls, Salon Discussions, and Speaking and Events.
+- Media Innovation Fellows: a fellowship backing builders at the intersection of media, technology, and organizing.
+- Reports and research from the Higher Ground Labs era of the Lab remain available (see below), including the 2024 Progressive AI Lab Report.
 
 ## Pages
 
@@ -21,6 +21,13 @@
 - [Media Innovation Fellows](https://progressiveailab.org/fellows/): The fellowship program and 2025 cohort.
 - [Resources](https://progressiveailab.org/resources/): Getting-started FAQ, Progressive AI Skills, and the AI Resource Guide.
 - [Get Involved](https://progressiveailab.org/contact/): Contact the team, join a program, or subscribe to the newsletter.
+
+## Reports and research
+
+- 2024 Progressive AI Lab Report: https://highergroundlabs.com/2024-progressive-ai-lab-report/
+- Progressive AI Lab Grant Recipients: https://highergroundlabs.com/progressive-ai-lab-grant-recipients/
+- AI Research hub: https://highergroundlabs.com/ai/research/
+- Progressive AI Lab at Higher Ground Labs (overview): https://highergroundlabs.com/ai/
 
 ## Related sites
 
