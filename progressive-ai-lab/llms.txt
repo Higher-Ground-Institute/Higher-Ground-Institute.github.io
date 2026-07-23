@@ -1,0 +1,30 @@
+# Progressive AI Lab
+
+> The Progressive AI Lab is the hub for AI innovation across the Democratic and progressive movement. It fosters innovation, elevates research, and coordinates strategic priorities and best practices for the use of AI in politics and organizing. It is a program of the Higher Ground Institute, a joint initiative of Cooperative Impact Lab and Higher Ground Labs.
+
+## Key facts
+
+- Full name: Progressive AI Lab
+- Parent organization: Higher Ground Institute (a joint initiative of Cooperative Impact Lab and Higher Ground Labs)
+- History: The work began at Higher Ground Labs and now runs through the Higher Ground Institute, which launched in January 2025.
+- Flagship resource: AI Campaign Stack, a community-powered directory of 50+ vetted AI tools and workflows for organizers.
+- Impact: Tools supported by the Lab have saved the progressive ecosystem more than 21,000 hours and $16 million; 14 incubation grants awarded.
+- Programs: AI Open Mics (500+ registrations, 230+ attendees per session), Claude Code Study Halls, Salon Discussions, Speaking and Events.
+- Media Innovation Fellows: 2025 inaugural cohort of 6, selected from 100+ proposals, each with a $15,000 grant.
+
+## Pages
+
+- [Home](https://progressiveailab.org/): What the Progressive AI Lab is, impact, and how to get involved.
+- [About](https://progressiveailab.org/about/): Mission, history, and impact.
+- [Programs](https://progressiveailab.org/programs/): AI Open Mics, Claude Code Study Halls, Salons, and Speaking & Events.
+- [AI Campaign Stack](https://progressiveailab.org/ai-campaign-stack/): The flagship directory of AI tools for organizers.
+- [Media Innovation Fellows](https://progressiveailab.org/fellows/): The fellowship program and 2025 cohort.
+- [Resources](https://progressiveailab.org/resources/): Getting-started FAQ, Progressive AI Skills, and the AI Resource Guide.
+- [Get Involved](https://progressiveailab.org/contact/): Contact the team, join a program, or subscribe to the newsletter.
+
+## Related sites
+
+- AI Campaign Stack: https://aicampaignstack.org/
+- Higher Ground Institute: https://higherground.institute
+- Higher Ground Labs: https://highergroundlabs.com
+- Cooperative Impact Lab: https://cooperativeimpactlab.org

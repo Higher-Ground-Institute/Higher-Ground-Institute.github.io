@@ -1,0 +1,38 @@
+# Progressive AI Lab - robots.txt
+# All crawlers welcome, including AI answer-engine crawlers.
+
+User-agent: *
+Allow: /
+
+# Explicitly welcome major AI / answer-engine crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://progressiveailab.org/sitemap.xml
