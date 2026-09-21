@@ -97,6 +97,16 @@
   .links div{padding:4px 0;overflow-wrap:anywhere}
   .links span{color:var(--muted);font-weight:700}
 
+  /* press / in the news */
+  .press{background:var(--card);border:1px solid var(--rule);border-top:4px solid var(--navy);border-radius:8px;padding:6px 30px 12px;margin:16px 0 6px}
+  @media (max-width:560px){.press{padding:6px 20px 12px}}
+  .press article{border-top:1px solid var(--rule);padding:24px 0 22px}
+  .press article:first-of-type{border-top:0}
+  .press .pq{font-family:Georgia,"Times New Roman",serif;font-size:clamp(18px,2.2vw,22px);line-height:1.45;color:var(--ink);margin:0 0 14px}
+  .press .meta{margin:0;font-size:14px;color:var(--muted);font-weight:700}
+  .press .meta .src{color:var(--navy);font-weight:900}
+  .press .meta a{font-weight:700}
+  .press .dot{color:var(--cyan);font-weight:900;padding:0 6px}
 
   .quotes{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0 6px}
   @media (max-width:720px){.quotes{grid-template-columns:1fr}}
@@ -215,6 +225,23 @@
   <div class="quote"><p>“I love the bit-sized nature of this training. It was very useful and I feel like I can immediately start using this!”</p><cite>Claude 101 trainee</cite></div>
 </div>
 
+<h2>In the news</h2>
+<p>National political reporters have used HGI's programs as the reference point for how the progressive field is actually adopting AI this cycle.</p>
+<div class="press">
+  <article>
+    <p class="pq">&#8220;Ms. Gage's group plays host to hundreds of strategists each month during digital &#8216;A.I. open mics,&#8217; where they swap tips on how to overhaul old-fashioned campaign strategies with an A.I. twist. That burst of interest has fed an online database featuring nearly 100 distinct A.I. tools for writing campaign messages or managing voter data.&#8221;</p>
+    <p class="meta"><span class="src">The New York Times</span><span class="dot">&#183;</span>June 30, 2026<span class="dot">&#183;</span><a href="https://www.nytimes.com/2026/06/29/us/politics/political-campaigns-ai-tech.html?unlocked_article_code=1.C1E.4fx4.JdLrYFu4QMzi&amp;smid=url-share">Read the article</a></p>
+  </article>
+  <article>
+    <p class="pq">&#8220;A.I. is a top priority for Kate Gage, the executive director of the Higher Ground Institute, a progressive incubator that pushes progressive groups to adopt new technology.&#8221;</p>
+    <p class="meta"><span class="src">The New York Times</span><span class="dot">&#183;</span>June 30, 2026</p>
+  </article>
+  <article>
+    <p class="pq">&#8220;Higher Ground Labs is holding Claude Code study halls to teach the basics of &#8216;vibe-coding&#8217; to fellow consultants, and hosting monthly &#8216;open-mic nights&#8217; reminiscent of a lunchtime brown-bag session for summer interns to demo new tools.&#8221;</p>
+    <p class="meta"><span class="src">Politico</span><span class="dot">&#183;</span>August 20, 2026<span class="dot">&#183;</span><a href="https://www.politico.com/news/2026/08/20/dems-ai-california-campaigns-01043140">Read the article</a></p>
+  </article>
+</div>
+
 <h2>What is next</h2>
 <div class="next">
   <div><h4>Post-election (Q1 2027)</h4><p>HGI and HGL will host the bi-annual Political Tech Debrief on what worked this cycle and the published Political Tech Landscape Report.</p></div>
@@ -229,6 +256,7 @@
   <div><span>AI playbooks:</span> <a href="https://aicampaignstack.org/playbooks">aicampaignstack.org/playbooks</a></div>
   <div><span>Claude Code Study Hall:</span> <a href="https://higherground.institute/studyhall">higherground.institute/studyhall</a></div>
   <div><span>Resources and guides:</span> <a href="https://aicampaignstack.org/resources">aicampaignstack.org/resources</a></div>
+  <div><span>Political AI Field Guide:</span> <a href="https://kategage.substack.com/p/political-ai-field-guide-factions">Read Kate's guide to the Political AI factions</a></div>
 </div>
 
 </div>
