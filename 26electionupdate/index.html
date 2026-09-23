@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>2026 Campaign Season Update | Higher Ground Institute</title>
-<meta name="description" content="How Higher Ground Institute is getting the progressive field AI-ready for 2026 and beyond: 47 events, 1,500+ people trained, and the evidence behind train by job, not by tool.">
+<meta name="description" content="How Higher Ground Institute is getting the progressive field AI-ready for 2026 and beyond: 47 events, 1,500+ people trained, and the shared infrastructure the field keeps after the cycle.">
 <meta property="og:title" content="2026 Campaign Season Update | Higher Ground Institute">
-<meta property="og:description" content="Getting the progressive field AI-ready for 2026 and beyond. Programs, reach, and impact from January through Election Day.">
+<meta property="og:description" content="Getting the progressive field AI-ready for 2026 and beyond. Programs, reach, impact, and the infrastructure we are building for the field.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://higherground.institute/26electionupdate/">
 <link rel="canonical" href="https://higherground.institute/26electionupdate/">
@@ -86,11 +86,73 @@
 
   .callout{background:var(--panel);border-left:6px solid var(--cyan);border-radius:0 8px 8px 0;padding:18px 22px;margin:18px 0 6px;font-size:20px;line-height:1.45;color:var(--navy);font-weight:700}
 
-  .next{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px}
-  @media (max-width:720px){.next{grid-template-columns:1fr}}
-  .next > div{background:var(--card);border:1px solid var(--rule);border-top:4px solid var(--navy);border-radius:8px;padding:18px 20px}
-  .next h4{margin:0 0 8px;font-size:13px;font-weight:900;color:var(--navy);text-transform:uppercase;letter-spacing:.1em}
-  .next p{margin:0;font-size:16.5px}
+  /* ---- Progressive AI Lab model ---- */
+  .model{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin:18px 0 0}
+  .stage{background:var(--card);border:1px solid var(--rule);border-top:4px solid var(--cyan);
+    border-radius:8px;padding:18px 20px 16px;position:relative}
+  .stage:not(:last-child)::after{content:"";position:absolute;right:-24px;top:50%;
+    transform:translateY(-50%);width:0;height:0;
+    border-left:14px solid var(--cyan);border-top:10px solid transparent;border-bottom:10px solid transparent}
+  .stage .sn{margin:0 0 6px;font-size:12px;font-weight:900;letter-spacing:.16em;color:var(--cyan)}
+  .stage h4{margin:0 0 8px;font-size:17px;font-weight:900;color:var(--navy);line-height:1.25}
+  .stage .sd{margin:0 0 12px;font-size:15.5px;line-height:1.45}
+  .stage .se{margin:0;font-size:13px;line-height:1.5;color:var(--muted);font-weight:700;
+    border-top:1px solid var(--rule);padding-top:10px}
+  .loop{margin:20px 0 6px;background:var(--panel);border-radius:8px;padding:13px 18px;
+    font-size:15.5px;font-weight:700;color:var(--navy);display:flex;align-items:baseline;gap:12px}
+  .loop .lg{font-size:19px;color:var(--cyan);font-weight:900;line-height:1}
+  @media (max-width:720px){
+    .model{grid-template-columns:1fr;gap:30px}
+    .stage:not(:last-child)::after{right:auto;left:50%;top:auto;bottom:-22px;
+      transform:translateX(-50%);border-left:10px solid transparent;border-right:10px solid transparent;
+      border-top:14px solid var(--cyan);border-bottom:0}
+  }
+
+  /* ---- where we showed up ---- */
+  .field{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin:16px 0 6px}
+  @media (max-width:720px){.field{grid-template-columns:1fr;gap:8px}}
+  .field h3{margin-top:4px}
+  .field .src{font-size:14px;font-weight:700;margin:0}
+  .field .src a{border-bottom-width:2px}
+
+  .pull{background:var(--card);border:1px solid var(--rule);border-left:5px solid var(--cyan);
+    border-radius:0 8px 8px 0;padding:14px 18px;margin:12px 0}
+  .pull p{margin:0 0 8px;font-family:Georgia,"Times New Roman",serif;font-size:17px;
+    line-height:1.45;color:var(--ink)}
+  .pull cite{display:block;font-style:normal;font-size:12.5px;font-weight:700;
+    color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+
+  /* ---- infrastructure cards ---- */
+  .infra{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:18px 0 6px}
+  @media (max-width:820px){.infra{grid-template-columns:1fr}}
+  .infra > div{background:var(--card);border:1px solid var(--rule);border-top:4px solid var(--navy);
+    border-radius:8px;padding:18px 20px}
+  .infra h4{margin:0 0 4px;font-size:16.5px;font-weight:900;color:var(--navy);line-height:1.25}
+  .infra .tag{margin:0 0 10px;font-size:11.5px;font-weight:900;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--cyan)}
+  .infra p{margin:0 0 10px;font-size:15.5px;line-height:1.5}
+  .infra p:last-child{margin-bottom:0}
+
+  /* ---- what is next: timeline ---- */
+  .tl{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin:30px 0 6px}
+  .tl::before{content:"";position:absolute;left:0;right:0;top:8px;height:4px;border-radius:2px;
+    background:linear-gradient(to right,var(--light) 0%,var(--light) 82%,rgba(183,222,238,0) 100%)}
+  .pt{position:relative;padding-top:38px}
+  .pt .dot{position:absolute;top:0;left:0;width:20px;height:20px;border-radius:50%;
+    background:var(--cyan);border:4px solid var(--bg)}
+  .pt.now .dot{background:var(--navy)}
+  .pt .when{margin:0 0 6px;font-size:11.5px;font-weight:900;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--cyan)}
+  .pt.now .when{color:var(--navy)}
+  .pt h4{margin:0 0 8px;font-size:16.5px;font-weight:900;color:var(--navy);line-height:1.25}
+  .pt p{margin:0;font-size:15.5px;line-height:1.5}
+  @media (max-width:720px){
+    .tl{grid-template-columns:1fr;gap:0}
+    .tl::before{display:none}
+    .pt{padding-top:0;padding-left:26px;padding-bottom:26px;border-left:4px solid var(--light)}
+    .pt:last-child{border-left-color:transparent;padding-bottom:0}
+    .pt .dot{top:2px;left:-8px}
+  }
 
   .links{display:grid;grid-template-columns:1fr 1fr;gap:8px 28px;font-size:16px;margin-top:6px}
   @media (max-width:720px){.links{grid-template-columns:1fr}}
@@ -158,7 +220,33 @@
 
 <p class="lede">This campaign season, Higher Ground Institute (HGI) set out to get the progressive ecosystem AI-ready before Election Day by building the skills, use cases, and shared infrastructure the field needs to adopt AI on its own terms.</p>
 
-<p class="kicker">By the numbers</p>
+<!-- ============ NEW: the model that drives the priorities ============ -->
+<h2>How the Progressive AI Lab works</h2>
+<p>Every program below comes out of one model. The community tells us what it needs, we test what works against real campaign conditions, and what survives the test goes into resources the whole field can use.</p>
+
+<div class="model">
+  <div class="stage">
+    <p class="sn">01</p>
+    <h4>Community of Practice</h4>
+    <p class="sd">Fosters collaboration across organizations and surfaces what practitioners actually need.</p>
+    <p class="se">AI Open Mics · Claude Code Study Halls · AI + Cybersecurity working group with the DNC</p>
+  </div>
+  <div class="stage">
+    <p class="sn">02</p>
+    <h4>Research and Validation</h4>
+    <p class="sd">Tests emerging ideas under real campaign conditions before the field bets a cycle on them.</p>
+    <p class="se">Campaign simulations · Job-track training pilots · Pre and post confidence measurement</p>
+  </div>
+  <div class="stage">
+    <p class="sn">03</p>
+    <h4>Resources Hub</h4>
+    <p class="sd">Equips practitioners with what has been validated, and generates the feedback that starts the loop again.</p>
+    <p class="se">AI Campaign Stack · Progressive AI Skills repo · Playbooks and tool directory</p>
+  </div>
+</div>
+<p class="loop"><span class="lg">&#8635;</span> <span>It is a loop, not a pipeline. What practitioners do with the resources tells us what to convene and test next.</span></p>
+
+<h2>By the numbers</h2>
 <div class="stats">
   <div class="stat"><div class="n">47</div><div class="l">trainings, convenings, and events this campaign season</div></div>
   <div class="stat"><div class="n">1,500+</div><div class="l">people trained by HGI this year</div></div>
@@ -185,12 +273,28 @@
     <li>Co-hosting an <b>AI + Cybersecurity working group</b> with the DNC for progressive technology infrastructure and vendors</li>
     <li>Launching soon: <b>AI for Organizing Prize</b> - cash prizes for the best ideas from the community on using AI in the work</li>
   </ul>
-  <h3>Resources</h3>
-  <ul>
-    <li><b><a href="https://aicampaignstack.org">AI Campaign Stack</a>,</b> a live directory of vetted AI <a href="https://aicampaignstack.org/tools">tools</a> and <a href="https://aicampaignstack.org/playbooks">playbooks</a> and guides for progressive campaigns</li>
-    <li>Launching soon: <b>Progressive Tech Swap,</b> an initiative to capture the code base for custom tools built for individual campaigns before they disappear</li>
-  </ul>
 </div>
+</div>
+
+<!-- ============ NEW: where we showed up ============ -->
+<h2>Where we showed up</h2>
+<p>Two moments this year put the model to work in a room instead of on a screen.</p>
+
+<div class="field">
+  <div>
+    <h3>Campaign simulation with General Assembly</h3>
+    <p>HGI teamed up with General Assembly to host a two-day competitive campaign simulation. Teams were asked to set the traditional playbook aside and build bold, creative tactics for a changing campaign landscape, then take what they learned back to their own districts, campaigns, and communities.</p>
+    <div class="pull">
+      <p>&#8220;A room full of passionate strangers came together and brought forth the creative ideas that are needed to change the campaign game.&#8221;</p>
+      <cite>General Assembly</cite>
+    </div>
+    <p class="src"><a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7498471361577734144/" target="_blank" rel="noopener">Read General Assembly's recap on LinkedIn</a></p>
+  </div>
+  <div>
+    <h3>AI Hackathon at Netroots Nation</h3>
+    <p>In June, HGI hosted an AI Hackathon at Netroots Nation in Philadelphia, leading in-person Claude Code study halls throughout the day to help practitioners build tools using agentic AI.</p>
+    <p>The day was led by Kemi Oso, HGI's Chief Program Officer.</p>
+  </div>
 </div>
 
 <h2>The reach</h2>
@@ -208,7 +312,45 @@
 </ul></div>
 </div>
 
-<h2>AI Campaign Stack: the site</h2>
+<h2>The impact</h2>
+<p>For our fall AI training series, we measure confidence on a 1 to 5 scale before and after each session.</p>
+<ul>
+  <li>Average confidence shift of <b>+1.3</b>, from 2.3 to 3.6 on a 5-point scale per training</li>
+  <li>The training works hardest on the least confident: people who improved started at 2.0 on average, while those who held steady were already high</li>
+  <li>Asked what would build their confidence, <b>75%</b> named job-specific use cases, above every other answer combined</li>
+</ul>
+<div class="callout">The field is asking for it in its own words: train by job, not by tool.</div>
+<div class="quotes">
+  <div class="quote"><p>&#8220;This is incredibly helpful. I have been using &#8216;chat&#8217; with brute-force; and this will make my life much easier. Thank you all!&#8221;</p><cite>Claude 101 trainee</cite></div>
+  <div class="quote"><p>&#8220;I love the bit-sized nature of this training. It was very useful and I feel like I can immediately start using this!&#8221;</p><cite>Claude 101 trainee</cite></div>
+</div>
+
+<!-- ============ NEW: the infrastructure argument ============ -->
+<h2>Infrastructure we are building</h2>
+<p>Trainings reach people this cycle. These three pieces are built to outlast it, and each one is open to the whole field rather than only the organizations we train.</p>
+
+<div class="infra">
+  <div>
+    <p class="tag">The hub</p>
+    <h4><a href="https://aicampaignstack.org">AI Campaign Stack</a></h4>
+    <p>AI Campaign Stack serves as the left's central hub for AI resources and tools, consolidating what practitioners across progressive campaigns and organizations need into a single, accessible place.</p>
+    <p>Vetted <a href="https://aicampaignstack.org/tools">tools</a>, <a href="https://aicampaignstack.org/playbooks">playbooks</a>, and guides, kept current rather than published once.</p>
+  </div>
+  <div>
+    <p class="tag">The library</p>
+    <h4><a href="https://aicampaignstack.org/skills">Progressive AI Skills</a></h4>
+    <p>An open repository where practitioners publish tested, drop-in AI skills that any campaign can use, free and with no coding required.</p>
+    <p>Campaigns are building good tools right now and losing them at the end of every cycle. This is where the field keeps them and builds on each other's work instead of starting over.</p>
+  </div>
+  <div>
+    <p class="tag">Launching soon</p>
+    <h4>Progressive Tech Swap</h4>
+    <p>An initiative to capture the code base for custom tools built for individual campaigns before they disappear when the campaign closes down.</p>
+    <p>The same argument as the skills library, one level deeper in the stack.</p>
+  </div>
+</div>
+
+<h3>AI Campaign Stack: the numbers</h3>
 <p>Since launching in March, <a href="https://aicampaignstack.org">AI Campaign Stack</a> has reached roughly <b>3,200 practitioners in 49 states and the District of Columbia</b>, and weekday use has nearly tripled.</p>
 <div class="two">
 <div><ul>
@@ -219,19 +361,6 @@
   <li><b>Two-thirds</b> of visitors read a page all the way to the bottom, and the average visit holds attention for a full minute</li>
   <li>Organizers opened <b>72</b> different tool pages across the directory, and the Fall AI Training Series page alone drew <b>499</b> visitors</li>
 </ul></div>
-</div>
-
-<h2>The impact</h2>
-<p>For our fall AI training series, we measure confidence on a 1 to 5 scale before and after each session.</p>
-<ul>
-  <li>Average confidence shift of <b>+1.3</b>, from 2.3 to 3.6 on a 5-point scale per training</li>
-  <li>The training works hardest on the least confident: people who improved started at 2.0 on average, while those who held steady were already high</li>
-  <li>Asked what would build their confidence, <b>75%</b> named job-specific use cases, above every other answer combined</li>
-</ul>
-<div class="callout">The field is asking for it in its own words: train by job, not by tool.</div>
-<div class="quotes">
-  <div class="quote"><p>“This is incredibly helpful. I have been using ‘chat’ with brute-force; and this will make my life much easier. Thank you all!”</p><cite>Claude 101 trainee</cite></div>
-  <div class="quote"><p>“I love the bit-sized nature of this training. It was very useful and I feel like I can immediately start using this!”</p><cite>Claude 101 trainee</cite></div>
 </div>
 
 <h2>In the news</h2>
@@ -251,10 +380,28 @@
   </article>
 </div>
 
+<!-- ============ REBUILT: what is next as a timeline ============ -->
 <h2>What is next</h2>
-<div class="next">
-  <div><h4>Post-election (Q1 2027)</h4><p>HGI and HGL will host the bi-annual Political Tech Debrief on what worked this cycle and the published Political Tech Landscape Report.</p></div>
-  <div><h4>A focus on 2028</h4><p>Defining what an AI-native campaign actually looks like, then building the embedded training and infrastructure to get the field there.</p></div>
+<p>This cycle is one step in a multi-cycle strategy. The work does not stop on November 3.</p>
+<div class="tl">
+  <div class="pt now">
+    <span class="dot"></span>
+    <p class="when">Now</p>
+    <h4>Through Election Day 2026</h4>
+    <p>Job-track trainings, study halls, and office hours run straight through GOTV, with the tools directory and playbooks updated as the field reports what is working.</p>
+  </div>
+  <div class="pt">
+    <span class="dot"></span>
+    <p class="when">Q1 2027</p>
+    <h4>Political Tech Debrief</h4>
+    <p>HGI and HGL will host the bi-annual Political Tech Debrief on what worked this cycle, and publish the Political Tech Landscape Report.</p>
+  </div>
+  <div class="pt">
+    <span class="dot"></span>
+    <p class="when">2028</p>
+    <h4>The AI-native campaign</h4>
+    <p>Defining what an AI-native campaign actually looks like, then building the embedded training and infrastructure to get the field there.</p>
+  </div>
 </div>
 
 <h2>Explore the work and sign up</h2>
@@ -263,6 +410,7 @@
   <div><span>AI tools directory:</span> <a href="https://aicampaignstack.org/tools">aicampaignstack.org/tools</a></div>
   <div><span>AI Open Mic (monthly):</span> <a href="https://aicampaignstack.org/open-mic">aicampaignstack.org/open-mic</a></div>
   <div><span>AI playbooks:</span> <a href="https://aicampaignstack.org/playbooks">aicampaignstack.org/playbooks</a></div>
+  <div><span>Progressive AI Skills:</span> <a href="https://aicampaignstack.org/skills">aicampaignstack.org/skills</a></div>
   <div><span>Claude Code Study Hall:</span> <a href="https://higherground.institute/studyhall">higherground.institute/studyhall</a></div>
   <div><span>Resources and guides:</span> <a href="https://aicampaignstack.org/resources">aicampaignstack.org/resources</a></div>
 </div>
@@ -281,7 +429,7 @@
 <footer>
   <div class="wrap">
     <a class="wm" href="/" style="border:0"><span class="top">Higher Ground</span><span class="bot" style="font-size:16px">Institute</span></a>
-    <div>Higher Ground Institute, operating under Cooperative Impact Lab in partnership with Higher Ground Labs &nbsp;·&nbsp; September 2026</div>
+    <div>Higher Ground Institute, operating under Cooperative Impact Lab in partnership with Higher Ground Labs &nbsp;&#183;&nbsp; September 2026</div>
   </div>
 </footer>
 
