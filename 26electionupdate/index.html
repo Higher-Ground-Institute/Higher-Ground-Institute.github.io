@@ -1,437 +1,1029 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>2026 Campaign Season Update | Higher Ground Institute</title>
-<meta name="description" content="How Higher Ground Institute is getting the progressive field AI-ready for 2026 and beyond: 47 events, 1,500+ people trained, and the shared infrastructure the field keeps after the cycle.">
-<meta property="og:title" content="2026 Campaign Season Update | Higher Ground Institute">
-<meta property="og:description" content="Getting the progressive field AI-ready for 2026 and beyond. Programs, reach, impact, and the infrastructure we are building for the field.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://higherground.institute/26electionupdate/">
-<link rel="canonical" href="https://higherground.institute/26electionupdate/">
-<meta property="og:image" content="https://higherground.institute/26electionupdate/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://higherground.institute/26electionupdate/og-image.png">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#F9F9F9; --navy:#002D4C; --ink:#0C3249; --cyan:#4CCFD9;
-    --panel:#DDF3FE; --light:#B7DEEE; --muted:#4F6577; --rule:#CFE3EC; --card:#FFFFFF;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{margin:0;background:var(--bg);color:var(--ink);
-    font-family:Lato,"Segoe UI",Helvetica,Arial,sans-serif;font-size:17px;line-height:1.6;
-    -webkit-font-smoothing:antialiased}
-  a{color:var(--navy);text-decoration:none;border-bottom:2px solid var(--cyan);transition:border-color .15s,color .15s}
-  a:hover{color:#0a5a86;border-bottom-color:var(--navy)}
-  img{max-width:100%}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Higher Ground Institute</title>
+  <meta name="description" content="The Higher Ground Institute helps progressive organizations harness emerging technologies to create lasting change.">
+  <meta property="og:title" content="Higher Ground Institute">
+  <meta property="og:description" content="Helping progressive organizations harness emerging technologies to create lasting change.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://higherground.institute">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0A2540;
+      --navy-light: #0F3557;
+      --sky: #6ECDE8;
+      --sky-dark: #4BB8D4;
+      --ice: #E8F7FC;
+      --ice-mid: #D0EFF8;
+      --white: #FFFFFF;
+      --offwhite: #F7F9FB;
+      --gray-100: #F0F2F5;
+      --gray-200: #E2E6EB;
+      --gray-400: #9AA5B4;
+      --gray-600: #5A6978;
+      --text: #1A2B3D;
+      --text-light: #4A5B6E;
+      --max-width: 1200px;
+    }
 
-  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  /* wordmark */
-  .wm{line-height:1;display:inline-block}
-  .wm .top{display:block;font-size:11px;font-weight:700;letter-spacing:.22em;color:var(--cyan);text-transform:uppercase}
-  .wm .bot{display:block;font-size:22px;font-weight:900;letter-spacing:.08em;color:var(--navy);text-transform:uppercase;margin-top:2px}
-  .wm.onnavy .bot{color:#fff}
+    html { scroll-behavior: smooth; }
 
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-  /* slim site nav */
-  .topnav{background:#fff;border-bottom:1px solid var(--rule)}
-  .topnav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .topnav .wm{border:0}
-  .topnav .wm .bot{font-size:17px}
-  .topnav .links{display:flex;gap:22px;font-size:14px;font-weight:700}
-  .topnav .links a{border:0;color:var(--muted)}
-  .topnav .links a:hover{color:var(--navy)}
-  @media (max-width:560px){.topnav .links a:not(:first-child){display:none}}
-  /* header band */
-  .band{background:var(--navy);color:#fff;position:relative;overflow:hidden}
-  .band .wrap{position:relative;padding-top:44px;padding-bottom:48px}
-  .band .chev{position:absolute;right:0;top:0;bottom:0;width:min(46%,420px);opacity:.5;pointer-events:none}
-  .band .eyebrow{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);margin:0 0 14px}
-  .band h1{margin:0;font-size:clamp(30px,5vw,46px);font-weight:300;line-height:1.12;color:#fff;max-width:640px;letter-spacing:-.01em}
-  .band h1 b{font-weight:900;color:#fff}
-  .band .sub{margin:16px 0 0;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan)}
+    a { color: var(--sky-dark); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--navy); }
 
-  main .wrap{padding-top:40px;padding-bottom:56px}
+    img { max-width: 100%; height: auto; }
 
-  .lede{font-size:19px;line-height:1.6;margin:0 0 28px;max-width:820px}
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
 
-  .kicker{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin:0 0 10px}
+    /* ---- NAV ---- */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-200);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 20px rgba(10,37,64,0.08); }
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+    .nav-logo-top {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sky);
+    }
+    .nav-logo-bottom {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-light);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-cta {
+      background: var(--navy) !important;
+      color: var(--white) !important;
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600 !important;
+      font-size: 0.85rem !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--navy-light) !important; }
 
-  /* stat cards */
-  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin:0 0 12px}
-  .stat{background:var(--panel);border-radius:8px;padding:20px 18px 18px;border-top:4px solid var(--cyan)}
-  .stat .n{font-size:34px;font-weight:900;color:var(--navy);line-height:1;letter-spacing:-.01em}
-  .stat .l{font-size:14px;line-height:1.4;margin-top:8px;font-weight:700;color:var(--ink)}
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    .mobile-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--navy);
+      margin: 5px 0;
+      transition: 0.3s;
+    }
 
-  h2{font-size:26px;font-weight:900;color:var(--navy);margin:44px 0 14px;padding-bottom:8px;border-bottom:3px solid var(--cyan);letter-spacing:-.01em}
-  h3{font-size:13.5px;font-weight:900;color:var(--navy);margin:22px 0 8px;text-transform:uppercase;letter-spacing:.08em}
-  h3 .sign{font-weight:700;text-transform:none;letter-spacing:0;color:var(--muted);font-size:14px;margin-left:8px}
-  p{margin:0 0 12px}
-  ul{margin:0 0 12px;padding-left:22px}
-  li{margin:0 0 8px;padding-left:2px}
-  li::marker{color:var(--cyan)}
-  b,strong{color:var(--navy);font-weight:900}
+    /* ---- HERO ---- */
+    .hero {
+      padding: 10rem 0 6rem;
+      background: var(--offwhite);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-content {
+      max-width: 720px;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: var(--navy-light); color: var(--white); }
+    .btn-outline {
+      background: transparent;
+      color: var(--navy);
+      border: 2px solid var(--gray-200);
+    }
+    .btn-outline:hover { border-color: var(--navy); color: var(--navy); }
 
-  .two{display:grid;grid-template-columns:1fr 1fr;gap:32px}
-  @media (max-width:720px){.two{grid-template-columns:1fr;gap:8px}}
+    /* Chevron decoration */
+    .hero-chevrons {
+      position: absolute;
+      right: -60px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.07;
+      z-index: 1;
+    }
+    .hero-chevrons svg { width: 500px; height: 400px; }
 
-  .callout{background:var(--panel);border-left:6px solid var(--cyan);border-radius:0 8px 8px 0;padding:18px 22px;margin:18px 0 6px;font-size:20px;line-height:1.45;color:var(--navy);font-weight:700}
+    /* ---- SECTION SHARED ---- */
+    section { padding: 6rem 0; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      max-width: 600px;
+      line-height: 1.7;
+    }
 
-  /* ---- Progressive AI Lab model ---- */
-  .model{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin:18px 0 0}
-  .stage{background:var(--card);border:1px solid var(--rule);border-top:4px solid var(--cyan);
-    border-radius:8px;padding:18px 20px 16px;position:relative}
-  .stage:not(:last-child)::after{content:"";position:absolute;right:-24px;top:50%;
-    transform:translateY(-50%);width:0;height:0;
-    border-left:14px solid var(--cyan);border-top:10px solid transparent;border-bottom:10px solid transparent}
-  .stage .sn{margin:0 0 6px;font-size:12px;font-weight:900;letter-spacing:.16em;color:var(--cyan)}
-  .stage h4{margin:0 0 8px;font-size:17px;font-weight:900;color:var(--navy);line-height:1.25}
-  .stage .sd{margin:0 0 12px;font-size:15.5px;line-height:1.45}
-  .stage .se{margin:0;font-size:13px;line-height:1.5;color:var(--muted);font-weight:700;
-    border-top:1px solid var(--rule);padding-top:10px}
-  .loop{margin:20px 0 6px;background:var(--panel);border-radius:8px;padding:13px 18px;
-    font-size:15.5px;font-weight:700;color:var(--navy);display:flex;align-items:baseline;gap:12px}
-  .loop .lg{font-size:19px;color:var(--cyan);font-weight:900;line-height:1}
-  @media (max-width:720px){
-    .model{grid-template-columns:1fr;gap:30px}
-    .stage:not(:last-child)::after{right:auto;left:50%;top:auto;bottom:-22px;
-      transform:translateX(-50%);border-left:10px solid transparent;border-right:10px solid transparent;
-      border-top:14px solid var(--cyan);border-bottom:0}
-  }
+    /* ---- APPROACH ---- */
+    .approach { background: var(--white); }
+    .approach-header { margin-bottom: 3.5rem; }
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .approach-card {
+      padding: 2.25rem;
+      border-radius: 16px;
+      background: var(--offwhite);
+      border: 1px solid var(--gray-200);
+      transition: all 0.3s;
+    }
+    .approach-card:hover {
+      border-color: var(--sky);
+      box-shadow: 0 8px 30px rgba(110,205,232,0.12);
+    }
+    .approach-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--ice);
+      color: var(--sky-dark);
+      font-weight: 800;
+      font-size: 1.1rem;
+      margin-bottom: 1.25rem;
+    }
+    .approach-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+    .approach-card p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      line-height: 1.65;
+    }
 
-  /* ---- where we showed up ---- */
-  .field{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin:16px 0 6px}
-  @media (max-width:720px){.field{grid-template-columns:1fr;gap:8px}}
-  .field h3{margin-top:4px}
-  .field .src{font-size:14px;font-weight:700;margin:0}
-  .field .src a{border-bottom-width:2px}
+    /* ---- PROGRAMS ---- */
+    .programs { background: var(--offwhite); }
+    .programs-header { margin-bottom: 3.5rem; }
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem;
+    }
+    .program-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2.5rem;
+      border: 1px solid var(--gray-200);
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .program-card:hover {
+      border-color: var(--sky);
+      box-shadow: 0 8px 30px rgba(10,37,64,0.06);
+    }
+    .program-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--ice);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .program-icon svg { width: 24px; height: 24px; color: var(--sky-dark); }
+    .program-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+    .program-card p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .program-link {
+      margin-top: 1.25rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--sky-dark);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .program-link:hover { color: var(--navy); }
+    .program-link svg { width: 16px; height: 16px; transition: transform 0.2s; }
+    .program-link:hover svg { transform: translateX(3px); }
 
-  .pull{background:var(--card);border:1px solid var(--rule);border-left:5px solid var(--cyan);
-    border-radius:0 8px 8px 0;padding:14px 18px;margin:12px 0}
-  .pull p{margin:0 0 8px;font-family:Georgia,"Times New Roman",serif;font-size:17px;
-    line-height:1.45;color:var(--ink)}
-  .pull cite{display:block;font-style:normal;font-size:12.5px;font-weight:700;
-    color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+    /* ---- FELLOWS FEATURE ---- */
+    .fellows {
+      background: var(--offwhite);
+      position: relative;
+      overflow: hidden;
+    }
+    .fellows-header { margin-bottom: 3rem; }
+    .fellows-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .fellow-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 14px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+    .fellow-card:hover {
+      border-color: var(--sky);
+      box-shadow: 0 8px 30px rgba(10,37,64,0.06);
+    }
+    .fellow-card h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--navy);
+    }
+    .fellow-card .fellow-project {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--sky-dark);
+      margin-bottom: 0.75rem;
+    }
+    .fellow-card p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+    .fellows-footer {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .fellows-footer p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+    .fellows-footer .btn {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .fellows-footer .btn:hover {
+      background: var(--navy-light);
+      color: var(--white);
+    }
+    .fellows-chevrons {
+      position: absolute;
+      right: -40px;
+      bottom: -40px;
+      opacity: 0.05;
+    }
+    .fellows-chevrons svg { width: 350px; height: 280px; }
 
-  /* ---- infrastructure cards ---- */
-  .infra{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:18px 0 6px}
-  @media (max-width:820px){.infra{grid-template-columns:1fr}}
-  .infra > div{background:var(--card);border:1px solid var(--rule);border-top:4px solid var(--navy);
-    border-radius:8px;padding:18px 20px}
-  .infra h4{margin:0 0 4px;font-size:16.5px;font-weight:900;color:var(--navy);line-height:1.25}
-  .infra .tag{margin:0 0 10px;font-size:11.5px;font-weight:900;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--cyan)}
-  .infra p{margin:0 0 10px;font-size:15.5px;line-height:1.5}
-  .infra p:last-child{margin-bottom:0}
+    /* ---- RESOURCES ---- */
+    .resources { background: var(--white); }
+    .resources-header { margin-bottom: 3.5rem; }
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+    .resource-card {
+      border-radius: 16px;
+      border: 1px solid var(--gray-200);
+      overflow: hidden;
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .resource-card:hover {
+      border-color: var(--sky);
+      box-shadow: 0 8px 30px rgba(10,37,64,0.06);
+    }
+    .resource-top {
+      background: var(--ice);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    .resource-top svg { width: 48px; height: 48px; color: var(--sky-dark); }
+    .resource-body {
+      padding: 1.75rem 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .resource-body h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .resource-body p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.6;
+      flex: 1;
+    }
+    .resource-body .program-link { margin-top: 1rem; }
 
-  /* ---- what is next: timeline ---- */
-  .tl{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin:30px 0 6px}
-  .tl::before{content:"";position:absolute;left:0;right:0;top:8px;height:4px;border-radius:2px;
-    background:linear-gradient(to right,var(--light) 0%,var(--light) 82%,rgba(183,222,238,0) 100%)}
-  .pt{position:relative;padding-top:38px}
-  .pt .dot{position:absolute;top:0;left:0;width:20px;height:20px;border-radius:50%;
-    background:var(--cyan);border:4px solid var(--bg)}
-  .pt.now .dot{background:var(--navy)}
-  .pt .when{margin:0 0 6px;font-size:11.5px;font-weight:900;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--cyan)}
-  .pt.now .when{color:var(--navy)}
-  .pt h4{margin:0 0 8px;font-size:16.5px;font-weight:900;color:var(--navy);line-height:1.25}
-  .pt p{margin:0;font-size:15.5px;line-height:1.5}
-  @media (max-width:720px){
-    .tl{grid-template-columns:1fr;gap:0}
-    .tl::before{display:none}
-    .pt{padding-top:0;padding-left:26px;padding-bottom:26px;border-left:4px solid var(--light)}
-    .pt:last-child{border-left-color:transparent;padding-bottom:0}
-    .pt .dot{top:2px;left:-8px}
-  }
+    /* ---- CTA ---- */
+    .cta-section {
+      background: var(--ice);
+      text-align: center;
+    }
+    .cta-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .cta-inner .section-title { margin-bottom: 1rem; }
+    .cta-inner p {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+    .cta-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-  .links{display:grid;grid-template-columns:1fr 1fr;gap:8px 28px;font-size:16px;margin-top:6px}
-  @media (max-width:720px){.links{grid-template-columns:1fr}}
-  .links div{padding:4px 0;overflow-wrap:anywhere}
-  .links span{color:var(--muted);font-weight:700}
+    /* ---- FOOTER ---- */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.6);
+      padding: 4rem 0 2.5rem;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer-brand .nav-logo-top { color: var(--sky); }
+    .footer-brand .nav-logo-bottom { color: var(--white); }
+    .footer-brand p {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      max-width: 280px;
+      line-height: 1.6;
+    }
+    .footer-links {
+      display: flex;
+      gap: 4rem;
+    }
+    .footer-col h4 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0.6rem;
+    }
+    .footer-col a:hover { color: var(--sky); }
+    .footer-bottom {
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+    }
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+    }
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.08);
+      transition: background 0.2s;
+    }
+    .footer-social a:hover { background: rgba(255,255,255,0.15); }
+    .footer-social svg { width: 18px; height: 18px; fill: rgba(255,255,255,0.7); }
 
-  /* standout CTA */
-  .cta{margin:30px 0 0;background:var(--navy);border-radius:10px;padding:26px 30px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
-  .cta .copy{max-width:540px}
-  .cta .k{margin:0 0 8px;font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan)}
-  .cta p{margin:0;color:#fff;font-size:17px;line-height:1.5}
-  .cta .btn{display:inline-block;background:var(--cyan);color:var(--navy);font-weight:900;font-size:15.5px;line-height:1.3;padding:15px 26px;border-radius:6px;border:0;text-align:center;transition:background .15s,color .15s}
-  .cta .btn:hover{background:#fff;color:var(--navy);border:0}
-  @media (max-width:720px){.cta{flex-direction:column;align-items:stretch;padding:24px 22px}.cta .btn{width:100%}}
+    /* ---- AI PROGRAMS ---- */
+    .ai-programs { background: var(--navy); color: var(--white); position: relative; overflow: hidden; }
+    .ai-programs .section-label { color: var(--sky); }
+    .ai-programs .section-title { color: var(--white); }
+    .ai-programs .section-subtitle { color: rgba(255,255,255,0.7); }
+    .ai-programs-header { margin-bottom: 3rem; }
+    .ai-framing {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-left: 4px solid var(--sky);
+      border-radius: 0 14px 14px 0;
+      padding: 2rem 2.25rem;
+      margin-bottom: 3rem;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+    }
+    .ai-framing strong { color: var(--white); }
+    .ai-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .ai-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+    .ai-card:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--sky);
+    }
+    .ai-card.featured {
+      grid-column: 1 / -1;
+      background: rgba(110,205,232,0.08);
+      border-color: rgba(110,205,232,0.2);
+    }
+    .ai-card-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(110,205,232,0.15);
+      color: var(--sky);
+      padding: 0.3rem 0.75rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+    .ai-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+    .ai-card p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.65;
+    }
+    .ai-card .co-host {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.45);
+      margin-top: 0.75rem;
+    }
+    .ai-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 1.5rem;
+    }
+    .ai-stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--sky);
+      line-height: 1;
+    }
+    .ai-stat-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-top: 0.25rem;
+    }
+    .ai-programs-chevrons {
+      position: absolute;
+      right: -40px;
+      bottom: -40px;
+      opacity: 0.04;
+    }
+    .ai-programs-chevrons svg { width: 350px; height: 280px; }
 
-  /* press / in the news */
-  .press{background:var(--card);border:1px solid var(--rule);border-top:4px solid var(--navy);border-radius:8px;padding:6px 30px 12px;margin:16px 0 6px}
-  @media (max-width:560px){.press{padding:6px 20px 12px}}
-  .press article{border-top:1px solid var(--rule);padding:24px 0 22px}
-  .press article:first-of-type{border-top:0}
-  .press .pq{font-family:Georgia,"Times New Roman",serif;font-size:clamp(18px,2.2vw,22px);line-height:1.45;color:var(--ink);margin:0 0 14px}
-  .press .meta{margin:0;font-size:14px;color:var(--muted);font-weight:700}
-  .press .meta .src{color:var(--navy);font-weight:900}
-  .press .meta a{font-weight:700}
-  .press .dot{color:var(--cyan);font-weight:900;padding:0 6px}
+    /* ---- STACK FEATURE ---- */
+    .stack { background: var(--ice); }
+    .stack-inner {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+    .stack-content .section-title { font-size: 2.6rem; }
+    .stack-content .section-subtitle { max-width: 520px; margin-bottom: 2rem; }
+    .stack-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .stack-meta {
+      margin-top: 1.75rem;
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+    .stack-visual {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 18px;
+      padding: 2rem;
+      box-shadow: 0 12px 40px rgba(10,37,64,0.08);
+    }
+    .stack-visual-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sky-dark);
+      margin-bottom: 1rem;
+    }
+    .stack-links { display: flex; flex-direction: column; gap: 0.5rem; }
+    .stack-links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1.1rem;
+      border-radius: 10px;
+      background: var(--offwhite);
+      border: 1px solid var(--gray-200);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+      transition: all 0.2s;
+    }
+    .stack-links a:hover { border-color: var(--sky); background: var(--ice); }
+    .stack-links a span { font-size: 1.1rem; color: var(--sky-dark); }
 
-  .quotes{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0 6px}
-  @media (max-width:720px){.quotes{grid-template-columns:1fr}}
-  .quote{background:var(--card);border:1px solid var(--rule);border-left:5px solid var(--cyan);border-radius:0 8px 8px 0;padding:16px 20px;font-size:16.5px;line-height:1.5}
-  .quote p{margin:0 0 8px;font-style:italic;color:var(--ink)}
-  .quote cite{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
-  footer{border-top:1px solid var(--rule);background:#fff}
-  footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:26px;padding-bottom:30px;font-size:14px;color:var(--muted)}
-</style>
+    /* Links inside dark AI cards */
+    .ai-card-link {
+      margin-top: 1.25rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--sky);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .ai-card-link:hover { color: var(--white); }
+    .ai-card-link svg { width: 15px; height: 15px; transition: transform 0.2s; }
+    .ai-card-link:hover svg { transform: translateX(3px); }
+
+    /* ---- FELLOWS SLIM ---- */
+    .fellows-slim { background: var(--white); }
+    .fellows-slim-card {
+      background: var(--offwhite);
+      border: 1px solid var(--gray-200);
+      border-left: 4px solid var(--sky);
+      border-radius: 0 16px 16px 0;
+      padding: 2.5rem 2.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .fellows-slim-card .section-label { margin-bottom: 0.5rem; }
+    .fellows-slim-card h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .fellows-slim-card p { font-size: 0.95rem; color: var(--text-light); max-width: 560px; }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 900px) {
+      .stack-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .stack-content .section-title { font-size: 2rem; }
+      .approach-grid { grid-template-columns: 1fr; }
+      .programs-grid { grid-template-columns: 1fr; }
+      .ai-grid { grid-template-columns: 1fr; }
+      .fellows-grid { grid-template-columns: 1fr; }
+      .resources-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.4rem; }
+      .section-title { font-size: 1.8rem; }
+      .footer-top { flex-direction: column; }
+      .footer-links { gap: 2rem; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        border-bottom: 1px solid var(--gray-200);
+        padding: 1.5rem 2rem;
+        gap: 1rem;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      }
+      .mobile-toggle { display: block; }
+      .hero { padding: 8rem 0 4rem; }
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1.05rem; }
+      section { padding: 4rem 0; }
+      .container { padding: 0 1.25rem; }
+      .hero-actions { flex-direction: column; }
+      .btn { width: 100%; justify-content: center; }
+      .cta-actions { flex-direction: column; align-items: center; }
+      .fellows-footer { flex-direction: column; text-align: center; }
+    }
+  </style>
 </head>
 <body>
 
-<nav class="topnav" aria-label="Site">
-  <div class="wrap">
-    <a class="wm" href="/"><span class="top">Higher Ground</span><span class="bot">Institute</span></a>
-    <div class="links">
-      <a href="/">Home</a>
-      <a href="/#programs">Programs</a>
-      <a href="https://aicampaignstack.org/" target="_blank" rel="noopener">AI Campaign Stack</a>
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <span class="nav-logo-top">Higher Ground</span>
+      <span class="nav-logo-bottom">Institute</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#stack">AI Campaign Stack</a>
+      <a href="#programs">Programs</a>
+      <a href="#resources">Resources</a>
+      <a href="https://medium.com/the-cooperative-impact-lab" target="_blank">Blog</a>
+      <a href="#contact" class="nav-cta">Get in Touch</a>
     </div>
+    <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
-<header class="band">
-  <div class="wrap">
-    <svg class="chev" viewBox="0 0 230 140" preserveAspectRatio="xMaxYMid meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <g fill="#B7DEEE">
-        <path d="M0 20 L20 0 L75 55 L20 110 L0 90 L35 55 Z"/>
-        <path d="M70 20 L90 0 L145 55 L90 110 L70 90 L105 55 Z"/>
-        <path d="M140 20 L160 0 L215 55 L160 110 L140 90 L175 55 Z"/>
-      </g>
-    </svg>
-    <p class="eyebrow">Campaign season update</p>
-    <h1>Getting the progressive field <b>AI-ready for 2026</b> and beyond</h1>
-  </div>
-</header>
-
-<main>
-<div class="wrap">
-
-<p class="lede">This campaign season, Higher Ground Institute (HGI) set out to get the progressive ecosystem AI-ready before Election Day by building the skills, use cases, and shared infrastructure the field needs to adopt AI on its own terms.</p>
-
-<!-- ============ NEW: the model that drives the priorities ============ -->
-<h2>How the Progressive AI Lab works</h2>
-<p>Every program below comes out of one model. The community tells us what it needs, we test what works against real campaign conditions, and what survives the test goes into resources the whole field can use.</p>
-
-<div class="model">
-  <div class="stage">
-    <p class="sn">01</p>
-    <h4>Community of Practice</h4>
-    <p class="sd">Fosters collaboration across organizations and surfaces what practitioners actually need.</p>
-    <p class="se">AI Open Mics · Claude Code Study Halls · AI + Cybersecurity working group with the DNC</p>
-  </div>
-  <div class="stage">
-    <p class="sn">02</p>
-    <h4>Research and Validation</h4>
-    <p class="sd">Tests emerging ideas under real campaign conditions before the field bets a cycle on them.</p>
-    <p class="se">Campaign simulations · Job-track training pilots · Pre and post confidence measurement</p>
-  </div>
-  <div class="stage">
-    <p class="sn">03</p>
-    <h4>Resources Hub</h4>
-    <p class="sd">Equips practitioners with what has been validated, and generates the feedback that starts the loop again.</p>
-    <p class="se">AI Campaign Stack · Progressive AI Skills repo · Playbooks and tool directory</p>
-  </div>
-</div>
-<p class="loop"><span class="lg">&#8635;</span> <span>It is a loop, not a pipeline. What practitioners do with the resources tells us what to convene and test next.</span></p>
-
-<h2>By the numbers</h2>
-<div class="stats">
-  <div class="stat"><div class="n">47</div><div class="l">trainings, convenings, and events this campaign season</div></div>
-  <div class="stat"><div class="n">1,500+</div><div class="l">people trained by HGI this year</div></div>
-  <div class="stat"><div class="n">987</div><div class="l">unique practitioners at the AI Open Mic series so far this year, averaging 183 a session</div></div>
-  <div class="stat"><div class="n">81%</div><div class="l">of Fall AI training attendees report an increase in confidence with AI</div></div>
-  <div class="stat"><div class="n">75%</div><div class="l">name job-specific use cases as their top confidence driver</div></div>
-</div>
-
-<h2>What we are running now</h2>
-<div class="two">
-<div>
-  <h3>Fall AI Training Series <span class="sign">(<a href="https://aicampaignstack.org/trainings">sign up for all sessions</a>)</span></h3>
-  <ul>
-    <li><b>Weekly trainings</b> across four job-based tracks - GEO, AI for Volunteer Engagement, AI for GOTV, and AI for Comms - built on the finding that role-specific training beats generic tool literacy</li>
-    <li><b>Claude 101</b> sessions hosted every Tuesday for baseline tool fluency</li>
-    <li>Weekly <b>AI Office Hours</b> where anyone can sign up for a 20 minute session with an expert to troubleshoot or get advice on AI in their campaign</li>
-    <li><b>Claude Code Study Halls:</b> series running through December that helps non-technical organizers build their first replicable AI skills</li>
-  </ul>
-</div>
-<div>
-  <h3>Community and convening</h3>
-  <ul>
-    <li><b><a href="https://aicampaignstack.org/open-mic">Monthly AI Open Mics</a>,</b> the field's recurring hub for practitioners to learn about applied AI, hosted with Analyst Institute and the Research Collaborative - each averages 183 attendees</li>
-    <li>Co-hosting an <b>AI + Cybersecurity working group</b> with the DNC for progressive technology infrastructure and vendors</li>
-    <li>Launching soon: <b>AI for Organizing Prize</b> - cash prizes for the best ideas from the community on using AI in the work</li>
-  </ul>
-</div>
-</div>
-
-<!-- ============ NEW: where we showed up ============ -->
-<h2>Where we showed up</h2>
-<p>Two moments this year put the model to work in a room instead of on a screen.</p>
-
-<div class="field">
-  <div>
-    <h3>Campaign simulation with General Assembly</h3>
-    <p>HGI teamed up with General Assembly to host a two-day competitive campaign simulation. Teams were asked to set the traditional playbook aside and build bold, creative tactics for a changing campaign landscape, then take what they learned back to their own districts, campaigns, and communities.</p>
-    <div class="pull">
-      <p>&#8220;A room full of passionate strangers came together and brought forth the creative ideas that are needed to change the campaign game.&#8221;</p>
-      <cite>General Assembly</cite>
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-label">Higher Ground Institute</div>
+      <h1>Helping progressive organizations harness emerging technologies to create lasting change.</h1>
+      <p>We build practical tools, run hands-on programs, and create pathways for AI adoption across the progressive movement - starting with AI Campaign Stack, our directory of tools and workflows for organizers.</p>
+      <div class="hero-actions">
+        <a href="https://aicampaignstack.org/" target="_blank" class="btn btn-primary">Explore AI Campaign Stack</a>
+        <a href="#programs" class="btn btn-outline">See Our Programs</a>
+      </div>
     </div>
-    <p class="src"><a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7498471361577734144/" target="_blank" rel="noopener">Read General Assembly's recap on LinkedIn</a></p>
   </div>
-  <div>
-    <h3>AI Hackathon at Netroots Nation</h3>
-    <p>In June, HGI hosted an AI Hackathon at Netroots Nation in Philadelphia, leading in-person Claude Code study halls throughout the day to help practitioners build tools using agentic AI.</p>
-    <p>The day was led by Kemi Oso, HGI's Chief Program Officer.</p>
+  <!-- Decorative chevrons -->
+  <div class="hero-chevrons">
+    <svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M80 40L200 160L80 280" stroke="#0A2540" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M200 40L320 160L200 280" stroke="#0A2540" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
   </div>
-</div>
+</section>
 
-<h2>The reach</h2>
-<p>Since January, our AI Open Mic has drawn steady rooms and a growing core community.</p>
-<div class="two">
-<div><ul>
-  <li><b>46</b> presenters from <b>38</b> organizations have taken the mic across this year's eight sessions</li>
-  <li><b>183</b> average live attendees per session</li>
-  <li><b>28%</b> of attendees have come to 2 or more sessions</li>
-  <li>By August, <b>49%</b> of attendees are returning</li>
-</ul></div>
-<div><ul>
-  <li>The single largest segment in the room is advocacy and organizing groups, alongside political tech, digital agencies, and data and analytics shops</li>
-  <li>Asked how their AI use compares to six months ago, <b>72%</b> of August registrants said they are using AI more, and 44% said a lot more</li>
-</ul></div>
-</div>
-
-<h2>The impact</h2>
-<p>For our fall AI training series, we measure confidence on a 1 to 5 scale before and after each session.</p>
-<ul>
-  <li>Average confidence shift of <b>+1.3</b>, from 2.3 to 3.6 on a 5-point scale per training</li>
-  <li>The training works hardest on the least confident: people who improved started at 2.0 on average, while those who held steady were already high</li>
-  <li>Asked what would build their confidence, <b>75%</b> named job-specific use cases, above every other answer combined</li>
-</ul>
-<div class="callout">The field is asking for it in its own words: train by job, not by tool.</div>
-<div class="quotes">
-  <div class="quote"><p>&#8220;This is incredibly helpful. I have been using &#8216;chat&#8217; with brute-force; and this will make my life much easier. Thank you all!&#8221;</p><cite>Claude 101 trainee</cite></div>
-  <div class="quote"><p>&#8220;I love the bit-sized nature of this training. It was very useful and I feel like I can immediately start using this!&#8221;</p><cite>Claude 101 trainee</cite></div>
-</div>
-
-<!-- ============ NEW: the infrastructure argument ============ -->
-<h2>Infrastructure we are building</h2>
-<p>Trainings reach people this cycle. These three pieces are built to outlast it, and each one is open to the whole field rather than only the organizations we train.</p>
-
-<div class="infra">
-  <div>
-    <p class="tag">The hub</p>
-    <h4><a href="https://aicampaignstack.org">AI Campaign Stack</a></h4>
-    <p>AI Campaign Stack serves as the left's central hub for AI resources and tools, consolidating what practitioners across progressive campaigns and organizations need into a single, accessible place.</p>
-    <p>Vetted <a href="https://aicampaignstack.org/tools">tools</a>, <a href="https://aicampaignstack.org/playbooks">playbooks</a>, and guides, kept current rather than published once.</p>
+<!-- AI CAMPAIGN STACK FEATURE -->
+<section class="stack" id="stack">
+  <div class="container">
+    <div class="stack-inner">
+      <div class="stack-content">
+        <div class="section-label">Our Flagship Resource</div>
+        <h2 class="section-title">AI Campaign Stack</h2>
+        <p class="section-subtitle">The community-powered directory of AI tools and workflows for organizers and organizations. Explore 50+ vetted tools across comms, fundraising, field, and research &mdash; plus guides, skills, and a beginner-friendly starting point.</p>
+        <div class="stack-actions">
+          <a href="https://aicampaignstack.org/" target="_blank" class="btn btn-primary">Explore the Stack</a>
+          <a href="https://aicampaignstack.org/faq" target="_blank" class="btn btn-outline">Getting Started FAQ</a>
+        </div>
+        <p class="stack-meta">Built and maintained by the Higher Ground Institute Progressive AI Lab.</p>
+      </div>
+      <div class="stack-visual">
+        <div class="stack-visual-label">Jump in</div>
+        <div class="stack-links">
+          <a href="https://aicampaignstack.org/" target="_blank">Browse AI tools <span>&rarr;</span></a>
+          <a href="https://aicampaignstack.org/faq" target="_blank">Getting Started FAQ <span>&rarr;</span></a>
+          <a href="https://aicampaignstack.org/skills" target="_blank">Progressive AI Skills <span>&rarr;</span></a>
+          <a href="https://aicampaignstack.org/open-mic" target="_blank">AI Open Mic <span>&rarr;</span></a>
+        </div>
+      </div>
+    </div>
   </div>
-  <div>
-    <p class="tag">The library</p>
-    <h4><a href="https://aicampaignstack.org/skills">Progressive AI Skills</a></h4>
-    <p>An open repository where practitioners publish tested, drop-in AI skills that any campaign can use, free and with no coding required.</p>
-    <p>Campaigns are building good tools right now and losing them at the end of every cycle. This is where the field keeps them and builds on each other's work instead of starting over.</p>
+</section>
+
+<!-- PROGRAMS -->
+<section class="ai-programs" id="programs">
+  <div class="container">
+    <div class="ai-programs-header">
+      <div class="section-label">Programs</div>
+      <h2 class="section-title">Closing the AI gap for progressives</h2>
+      <p class="section-subtitle">The movements that adopt these tools well in the next 12&ndash;18 months will have advantages that compound into 2028 and beyond. Our programs help make that happen.</p>
+    </div>
+
+    <div class="ai-grid">
+      <!-- Featured: AI Open Mics -->
+      <div class="ai-card featured">
+        <div class="ai-card-tag">Monthly</div>
+        <h3>AI Open Mics</h3>
+        <p>Monthly virtual convenings where practitioners bring real, specific needs: voter targeting, message testing, agentic workflow automation, campaign data security, and AI applications for democracy and human rights.</p>
+        <div class="co-host">Co-hosted with Analyst Institute &amp; Research Collaborative</div>
+        <div class="ai-stats">
+          <div>
+            <div class="ai-stat-number">500+</div>
+            <div class="ai-stat-label">Registrations per session</div>
+          </div>
+          <div>
+            <div class="ai-stat-number">230+</div>
+            <div class="ai-stat-label">Attendees per session</div>
+          </div>
+        </div>
+        <a href="https://aicampaignstack.org/open-mic" target="_blank" class="ai-card-link">Register &amp; see past sessions <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
+      </div>
+
+      <!-- Claude Code Study Halls -->
+      <div class="ai-card">
+        <div class="ai-card-tag">Ongoing</div>
+        <h3>Claude Code Study Halls</h3>
+        <p>Entry-level, hands-on sessions for practitioners who have never written a line of code. Participants build working tools in two hours &mdash; no technical experience needed.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfLEXqOXKqBA01RDkAWEkkl8kGyevdgjNuxANLi78rTh13Kkg/viewform" target="_blank" class="ai-card-link">Sign up <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
+      </div>
+
+      <!-- Salon Discussions -->
+      <div class="ai-card">
+        <div class="ai-card-tag">Ongoing</div>
+        <h3>Salon Discussions</h3>
+        <p>Small-group convenings focused on specific projects and challenges, designed to create the kind of focused, cross-pollinating conversation that doesn't happen in larger formats.</p>
+      </div>
+
+      <!-- Speaking & Events -->
+      <div class="ai-card">
+        <div class="ai-card-tag">Ongoing</div>
+        <h3>Speaking &amp; Events</h3>
+        <p>HGI staff speak at convenings across the progressive tech and organizing ecosystem, bringing AI literacy and strategic framing to practitioner audiences wherever they gather.</p>
+      </div>
+    </div>
   </div>
-  <div>
-    <p class="tag">Launching soon</p>
-    <h4>Progressive Tech Swap</h4>
-    <p>An initiative to capture the code base for custom tools built for individual campaigns before they disappear when the campaign closes down.</p>
-    <p>The same argument as the skills library, one level deeper in the stack.</p>
+  <div class="ai-programs-chevrons">
+    <svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M80 40L200 160L80 280" stroke="#FFFFFF" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M200 40L320 160L200 280" stroke="#FFFFFF" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
   </div>
-</div>
+</section>
 
-<h3>AI Campaign Stack: the numbers</h3>
-<p>Since launching in March, <a href="https://aicampaignstack.org">AI Campaign Stack</a> has reached roughly <b>3,200 practitioners in 49 states and the District of Columbia</b>, and weekday use has nearly tripled.</p>
-<div class="two">
-<div><ul>
-  <li><b>54</b> visitors on an average weekday, up from 19 in the spring</li>
-  <li>Returning visitors have grown <b>four-fold</b>, from 5 a weekday to 20, and are growing faster than new visitors - people are not just finding the site, they are coming back to it</li>
-</ul></div>
-<div><ul>
-  <li><b>Two-thirds</b> of visitors read a page all the way to the bottom, and the average visit holds attention for a full minute</li>
-  <li>Organizers opened <b>72</b> different tool pages across the directory, and the Fall AI Training Series page alone drew <b>499</b> visitors</li>
-</ul></div>
-</div>
-
-<h2>In the news</h2>
-<p>National political reporters have used HGI's programs as the reference point for how the progressive field is actually adopting AI this cycle.</p>
-<div class="press">
-  <article>
-    <p class="pq">&#8220;Ms. Gage's group plays host to hundreds of strategists each month during digital &#8216;A.I. open mics,&#8217; where they swap tips on how to overhaul old-fashioned campaign strategies with an A.I. twist. That burst of interest has fed an online database featuring nearly 100 distinct A.I. tools for writing campaign messages or managing voter data.&#8221;</p>
-    <p class="meta"><span class="src">The New York Times</span><span class="dot">&#183;</span>June 30, 2026<span class="dot">&#183;</span><a href="https://www.nytimes.com/2026/06/29/us/politics/political-campaigns-ai-tech.html?unlocked_article_code=1.C1E.4fx4.JdLrYFu4QMzi&amp;smid=url-share">Read the article</a></p>
-  </article>
-  <article>
-    <p class="pq">&#8220;A.I. is a top priority for Kate Gage, the executive director of the Higher Ground Institute, a progressive incubator that pushes progressive groups to adopt new technology.&#8221;</p>
-    <p class="meta"><span class="src">The New York Times</span><span class="dot">&#183;</span>June 30, 2026</p>
-  </article>
-  <article>
-    <p class="pq">&#8220;Higher Ground Labs is holding Claude Code study halls to teach the basics of &#8216;vibe-coding&#8217; to fellow consultants, and hosting monthly &#8216;open-mic nights&#8217; reminiscent of a lunchtime brown-bag session for summer interns to demo new tools.&#8221;</p>
-    <p class="meta"><span class="src">Politico</span><span class="dot">&#183;</span>August 20, 2026<span class="dot">&#183;</span><a href="https://www.politico.com/news/2026/08/20/dems-ai-california-campaigns-01043140">Read the article</a></p>
-  </article>
-</div>
-
-<!-- ============ REBUILT: what is next as a timeline ============ -->
-<h2>What is next</h2>
-<p>This cycle is one step in a multi-cycle strategy. The work does not stop on November 3.</p>
-<div class="tl">
-  <div class="pt now">
-    <span class="dot"></span>
-    <p class="when">Now</p>
-    <h4>Through Election Day 2026</h4>
-    <p>Job-track trainings, study halls, and office hours run straight through GOTV, with the tools directory and playbooks updated as the field reports what is working.</p>
+<!-- FELLOWS (slim) -->
+<section class="fellows-slim" id="fellows">
+  <div class="container">
+    <div class="fellows-slim-card">
+      <div>
+        <div class="section-label">Media Innovation Fellows</div>
+        <h3>Our 2025 inaugural cohort</h3>
+        <p>Selected from over 100 proposals, our first six fellows built tools and playbooks at the intersection of media, technology, and organizing &mdash; each backed by a $15,000 grant, mentorship, and coaching.</p>
+      </div>
+      <a href="mailto:institute@highergroundlabs.com" class="btn btn-primary">Ask about the next cohort</a>
+    </div>
   </div>
-  <div class="pt">
-    <span class="dot"></span>
-    <p class="when">Q1 2027</p>
-    <h4>Political Tech Debrief</h4>
-    <p>HGI and HGL will host the bi-annual Political Tech Debrief on what worked this cycle, and publish the Political Tech Landscape Report.</p>
+</section>
+
+<!-- RESOURCES -->
+<section class="resources" id="resources">
+  <div class="container">
+    <div class="resources-header">
+      <div class="section-label">Resources</div>
+      <h2 class="section-title">Tools and research for the movement</h2>
+      <p class="section-subtitle">Open resources built to help progressive organizations navigate technology and AI decisions.</p>
+    </div>
+    <div class="resources-grid">
+
+      <div class="resource-card">
+        <div class="resource-top">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"/></svg>
+        </div>
+        <div class="resource-body">
+          <h3>Getting Started with AI: FAQs</h3>
+          <p>A beginner's guide for campaign staff, organizers, and practitioners: where to start, how to stay safe, what it costs, and how to connect.</p>
+          <a href="https://aicampaignstack.org/faq" target="_blank" class="program-link">Read the FAQ <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <div class="resource-top">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"/></svg>
+        </div>
+        <div class="resource-body">
+          <h3>Progressive AI Skills</h3>
+          <p>Drop-in AI automations for campaigns, organizing, and progressive infrastructure. Open source and ready to use.</p>
+          <a href="https://aicampaignstack.org/skills" target="_blank" class="program-link">Browse skills <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
+        </div>
+      </div>
+
+      <div class="resource-card">
+        <div class="resource-top">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/></svg>
+        </div>
+        <div class="resource-body">
+          <h3>AI Resource Guide</h3>
+          <p>A curated, regularly updated library of trainings, reading, guides, policy templates, and case studies for progressive AI adoption.</p>
+          <a href="https://aicampaignstack.org/resources" target="_blank" class="program-link">Read the guide <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg></a>
+        </div>
+      </div>
+
+    </div>
   </div>
-  <div class="pt">
-    <span class="dot"></span>
-    <p class="when">2028</p>
-    <h4>The AI-native campaign</h4>
-    <p>Defining what an AI-native campaign actually looks like, then building the embedded training and infrastructure to get the field there.</p>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="section-label">Get Involved</div>
+      <h2 class="section-title">Let's shape the future of progressive technology together</h2>
+      <p>Whether you're a movement leader, technologist, funder, or strategic partner, we'd love to hear from you.</p>
+      <div class="cta-actions">
+        <a href="mailto:institute@highergroundlabs.com" class="btn btn-primary">Get in Touch</a>
+        <a href="mailto:institute@highergroundlabs.com" class="btn btn-outline">Join Our Newsletter</a>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
-<h2>Explore the work and sign up</h2>
-<div class="links">
-  <div><span>Fall AI Training Series:</span> <a href="https://aicampaignstack.org/trainings">aicampaignstack.org/trainings</a></div>
-  <div><span>AI tools directory:</span> <a href="https://aicampaignstack.org/tools">aicampaignstack.org/tools</a></div>
-  <div><span>AI Open Mic (monthly):</span> <a href="https://aicampaignstack.org/open-mic">aicampaignstack.org/open-mic</a></div>
-  <div><span>AI playbooks:</span> <a href="https://aicampaignstack.org/playbooks">aicampaignstack.org/playbooks</a></div>
-  <div><span>Progressive AI Skills:</span> <a href="https://aicampaignstack.org/skills">aicampaignstack.org/skills</a></div>
-  <div><span>Claude Code Study Hall:</span> <a href="https://higherground.institute/studyhall">higherground.institute/studyhall</a></div>
-  <div><span>Resources and guides:</span> <a href="https://aicampaignstack.org/resources">aicampaignstack.org/resources</a></div>
-</div>
-
-<div class="cta">
-  <div class="copy">
-    <p class="k">Political AI Field Guide</p>
-    <p>Six factions are shaping AI politics right now: their beliefs, their money, their policy positions, and where they split.</p>
-  </div>
-  <a class="btn" href="https://kategage.substack.com/p/political-ai-field-guide-factions">Read Kate's guide to the Political AI factions</a>
-</div>
-
-</div>
-</main>
-
+<!-- FOOTER -->
 <footer>
-  <div class="wrap">
-    <a class="wm" href="/" style="border:0"><span class="top">Higher Ground</span><span class="bot" style="font-size:16px">Institute</span></a>
-    <div>Higher Ground Institute, operating under Cooperative Impact Lab in partnership with Higher Ground Labs &nbsp;&#183;&nbsp; September 2026</div>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <span class="nav-logo-top">Higher Ground</span>
+          <span class="nav-logo-bottom">Institute</span>
+        </div>
+        <p>Helping progressive organizations harness emerging technologies to create lasting change.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <a href="https://aicampaignstack.org/open-mic" target="_blank">AI Open Mics</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfLEXqOXKqBA01RDkAWEkkl8kGyevdgjNuxANLi78rTh13Kkg/viewform" target="_blank">Claude Code Study Halls</a>
+          <a href="#programs">Salons &amp; Events</a>
+          <a href="#fellows">Media Innovation Fellows</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="https://aicampaignstack.org/" target="_blank">AI Campaign Stack</a>
+          <a href="https://aicampaignstack.org/faq" target="_blank">Getting Started FAQ</a>
+          <a href="https://aicampaignstack.org/resources" target="_blank">AI Resource Guide</a>
+          <a href="https://aicampaignstack.org/skills" target="_blank">Progressive AI Skills</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="mailto:institute@highergroundlabs.com">Email Us</a>
+          <a href="https://linkedin.com/company/highergroundlabs" target="_blank">LinkedIn</a>
+          <a href="https://medium.com/the-cooperative-impact-lab" target="_blank">Blog</a>
+          <a href="mailto:institute@highergroundlabs.com">Newsletter</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Higher Ground Institute. A project of <a href="https://highergroundlabs.com" target="_blank" style="color: var(--sky);">Higher Ground Labs</a> &amp; <a href="https://cooperativeimpactlab.org" target="_blank" style="color: var(--sky);">Cooperative Impact Lab</a>.</span>
+      <div class="footer-social">
+        <a href="https://linkedin.com/company/highergroundlabs" target="_blank" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://medium.com/the-cooperative-impact-lab" target="_blank" aria-label="Medium">
+          <svg viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+        </a>
+      </div>
+    </div>
   </div>
 </footer>
+
+<script>
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Close mobile nav on link click
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+</script>
 
 </body>
 </html>
