@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI for Organizing Prize | Higher Ground Institute</title>
+  <meta name="description" content="Organizing is a team sport. The Higher Ground Institute AI for Organizing Prize highlights the prompts, skills, apps, and workflows progressive organizers are building with AI, so more people can use them. Prizes of $200 to $500, rolling review, winners recognized October 6 and October 20.">
+  <link rel="canonical" href="https://higherground.institute/aiorganizingprize/">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="Higher Ground Institute">
+  <meta property="og:title" content="AI for Organizing Prize">
+  <meta property="og:description" content="Organizing is a team sport. Great AI work is happening in progressive orgs and campaigns and most of it never gets shared. Tell us what you built. Prizes of $200 to $500, rolling review.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://higherground.institute/aiorganizingprize/">
+  <meta property="og:image" content="https://higherground.institute/aiorganizingprize/og-image.png">
+  <meta property="og:image:secure_url" content="https://higherground.institute/aiorganizingprize/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AI for Organizing Prize, a Higher Ground Institute program. Prizes of $200 to $500. Categories: GEO, Volunteer Engagement, GOTV, Comms, Fundraising.">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI for Organizing Prize">
+  <meta name="twitter:description" content="Organizing is a team sport. Great AI work is happening in progressive orgs and campaigns and most of it never gets shared. Tell us what you built. Prizes of $200 to $500, rolling review.">
+  <meta name="twitter:image" content="https://higherground.institute/aiorganizingprize/og-image.png">
+  <meta name="twitter:image:alt" content="AI for Organizing Prize, a Higher Ground Institute program.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AI for Organizing Prize",
+    "url": "https://higherground.institute/aiorganizingprize/",
+    "description": "A Higher Ground Institute prize competition highlighting the prompts, skills, apps, and workflows progressive practitioners are building with AI, so more of the ecosystem can learn from each other and reuse what works.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Higher Ground Institute",
+      "url": "https://higherground.institute"
+    },
+    "about": {
+      "@type": "Event",
+      "name": "AI for Organizing Show & Tell",
+      "startDate": "2026-10-22",
+      "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "description": "All AI for Organizing Prize winners are invited to demo their work.",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Higher Ground Institute",
+        "url": "https://higherground.institute"
+      }
+    },
+    "mainEntity": {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Who can apply to the AI for Organizing Prize?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Individuals, and c3 or c4 organizations. Campaigns cannot submit directly, though campaign staff are welcome to submit in a personal capacity."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What can I submit to the AI for Organizing Prize?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prompts, skills, apps, or workflows you have built with AI, found useful, and think should be shared with the larger progressive ecosystem. Categories are GEO (generative engine optimization), Volunteer Engagement, GOTV, Comms, Fundraising, and Other."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When are AI for Organizing Prize winners announced?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Submissions are reviewed on a rolling basis. Winners are recognized in two waves, on October 6 and October 20, and all winners are invited to demo their work at the AI for Organizing Show & Tell on Thursday, October 22. Submissions continue to be accepted and reviewed after those dates."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What license applies to prize submissions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "By submitting, you agree to share your work openly so others can use and build on it. Materials like prompts and workflows are shared under Creative Commons Attribution (CC BY 4.0), and code like apps and skills under the MIT License. You keep ownership and full credit for what you built."
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --navy: #0A2540;
+      --navy-light: #0F3557;
+      --sky: #6ECDE8;
+      --sky-dark: #4BB8D4;
+      --ice: #E8F7FC;
+      --white: #FFFFFF;
+      --offwhite: #F7F9FB;
+      --gray-200: #E2E6EB;
+      --text: #1A2B3D;
+      --text-light: #4A5B6E;
+      --max-width: 1200px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--sky-dark); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--navy); }
+    img { max-width: 100%; height: auto; }
+
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 2rem; }
+
+    /* ---- NAV ---- */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-200);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 20px rgba(10,37,64,0.08); }
+    .nav-inner {
+      max-width: var(--max-width); margin: 0 auto; padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between; height: 72px;
+    }
+    .nav-logo { display: flex; flex-direction: column; line-height: 1.1; }
+    .nav-logo-top {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--sky);
+    }
+    .nav-logo-bottom {
+      font-size: 1.05rem; font-weight: 800; letter-spacing: 0.04em;
+      text-transform: uppercase; color: var(--navy);
+    }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--text-light); }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-cta {
+      background: var(--navy) !important; color: var(--white) !important;
+      padding: 0.6rem 1.4rem; border-radius: 8px;
+      font-weight: 600 !important; font-size: 0.85rem !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--navy-light) !important; }
+    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+    .mobile-toggle span {
+      display: block; width: 24px; height: 2px;
+      background: var(--navy); margin: 5px 0; transition: 0.3s;
+    }
+
+    /* ---- HERO ---- */
+    .hero { padding: 10rem 0 6rem; background: var(--offwhite); position: relative; overflow: hidden; }
+    .hero-content { max-width: 760px; position: relative; z-index: 2; }
+    .hero-label {
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--sky); margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-size: 3.2rem; font-weight: 800; line-height: 1.15;
+      color: var(--navy); margin-bottom: 1.5rem;
+    }
+    .hero p {
+      font-size: 1.2rem; color: var(--text-light);
+      max-width: 620px; line-height: 1.7; margin-bottom: 2.5rem;
+    }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: -1.5rem 0 2.25rem; }
+    .hero-badge {
+      background: var(--ice); border: 1px solid rgba(110,205,232,0.45);
+      color: var(--text-light); border-radius: 999px;
+      padding: 0.5rem 1.1rem; font-size: 0.9rem; font-weight: 500;
+    }
+    .hero-badge strong { color: var(--navy); font-weight: 700; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-alt { font-size: 0.9rem; color: var(--text-light); margin-top: 1.1rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.85rem 2rem; border-radius: 10px;
+      font-size: 0.95rem; font-weight: 600; cursor: pointer;
+      border: none; transition: all 0.2s;
+    }
+    .btn-primary { background: var(--navy); color: var(--white); }
+    .btn-primary:hover { background: var(--navy-light); color: var(--white); }
+    .btn-outline { background: transparent; color: var(--navy); border: 2px solid var(--gray-200); }
+    .btn-outline:hover { border-color: var(--navy); color: var(--navy); }
+    .hero-chevrons {
+      position: absolute; right: -60px; top: 50%;
+      transform: translateY(-50%); opacity: 0.07; z-index: 1;
+    }
+    .hero-chevrons svg { width: 500px; height: 400px; }
+
+    /* ---- SECTION SHARED ---- */
+    section { padding: 6rem 0; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--sky); margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: 2.2rem; font-weight: 800; color: var(--navy);
+      margin-bottom: 1rem; line-height: 1.2;
+    }
+    .section-subtitle {
+      font-size: 1.1rem; color: var(--text-light);
+      max-width: 640px; line-height: 1.7;
+    }
+    .section-header { margin-bottom: 3.5rem; }
+
+    /* ---- KEY DATES ---- */
+    .dates { background: var(--white); }
+    .dates-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+    .date-card {
+      background: var(--offwhite); border: 1px solid var(--gray-200);
+      border-radius: 16px; padding: 2.25rem; transition: all 0.3s;
+    }
+    .date-card:hover { border-color: var(--sky); box-shadow: 0 8px 30px rgba(110,205,232,0.12); }
+    .date-tag {
+      display: inline-block; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      background: var(--ice); color: var(--sky-dark);
+      padding: 0.3rem 0.75rem; border-radius: 6px; margin-bottom: 1rem;
+    }
+    .date-card h3 { font-size: 1.5rem; font-weight: 800; color: var(--navy); margin-bottom: 0.5rem; }
+    .date-card p { font-size: 0.95rem; color: var(--text-light); line-height: 1.65; }
+
+    /* ---- LOOKING FOR ---- */
+    .looking { background: var(--offwhite); }
+    .looking-inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3.5rem; align-items: start; }
+    .looking-list { list-style: none; margin-top: 1.75rem; }
+    .looking-list li {
+      display: flex; gap: 0.85rem; align-items: flex-start;
+      padding: 0.85rem 0; border-bottom: 1px solid var(--gray-200);
+      font-size: 1rem; color: var(--text-light);
+    }
+    .looking-list li:last-child { border-bottom: none; }
+    .looking-list strong { color: var(--navy); }
+    .looking-list .check { color: var(--sky-dark); font-weight: 800; flex-shrink: 0; }
+    .tracks-panel {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: 18px; padding: 2rem;
+      box-shadow: 0 12px 40px rgba(10,37,64,0.06);
+    }
+    .tracks-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--sky-dark); margin-bottom: 1.25rem;
+    }
+    .track-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .track-chip {
+      background: var(--ice); color: var(--navy);
+      border: 1px solid rgba(110,205,232,0.4);
+      padding: 0.55rem 1.1rem; border-radius: 999px;
+      font-size: 0.9rem; font-weight: 600;
+    }
+    .tracks-note { margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-light); line-height: 1.6; }
+
+    /* ---- TERMS (dark) ---- */
+    .terms { background: var(--navy); color: var(--white); position: relative; overflow: hidden; }
+    .terms .section-label { color: var(--sky); }
+    .terms .section-title { color: var(--white); }
+    .terms .section-subtitle { color: rgba(255,255,255,0.7); }
+    .terms-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.75rem; }
+    .terms-card {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 2rem; transition: all 0.3s;
+    }
+    .terms-card:hover { background: rgba(255,255,255,0.1); border-color: var(--sky); }
+    .terms-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 0.85rem; }
+    .terms-card p { font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 0.85rem; }
+    .terms-card p:last-child { margin-bottom: 0; }
+    .terms-card strong { color: var(--white); }
+    .terms-chevrons { position: absolute; right: -40px; bottom: -40px; opacity: 0.04; }
+    .terms-chevrons svg { width: 350px; height: 280px; }
+
+    /* ---- FORM ---- */
+    .submit-section { background: var(--ice); }
+    .submit-header { text-align: center; max-width: 640px; margin: 0 auto 3rem; }
+    .submit-header .section-subtitle { margin: 0 auto; }
+    .form-frame {
+      background: var(--white); border: 1px solid var(--gray-200);
+      border-radius: 18px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(10,37,64,0.1);
+    }
+    .airtable-embed { display: block; width: 100%; height: 1100px; border: none; background: transparent; }
+    .form-fallback { text-align: center; margin-top: 1.75rem; font-size: 0.95rem; color: var(--text-light); }
+
+    /* ---- QUESTIONS ---- */
+    .questions { background: var(--white); }
+    .questions-card {
+      background: var(--offwhite); border: 1px solid var(--gray-200);
+      border-left: 4px solid var(--sky); border-radius: 0 16px 16px 0;
+      padding: 2.5rem 2.75rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1.5rem;
+    }
+    .questions-card h3 { font-size: 1.4rem; font-weight: 800; color: var(--navy); margin-bottom: 0.5rem; }
+    .questions-card p { font-size: 0.95rem; color: var(--text-light); max-width: 560px; }
+
+    /* ---- FOOTER ---- */
+    footer { background: var(--navy); color: rgba(255,255,255,0.6); padding: 4rem 0 2.5rem; }
+    .footer-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      flex-wrap: wrap; gap: 3rem; padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer-brand .nav-logo-top { color: var(--sky); }
+    .footer-brand .nav-logo-bottom { color: var(--white); }
+    .footer-brand p { margin-top: 1rem; font-size: 0.85rem; max-width: 280px; line-height: 1.6; }
+    .footer-links { display: flex; gap: 4rem; }
+    .footer-col h4 {
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--white); margin-bottom: 1rem;
+    }
+    .footer-col a { display: block; font-size: 0.9rem; color: rgba(255,255,255,0.6); margin-bottom: 0.6rem; }
+    .footer-col a:hover { color: var(--sky); }
+    .footer-bottom {
+      padding-top: 2rem; display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem;
+    }
+    .footer-social { display: flex; gap: 1rem; }
+    .footer-social a {
+      display: flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 8px;
+      background: rgba(255,255,255,0.08); transition: background 0.2s;
+    }
+    .footer-social a:hover { background: rgba(255,255,255,0.15); }
+    .footer-social svg { width: 18px; height: 18px; fill: rgba(255,255,255,0.7); }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 900px) {
+      .dates-grid { grid-template-columns: 1fr; }
+      .looking-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .terms-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.4rem; }
+      .section-title { font-size: 1.8rem; }
+      .footer-top { flex-direction: column; }
+      .footer-links { gap: 2rem; }
+      .airtable-embed { height: 1400px; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex; flex-direction: column; position: absolute;
+        top: 72px; left: 0; right: 0; background: var(--white);
+        border-bottom: 1px solid var(--gray-200); padding: 1.5rem 2rem;
+        gap: 1rem; box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      }
+      .mobile-toggle { display: block; }
+      .hero { padding: 8rem 0 4rem; }
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1.05rem; }
+      section { padding: 4rem 0; }
+      .container { padding: 0 1.25rem; }
+      .hero-actions { flex-direction: column; }
+      .btn { width: 100%; justify-content: center; }
+      .questions-card { padding: 2rem 1.5rem; }
+      .airtable-embed { height: 1600px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="https://higherground.institute" class="nav-logo">
+      <span class="nav-logo-top">Higher Ground</span>
+      <span class="nav-logo-bottom">Institute</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#how-it-works">How It Works</a>
+      <a href="#tracks">Categories</a>
+      <a href="#terms">Who Can Apply</a>
+      <a href="https://higherground.institute">Higher Ground Institute</a>
+      <a href="https://airtable.com/appO3tRO9vo1nMX76/pag2fvfiLivj24OA7/form" target="_blank" rel="noopener" class="nav-cta">Submit Your Build</a>
+    </div>
+    <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-label">Higher Ground Institute</div>
+      <h1>The AI for Organizing Prize</h1>
+      <p>There is great AI work happening in progressive orgs and campaigns right now, and most of it never leaves the team that built it. We believe that organizing is a team sport and we learn fastest from each other, so tell us what you made and we will help get it into more hands.</p>
+      <div class="hero-badges">
+        <span class="hero-badge"><strong>$200 to $500</strong> prizes for the best submissions</span>
+        <span class="hero-badge"><strong>Rolling review</strong> submit anytime</span>
+      </div>
+      <div class="hero-actions">
+        <a href="https://airtable.com/appO3tRO9vo1nMX76/pag2fvfiLivj24OA7/form" target="_blank" rel="noopener" class="btn btn-primary">Submit Your Build</a>
+        <a href="#how-it-works" class="btn btn-outline">How It Works</a>
+      </div>
+      <p class="hero-alt">Opens the submission form in a new tab, or <a href="#submit">fill it out on this page</a>.</p>
+    </div>
+  </div>
+  <div class="hero-chevrons">
+    <svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M80 40L200 160L80 280" stroke="#0A2540" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M200 40L320 160L200 280" stroke="#0A2540" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</section>
+
+<!-- HOW IT WORKS / KEY DATES -->
+<section class="dates" id="how-it-works">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">Submit anytime. Reviewed on a rolling basis.</h2>
+      <p class="section-subtitle">Winners are announced in two waves. We keep reading and sharing submissions after those dates too, so a late entry is still worth sending.</p>
+    </div>
+    <div class="dates-grid">
+      <div class="date-card">
+        <div class="date-tag">First Wave</div>
+        <h3>October 6</h3>
+        <p>First round of winners recognized. Submit before this date to be considered in the first wave.</p>
+      </div>
+      <div class="date-card">
+        <div class="date-tag">Second Wave</div>
+        <h3>October 20</h3>
+        <p>Second round of winners recognized. Submissions that come in after the first wave roll into this round.</p>
+      </div>
+      <div class="date-card">
+        <div class="date-tag">Thursday, October 22</div>
+        <h3>Show &amp; Tell</h3>
+        <p>All winners are invited to demo their work at the AI for Organizing Show &amp; Tell.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE ARE LOOKING FOR + CATEGORIES -->
+<section class="looking" id="tracks">
+  <div class="container">
+    <div class="looking-inner">
+      <div>
+        <div class="section-label">What We Are Looking For</div>
+        <h2 class="section-title">Things you built, used, and think others should have</h2>
+        <p class="section-subtitle">It does not have to be polished. If it saved you time or made your work better, it will probably do the same for someone else.</p>
+        <ul class="looking-list">
+          <li><span class="check">&#10003;</span><span><strong>Prompts</strong> that reliably do a job you used to do by hand</span></li>
+          <li><span class="check">&#10003;</span><span><strong>Skills</strong> you can drop into a tool and reuse</span></li>
+          <li><span class="check">&#10003;</span><span><strong>Apps</strong> you built for your team or your program</span></li>
+          <li><span class="check">&#10003;</span><span><strong>Workflows</strong> that string tools together to solve a real problem</span></li>
+        </ul>
+      </div>
+      <div class="tracks-panel">
+        <div class="tracks-label">Categories</div>
+        <div class="track-chips">
+          <span class="track-chip">GEO</span>
+          <span class="track-chip">Volunteer Engagement</span>
+          <span class="track-chip">GOTV</span>
+          <span class="track-chip">Comms</span>
+          <span class="track-chip">Fundraising</span>
+          <span class="track-chip">Other</span>
+        </div>
+        <p class="tracks-note">GEO is generative engine optimization. If your build does not fit neatly into a category, pick Other and tell us what it does.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO CAN APPLY + SHARING -->
+<section class="terms" id="terms">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">The Details</div>
+      <h2 class="section-title">Who can apply, and what sharing means</h2>
+      <p class="section-subtitle">The point of the prize is to get good workflows, skills, and tools into more hands.</p>
+    </div>
+    <div class="terms-grid">
+      <div class="terms-card">
+        <h3>Who can apply</h3>
+        <p>Individuals, and c3 or c4 organizations.</p>
+        <p>Campaigns cannot submit directly, though campaign staff are welcome to submit in a personal capacity.</p>
+      </div>
+      <div class="terms-card">
+        <h3>Sharing your work</h3>
+        <p>By submitting, you agree to share your work openly so others can use and build on it. Materials like prompts and workflows are shared under <strong>Creative Commons Attribution (CC BY 4.0)</strong>, and code like apps and skills under the <strong>MIT License</strong>.</p>
+        <p>You keep ownership and full credit for what you built. If your submission includes third-party code or content, flag it on the form so we can make sure it is cleared to share. HGI may publish any and all submissions for sharing with the community.</p>
+      </div>
+    </div>
+  </div>
+  <div class="terms-chevrons">
+    <svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M80 40L200 160L80 280" stroke="#FFFFFF" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M200 40L320 160L200 280" stroke="#FFFFFF" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</section>
+
+<!-- SUBMISSION FORM -->
+<section class="submit-section" id="submit">
+  <div class="container">
+    <div class="submit-header">
+      <div class="section-label">Submit</div>
+      <h2 class="section-title">Enter the prize</h2>
+      <p class="section-subtitle">Tell us what you built, what problem it solves, and how someone else would use it. It should take about ten minutes.</p>
+    </div>
+    <div class="form-frame">
+      <iframe class="airtable-embed" src="https://airtable.com/embed/appO3tRO9vo1nMX76/pag2fvfiLivj24OA7/form" frameborder="0" onmousewheel="" width="100%" height="1100" title="AI for Organizing Prize submission form" style="background: transparent; border: none;"></iframe>
+    </div>
+    <p class="form-fallback">Form not loading? <a href="https://airtable.com/appO3tRO9vo1nMX76/pag2fvfiLivj24OA7/form" target="_blank" rel="noopener">Open the submission form in a new tab</a>.</p>
+  </div>
+</section>
+
+<!-- QUESTIONS -->
+<section class="questions">
+  <div class="container">
+    <div class="questions-card">
+      <div>
+        <div class="section-label">Questions</div>
+        <h3>Not sure if your build counts?</h3>
+        <p>It probably does. Email Kemi and we will help you figure out how to write it up.</p>
+      </div>
+      <a href="mailto:oluwakemi@cooperativeimpactlab.org?subject=AI%20for%20Organizing%20Prize" class="btn btn-primary">Email Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <span class="nav-logo-top">Higher Ground</span>
+          <span class="nav-logo-bottom">Institute</span>
+        </div>
+        <p>Helping progressive organizations harness emerging technologies to create lasting change.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>The Prize</h4>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#tracks">Categories</a>
+          <a href="#terms">Who Can Apply</a>
+          <a href="#submit">Submit Your Build</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="https://aicampaignstack.org/" target="_blank">AI Campaign Stack</a>
+          <a href="https://aicampaignstack.org/faq" target="_blank">Getting Started FAQ</a>
+          <a href="https://aicampaignstack.org/resources" target="_blank">AI Resource Guide</a>
+          <a href="https://aicampaignstack.org/skills" target="_blank">Progressive AI Skills</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://higherground.institute">Higher Ground Institute</a>
+          <a href="mailto:institute@highergroundlabs.com">Email Us</a>
+          <a href="https://linkedin.com/company/highergroundlabs" target="_blank">LinkedIn</a>
+          <a href="https://medium.com/the-cooperative-impact-lab" target="_blank">Blog</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Higher Ground Institute. A project of <a href="https://highergroundlabs.com" target="_blank" style="color: var(--sky);">Higher Ground Labs</a> &amp; <a href="https://cooperativeimpactlab.org" target="_blank" style="color: var(--sky);">Cooperative Impact Lab</a>.</span>
+      <div class="footer-social">
+        <a href="https://linkedin.com/company/highergroundlabs" target="_blank" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://medium.com/the-cooperative-impact-lab" target="_blank" aria-label="Medium">
+          <svg viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
