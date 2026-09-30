@@ -725,6 +725,15 @@
       .section-title { font-size: 1.8rem; }
       .footer-top { flex-direction: column; }
       .footer-links { gap: 2rem; }
+      /* collapse the nav to the menu button before the links wrap */
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex; flex-direction: column; position: absolute;
+        top: 72px; left: 0; right: 0; background: var(--white);
+        border-bottom: 1px solid var(--gray-200); padding: 1.5rem 2rem;
+        gap: 1rem; box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      }
+      .mobile-toggle { display: block; }
     }
 
     @media (max-width: 640px) {
@@ -768,6 +777,7 @@
       <a href="#stack">AI Campaign Stack</a>
       <a href="#programs">Programs</a>
       <a href="#resources">Resources</a>
+      <a href="/aiorganizingprize/">AI for Organizing Prize</a>
       <a href="https://medium.com/the-cooperative-impact-lab" target="_blank">Blog</a>
       <a href="https://www.cooperativeimpactlab.org/contact-hgi" target="_blank" class="nav-cta">Get in Touch</a>
     </div>
