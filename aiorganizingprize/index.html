@@ -241,6 +241,33 @@
     .date-card h3 { font-size: 1.5rem; font-weight: 800; color: var(--navy); margin-bottom: 0.5rem; }
     .date-card p { font-size: 0.95rem; color: var(--text-light); line-height: 1.65; }
 
+    /* ---- WINNERS ---- */
+    .winners { background: var(--white); }
+    .winners-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.75rem; }
+    .winner-card {
+      background: var(--offwhite); border: 1px solid var(--gray-200);
+      border-top: 4px solid var(--sky); border-radius: 16px;
+      padding: 2rem 2.25rem; display: flex; flex-direction: column;
+      transition: all 0.3s;
+    }
+    .winner-card:hover { border-color: var(--sky); box-shadow: 0 8px 30px rgba(110,205,232,0.12); }
+    .winner-track {
+      display: inline-block; align-self: flex-start;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; background: var(--ice); color: var(--sky-dark);
+      padding: 0.3rem 0.75rem; border-radius: 6px; margin-bottom: 1rem;
+    }
+    .winner-card h3 { font-size: 1.25rem; font-weight: 800; color: var(--navy); line-height: 1.3; margin-bottom: 0.35rem; }
+    .winner-by { font-size: 0.9rem; font-weight: 600; color: var(--sky-dark); margin-bottom: 0.9rem; }
+    .winner-card p { font-size: 0.95rem; color: var(--text-light); line-height: 1.7; margin-bottom: 1.25rem; }
+    .winner-link {
+      margin-top: auto; align-self: flex-start;
+      font-size: 0.9rem; font-weight: 600; color: var(--navy);
+      border-bottom: 2px solid var(--sky); padding-bottom: 2px;
+    }
+    .winner-link:hover { color: var(--sky-dark); border-color: var(--sky-dark); }
+    .winners-note { margin-top: 2.5rem; font-size: 0.95rem; color: var(--text-light); }
+
     /* ---- LOOKING FOR ---- */
     .looking { background: var(--offwhite); }
     .looking-inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3.5rem; align-items: start; }
@@ -346,6 +373,7 @@
     /* ---- RESPONSIVE ---- */
     @media (max-width: 900px) {
       .dates-grid { grid-template-columns: 1fr; }
+      .winners-grid { grid-template-columns: 1fr; }
       .looking-inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .terms-grid { grid-template-columns: 1fr; }
       .hero h1 { font-size: 2.4rem; }
@@ -395,6 +423,7 @@
       <span class="nav-logo-bottom">Institute</span>
     </a>
     <div class="nav-links" id="navLinks">
+      <a href="#winners">Winners</a>
       <a href="#how-it-works">How It Works</a>
       <a href="#tracks">Categories</a>
       <a href="#terms">Who Can Apply</a>
@@ -433,6 +462,60 @@
   </div>
 </section>
 
+<!-- WINNERS -->
+<section class="winners" id="winners">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">First Wave Winners</div>
+      <h2 class="section-title">Meet the first AI for Organizing Prize winners</h2>
+      <p class="section-subtitle">Five builds from across the ecosystem, each solving a problem the person who built it actually had. Take them, use them, make them yours.</p>
+    </div>
+    <div class="winners-grid">
+
+      <div class="winner-card">
+        <span class="winner-track">Other</span>
+        <h3>Backup-first guardrails for Claude Code</h3>
+        <div class="winner-by">Jordan Krueger, CampaignHelp</div>
+        <p>A safety kit for organizers building their own tools with Claude Code: house rules for the agent, example settings, and a backup checklist so a mistake is something you can undo. Written for people who are not security engineers.</p>
+        <a class="winner-link" href="https://github.com/jordankrueger/backup-first-ai" target="_blank" rel="noopener">See the kit &rarr;</a>
+      </div>
+
+      <div class="winner-card">
+        <span class="winner-track">Comms</span>
+        <h3>Comms responder library and assistant</h3>
+        <div class="winner-by">Lincoln Quirk</div>
+        <p>Turns a campaign's already-approved answers, from forums, debates, questionnaires and past replies, into a searchable library, plus prompts for a draft-edit-approve flow so staff can answer inbound questions in the candidate's voice without going off script.</p>
+        <a class="winner-link" href="https://github.com/lincolnq/comms-responder-library" target="_blank" rel="noopener">See the prompts &rarr;</a>
+      </div>
+
+      <div class="winner-card">
+        <span class="winner-track">Volunteer Engagement</span>
+        <h3>THE INVITATION: A campaign caper for the campaign-curious</h3>
+        <div class="winner-by">Karen Jackie, tinker.media</div>
+        <p>A short browser game that walks someone through their first campaign, from first shift to Election Night, with an AI mentor that explains the jargon along the way. Built for people who are curious about volunteering and a little intimidated by it. No login, just play it.</p>
+        <a class="winner-link" href="https://first-shift.kj-unltd.chatgpt.site/" target="_blank" rel="noopener">Play it &rarr;</a>
+      </div>
+
+      <div class="winner-card">
+        <span class="winner-track">Other</span>
+        <h3>Reading New York's Highest Court</h3>
+        <div class="winner-by">Oded Oren, Scrutinize</div>
+        <p>An AI pipeline that reads roughly 1,700 New York Court of Appeals decisions and turns them into a plain-English, judge-by-judge record that voters, advocates and reporters can actually use. Every result has to survive repeated runs, quoted sourcing and an audit pass, or it gets published as "unable to determine" instead of a guess.</p>
+        <a class="winner-link" href="https://www.scrutinize.org" target="_blank" rel="noopener">See the platform &rarr;</a>
+      </div>
+
+      <div class="winner-card">
+        <span class="winner-track">Fundraising</span>
+        <h3>FEC giving breakdown</h3>
+        <div class="winner-by">Lara Teich, States Win</div>
+        <p>A Claude skill that takes an FEC contribution export for a prospective donor and summarizes decades of giving into two-year cycles, with a read on how their giving maps to state-level work. Meeting prep in a couple of minutes instead of an afternoon.</p>
+      </div>
+
+    </div>
+    <p class="winners-note">Second wave winners are being announced now, and submissions are still open. <a href="#submit">Send us what you built.</a></p>
+  </div>
+</section>
+
 <!-- HOW IT WORKS / KEY DATES -->
 <section class="dates" id="how-it-works">
   <div class="container">
@@ -445,7 +528,7 @@
       <div class="date-card">
         <div class="date-tag">First Wave</div>
         <h3>October 6</h3>
-        <p>First round of winners recognized. Submit before this date to be considered in the first wave.</p>
+        <p>First round of winners announced. <a href="#winners">See the first wave winners.</a></p>
       </div>
       <div class="date-card">
         <div class="date-tag">Second Wave</div>
@@ -564,6 +647,7 @@
       <div class="footer-links">
         <div class="footer-col">
           <h4>The Prize</h4>
+          <a href="#winners">Winners</a>
           <a href="#how-it-works">How It Works</a>
           <a href="#tracks">Categories</a>
           <a href="#terms">Who Can Apply</a>
