@@ -94,6 +94,9 @@ td li{margin-bottom:3px}
   .stack tbody tr:nth-child(even){background:var(--zebra)}
 }
 .note{font-size:14.5px;color:var(--muted);margin-top:12px;max-width:80ch}
+.draftnote{background:var(--surface);border:2px solid var(--electric);border-left-width:8px;padding:16px 20px;margin:28px 0 -28px;font-size:16px;line-height:1.55}
+.draftnote b{display:block;font-family:"Nunito",system-ui,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.16em;font-size:12.5px;color:var(--accent-text);margin-bottom:6px}
+.draftnote p{margin:0}
 
 /* surprises */
 .surprise{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 44px;list-style:none;margin:0;padding:0}
@@ -182,6 +185,12 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14.5px}
 </nav>
 
 <main>
+<div class="wrap">
+  <div class="draftnote" role="note">
+    <b>A note on this draft</b>
+    <p>This is a working draft, and funders and organizations aren’t monoliths: every placement here is a judgment call made from public grants, open calls and filings. If we have something wrong, or you think an assertion here is incorrect, please let us know. We look forward to feedback on what we’re getting wrong.</p>
+  </div>
+</div>
 <section>
   <div class="wrap">
     <h2>Why a second guide</h2>
@@ -192,7 +201,6 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14.5px}
       <div><h3>Which way they push</h3><p>Slow it down, steer it, or speed it up.</p></div>
       <div><h3>How to spot them</h3><p>Vocabulary gives them away. The decoder below sorts it by camp.</p></div>
     </div>
-    <p class="note"><strong>A note on this draft.</strong> This is a working draft, and funders and organizations aren’t monoliths: every placement here is a judgment call made from public grants, open calls and filings. If we have something wrong, or you think an assertion here is incorrect, please let us know. We look forward to feedback on what we’re getting wrong.</p>
   </div>
 </section>
 
