@@ -1,29 +1,956 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Political Field Guide</title>
-  <meta name="robots" content="noindex">
-  <!-- Redirect: the AI Political Field Guide lives at its own domain. -->
-  <meta http-equiv="refresh" content="0; url=https://aipoliticalfieldguide.org">
-  <link rel="canonical" href="https://aipoliticalfieldguide.org">
-  <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; background: #F7F9FB; color: #1A2B3D; display: flex; min-height: 100vh; align-items: center; justify-content: center; margin: 0; text-align: center; padding: 2rem; }
-    .box { max-width: 460px; }
-    h1 { font-size: 1.4rem; color: #0A2540; margin-bottom: 0.75rem; }
-    p { color: #4A5B6E; line-height: 1.6; }
-    a.btn { display: inline-block; margin-top: 1.25rem; background: #0A2540; color: #fff; text-decoration: none; padding: 0.85rem 1.75rem; border-radius: 10px; font-weight: 600; }
-  </style>
-  <script>
-    window.location.replace("https://aipoliticalfieldguide.org");
-  </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI Political Field Guide</title>
+<meta name="description" content="A field guide to the six factions shaping AI politics: what they believe, who funds them, where they split, and what their money did in the 2026 midterms. From Higher Ground Institute.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://higherground.institute/fieldguide/">
+<meta property="og:url" content="https://higherground.institute/fieldguide/">
+<meta property="og:title" content="The AI Factions: A Political Field Guide">
+<meta property="og:description" content="Six factions shaping AI politics: their beliefs, money, policy positions and schisms, updated with 2026 midterm results. From Higher Ground Institute.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap" rel="stylesheet">
+<style>
+/* Layout: HGI field guide system (shared with the Philanthropy Field Guide). Deep-blue hatched hero, sticky jump nav, full-width sections with zebra tables; faction colors carry identity throughout. */
+:root{
+  --deep:#002E4A; --electric:#55C5E5; --accent-text:#0A7FA3;
+  --bg:#F9F9F9; --surface:#FFFFFF; --text:#002E4A; --muted:#334A52; --rule:#D3E1E8; --zebra:#F0F6F9;
+  --hero-text:#FFFFFF; --hero-lede:#D6EEF6; --hero-by:#A9D8E8; --on-fill:#FFFFFF;
+  --f-tech:#7C4DB0; --f-safety:#A86E10; --f-ethics:#B4235A; --f-pop:#2E7D5B; --f-maga:#B5471B; --f-prag:#5C6B78;
+  --bar-ind:#7C4DB0; --bar-safe:#A86E10; --bar-pop:#14875A;
+  --focus:#0B7FA3;
+  --display:"Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --label:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light; box-sizing:border-box;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#06192A; --surface:#0C2437; --text:#E6F1F6; --muted:#9DB4C2; --rule:#1E3A50; --zebra:#0F2A40; --accent-text:#55C5E5;
+    --on-fill:#06192A;
+    --f-tech:#C29BEF; --f-safety:#E5B65A; --f-ethics:#F07AA6; --f-pop:#6CCB9E; --f-maga:#F09469; --f-prag:#A9B6C1;
+    --bar-ind:#A47FDB; --bar-safe:#B5821F; --bar-pop:#3FA97A;
+    --focus:#55C5E5; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#06192A; --surface:#0C2437; --text:#E6F1F6; --muted:#9DB4C2; --rule:#1E3A50; --zebra:#0F2A40; --accent-text:#55C5E5;
+  --on-fill:#06192A;
+  --f-tech:#C29BEF; --f-safety:#E5B65A; --f-ethics:#F07AA6; --f-pop:#6CCB9E; --f-maga:#F09469; --f-prag:#A9B6C1;
+  --bar-ind:#A47FDB; --bar-safe:#B5821F; --bar-pop:#3FA97A;
+  --focus:#55C5E5; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--display);font-size:17px;line-height:1.6}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;line-height:1.15;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit;text-decoration-color:var(--electric);text-underline-offset:3px;text-decoration-thickness:2px}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:4px}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:700px){.wrap{padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}}
+.num{font-variant-numeric:tabular-nums}
+
+/* hero */
+.hero{background:var(--deep);color:var(--hero-text);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(-55deg,transparent 0 22px,rgba(85,197,229,.13) 22px 24px);pointer-events:none}
+.hero .wrap{position:relative;padding-block:52px}
+.status{display:inline-block;font-family:var(--label);font-weight:800;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--deep);background:var(--electric);border-radius:3px;padding:4px 10px;margin-bottom:20px}
+.hero h1{font-size:clamp(38px,6.2vw,72px);font-weight:700;letter-spacing:-.01em;max-width:15ch}
+.hero .lede{font-size:clamp(18px,2.1vw,22px);max-width:60ch;margin-top:20px;color:var(--hero-lede)}
+.hero .byline{margin-top:24px;font-size:15px;color:var(--hero-by)}
+.legend-row{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:28px}
+.legend-row span{font-family:var(--label);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:3px;background:rgba(255,255,255,.08);color:#fff;border-left:5px solid var(--cc)}
+
+/* sticky nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+nav.jump{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--rule)}
+nav.jump .wrap{display:flex;gap:6px 22px;flex-wrap:wrap;padding-block:12px;font-weight:700;font-size:15px}
+nav.jump a{text-decoration:none;color:var(--muted)}
+nav.jump a:hover{color:var(--text)}
+@media (max-width:720px){nav.jump .wrap{flex-wrap:nowrap;overflow-x:auto;white-space:nowrap;scrollbar-width:none}nav.jump .wrap::-webkit-scrollbar{display:none}}
+
+/* sections */
+section{padding-block:60px;border-bottom:1px solid var(--rule)}
+section h2{font-size:clamp(28px,3.6vw,40px);margin-bottom:12px}
+.eyebrow{display:block;font-family:var(--label);font-weight:800;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-text);margin-bottom:10px}
+.intro{color:var(--muted);max-width:68ch;margin-bottom:28px}
+h3.sub{font-size:22px;margin:44px 0 8px}
+.note{font-size:14.5px;color:var(--muted);margin-top:12px;max-width:80ch}
+.small{font-size:14.5px;color:var(--muted)}
+
+.notice{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--electric);padding:16px 20px;font-size:15.5px;color:var(--muted);max-width:90ch}
+.notice strong{color:var(--text)}
+
+/* stat tiles */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin:8px 0 40px}
+@media (max-width:900px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:460px){.stats{grid-template-columns:1fr}}
+.stat{border-top:4px solid var(--electric);padding-top:12px;min-width:0}
+.stat b{display:block;font-family:var(--label);font-weight:900;font-size:clamp(34px,4.4vw,48px);line-height:1;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.stat p{margin-top:8px;font-size:15px;color:var(--muted)}
+a.src{font-size:13.5px;color:var(--accent-text);white-space:nowrap}
+td a,.surprise a,.path a,.two a,.bridgebox a,.note a,.intro a{text-decoration-color:var(--electric)}
+.bridgebox a{color:#fff}
+
+/* findings grid */
+.surprise{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 44px;list-style:none;margin:0;padding:0}
+@media (max-width:760px){.surprise{grid-template-columns:1fr}}
+.surprise li{min-width:0}
+.surprise h3{font-size:20px;margin-bottom:6px;padding-left:14px;border-left:4px solid var(--electric)}
+.surprise p + p{margin-top:8px}
+
+/* tables */
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15.5px;line-height:1.5}
+th{font-family:var(--label);font-weight:800;text-transform:uppercase;letter-spacing:.14em;text-align:left;font-size:12.5px;background:var(--deep);color:#fff;padding:12px 14px;vertical-align:bottom}
+td{padding:14px;border-top:1px solid var(--rule);vertical-align:top}
+tbody tr:nth-child(even) td{background:var(--zebra)}
+tr.group td{background:var(--bg)!important;font-family:var(--label);font-weight:800;text-transform:uppercase;letter-spacing:.14em;font-size:12.5px;color:var(--accent-text);padding-block:10px}
+td.name{min-width:170px}
+td.name strong{display:block;font-weight:700;font-size:19px;line-height:1.2;color:var(--cc)}
+td.name span{display:block;font-size:13.5px;color:var(--muted);margin-top:4px}
+td.name::before{content:"";display:block;width:28px;height:5px;background:var(--cc);margin-bottom:8px}
+td.name .tells{font-style:italic}
+td ul{margin:0;padding-left:18px}
+td li{margin-bottom:3px}
+.term{font-weight:700;font-size:17px;min-width:150px}
+.factions td:nth-child(2){min-width:220px}
+.factions td:nth-child(3){min-width:240px}
+.factions td:nth-child(4){min-width:260px}
+.decoder td:nth-child(2){min-width:260px}
+.decoder td:nth-child(3),.decoder td:nth-child(4){min-width:170px}
+.decoder td:nth-child(5){min-width:200px}
+.ledger td:nth-child(1){min-width:180px;font-weight:700}
+.ledger td:nth-child(3){min-width:200px}
+.ledger td:nth-child(4){min-width:200px}
+.ledger td:nth-child(5){min-width:280px}
+.races td:nth-child(1){min-width:120px;font-weight:700}
+.races td:nth-child(2){min-width:280px}
+.races td:nth-child(3){min-width:200px}
+.races td:nth-child(4){min-width:170px}
+.compare th:first-child,.compare td:first-child{font-weight:700}
+.compare td{min-width:180px}
+.tag{display:inline-block;font-size:13px;font-weight:700;padding:2px 9px;border-radius:999px;border:1.5px solid var(--cc);color:var(--cc);margin:0 4px 4px 0;white-space:nowrap}
+.tag.fill{background:var(--cc);color:var(--on-fill)}
+@media (max-width:720px){
+  .stack table,.stack tbody,.stack tr,.stack td{display:block;width:100%}
+  .stack thead{position:absolute;left:-9999px}
+  .stack tr{border-top:1px solid var(--rule);padding:6px 0}
+  .stack td{border:0;padding:6px 14px;min-width:0!important;background:transparent!important}
+  .stack td[data-l]::before{content:attr(data-l);display:block;font-family:var(--label);font-weight:800;text-transform:uppercase;letter-spacing:.14em;font-size:11.5px;color:var(--muted);margin-bottom:2px}
+  .stack tbody tr:nth-child(even){background:var(--zebra)}
+  .stack tr.group{padding:0}
+}
+
+/* schisms grid table */
+.schism{min-width:1100px}
+.schism th{position:relative}
+.schism th.fh{border-bottom:5px solid var(--cc)}
+.schism td:first-child,.schism th:first-child{position:sticky;left:0;z-index:1;min-width:170px;max-width:190px}
+.schism td:first-child{background:var(--surface);font-weight:700}
+.schism tbody tr:nth-child(even) td:first-child{background:var(--zebra)}
+.schism th:first-child{background:var(--deep)}
+.scroll-hint{font-size:13.5px;color:var(--muted);margin-bottom:8px}
+
+/* chart */
+.chart{background:var(--surface);border:1px solid var(--rule);padding:22px 22px 16px}
+.chart h3{font-size:19px;margin-bottom:4px}
+.chart .key{display:flex;gap:6px 18px;flex-wrap:wrap;font-size:14px;color:var(--muted);margin:6px 0 16px}
+.chart .key i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.bars{display:grid;grid-template-columns:minmax(120px,190px) minmax(0,1fr);gap:6px 14px;align-items:center;margin:0;padding:0;list-style:none}
+.bars li{display:contents}
+.bars .lab{font-size:14.5px;line-height:1.25;text-align:right}
+.bars .track{position:relative;height:22px;display:flex;align-items:center;gap:8px}
+.bars .bar{height:16px;border-radius:0 4px 4px 0;background:var(--c);min-width:2px;flex:none}
+.bars .val{font-size:14px;color:var(--text);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bars li:hover .bar,.bars li:focus-within .bar{filter:brightness(1.12)}
+.chart .foot{font-size:13.5px;color:var(--muted);margin-top:14px}
+@media (max-width:520px){.bars{grid-template-columns:minmax(96px,120px) minmax(0,1fr)}.bars .lab{font-size:13px}}
+
+/* card columns */
+.paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:900px){.paths{grid-template-columns:1fr}}
+.paths.four{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:760px){.paths.four{grid-template-columns:1fr}}
+.path{background:var(--surface);border:1px solid var(--rule);border-top:5px solid var(--cc,var(--electric));padding:22px;min-width:0}
+.path h3{font-size:21px;margin-bottom:8px}
+.path .kicker{display:block;font-family:var(--label);font-weight:800;text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:var(--cc,var(--accent-text));margin-bottom:6px}
+.path p{font-size:16px}
+.path p + p{margin-top:10px}
+.path ul{margin:8px 0 0;padding-left:20px;font-size:16px}
+.path li{margin-bottom:6px}
+blockquote{margin:12px 0;padding:0 0 0 14px;border-left:4px solid var(--electric);font-size:16px}
+blockquote cite{display:block;font-style:normal;font-size:14px;color:var(--muted);margin-top:4px}
+
+.bridgebox{margin-top:26px;padding:20px 22px;background:var(--deep);color:#fff;position:relative;overflow:hidden}
+.bridgebox::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(-55deg,transparent 0 22px,rgba(85,197,229,.12) 22px 24px)}
+.bridgebox *{position:relative}
+.bridgebox h3{font-size:20px;margin-bottom:6px;color:var(--electric)}
+.bridgebox p{max-width:80ch;color:#E3F3F9}
+.bridgebox p + p{margin-top:10px}
+
+.sameword{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:26px}
+@media (max-width:860px){.sameword{grid-template-columns:1fr}}
+.sameword div{background:var(--surface);border:2px solid var(--electric);padding:18px 20px;min-width:0}
+.sameword h3{font-size:20px;margin-bottom:8px}
+.sameword p{font-size:16px}
+
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+.two h3{font-size:21px;margin-bottom:8px}
+.two p + p{margin-top:10px}
+
+.redlines{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin:8px 0 34px}
+@media (max-width:860px){.redlines{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:460px){.redlines{grid-template-columns:1fr}}
+.redlines div{border-top:4px solid var(--f-pop);padding-top:12px}
+.redlines h3{font-size:18px;margin-bottom:4px}
+.redlines p{font-size:15.5px;color:var(--muted)}
+
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:34px 48px}
+@media (max-width:820px){.cols{grid-template-columns:1fr}}
+.cols h3{font-size:19px;margin-bottom:8px}
+.cols ul{padding-left:20px;margin:0}
+.cols li{margin-bottom:7px;font-size:16px}
+.cols p{font-size:16px}
+details.log{margin-top:34px;background:var(--surface);border:1px solid var(--rule);padding:14px 20px}
+details.log summary{cursor:pointer;font-weight:700}
+details.log h4{font-size:16px;margin:16px 0 4px}
+details.log p{font-size:15.5px;color:var(--muted)}
+.sources{font-size:15px;color:var(--muted);columns:2 320px;column-gap:40px;padding-left:18px;margin:0}
+.sources li{margin-bottom:6px;break-inside:avoid}
+.srchead{font-size:17px;margin:28px 0 10px}
+.srchead:first-of-type{margin-top:0}
+footer{padding-block:32px 48px;color:var(--muted);font-size:14.5px}
+
+.f-tech{--cc:var(--f-tech)}.f-safety{--cc:var(--f-safety)}.f-ethics{--cc:var(--f-ethics)}
+.f-pop{--cc:var(--f-pop)}.f-maga{--cc:var(--f-maga)}.f-prag{--cc:var(--f-prag)}
+.s-ind{--cc:var(--f-tech)}.s-safe{--cc:var(--f-safety)}.s-pop{--cc:var(--f-pop)}
+</style>
 </head>
 <body>
-  <div class="box">
-    <h1>The AI Political Field Guide has its own home</h1>
-    <p>You should be redirected automatically to aipoliticalfieldguide.org.</p>
-    <a class="btn" href="https://aipoliticalfieldguide.org">Go to the AI Political Field Guide</a>
+<header class="hero">
+  <div class="wrap">
+    <span class="status">Updated Nov 6, 2026 · Post-election</span>
+    <h1>The AI factions: a political field guide</h1>
+    <p class="lede">Six factions are shaping AI policy and politics. This guide maps what each believes, who funds it, where it stands on the big fights, and where it splits. This edition adds what each faction's money bought in the 2026 midterms.</p>
+    <p class="byline"><a href="https://www.linkedin.com/in/katebgage/">Kate Gage</a>, Executive Director, Higher Ground Institute · kate@higherground.institute</p>
+    <div class="legend-row" aria-label="The six factions">
+      <span class="f-tech">Tech Right</span><span class="f-safety">AI Safety</span><span class="f-ethics">AI Ethics</span><span class="f-pop">AI Populists</span><span class="f-maga">MAGA Populists</span><span class="f-prag">Pragmatists</span>
+    </div>
   </div>
+</header>
+
+<nav class="jump" aria-label="Sections">
+  <div class="wrap">
+    <a href="#results">2026 results</a>
+    <a href="#factions">Six factions</a>
+    <a href="#populists">AI Populists</a>
+    <a href="#decoder">Decoder</a>
+    <a href="#money">Money</a>
+    <a href="#ledger">Ledger</a>
+    <a href="#faultlines">Fault lines</a>
+    <a href="#scramblers">Scramblers</a>
+    <a href="#method">Method</a>
+    <a href="#sources">Sources</a>
+  </div>
+</nav>
+
+<main>
+<section>
+  <div class="wrap">
+    <p class="notice"><strong>A note on content.</strong> Individual and organizational relationships, policy positions and issue priorities shift quickly as technology, current events and policy change. This guide is updated regularly to track those changes. Please send edits, suggestions and corrections.</p>
+  </div>
+</section>
+
+<section id="results">
+  <div class="wrap">
+    <span class="eyebrow">New this edition</span>
+    <h2>What each faction's money bought in 2026</h2>
+    <p class="intro">Election Day was the first general-election test for AI political money. Three factions spent real money: the Tech Right, AI Safety and the AI Populists. Spending figures are FEC independent expenditures from the <a href="https://elections.transformernews.ai/">Transformer AI Campaign Finance Tracker</a> as of Nov 6. Results are from AP calls and reporting through Nov 6. A few races are still uncalled, and post-general FEC reports are due Dec 3.</p>
+
+    <div class="stats">
+      <div class="stat"><b>$72.3M</b><p>spent by AI-focused super PACs: $27.9M from the Tech Right and $44.4M from AI Safety and AI Populist PACs. <a class="src" href="https://elections.transformernews.ai/">Transformer tracker</a></p></div>
+      <div class="stat"><b>11 for 11</b><p>AI Populist targets who lost: all 6 of Tomorrow Together's and all 5 of Guardrails Alliance's. <a class="src" href="https://www.yahoo.com/news/politics/articles/ai-doomers-won-2026-100000274.html">Politico</a></p></div>
+      <div class="stat"><b>40 of 41</b><p>local data center ballot measures that went against the industry, across 10 states. <a class="src" href="https://thenextweb.com/news/ai-super-pacs-midterms-results-leading-the-future">The Next Web</a>, <a class="src" href="https://www.route-fifty.com/artificial-intelligence/2026/11/voters-reject-data-centers-local-ballot-initiatives/417033/">Route Fifty</a></p></div>
+      <div class="stat"><b>56%</b><p>of voters said AI and data centers were a crucial or major factor in their vote (NBC exit poll). <a class="src" href="https://www.yahoo.com/news/politics/articles/ai-doomers-won-2026-100000274.html">Politico</a></p></div>
+    </div>
+
+    <h3 class="sub" style="margin-top:0">Who was spending</h3>
+    <p class="intro">The tracker sorts PACs as "pro-innovation" or "pro-safety." Those labels hide the factions. Here is who is behind each side and what they believe.</p>
+    <div class="paths">
+      <div class="path f-tech">
+        <span class="kicker">Tech Right · "pro-innovation"</span>
+        <h3>Leading the Future network</h3>
+        <p><strong>Who:</strong> venture capital and OpenAI money. Marc Andreessen and Ben Horowitz of a16z ($25M each) and OpenAI president Greg Brockman and Anna Brockman ($25M). <a href="https://elections.transformernews.ai/pacs/C00916114">FEC via Transformer</a></p>
+        <p><strong>Believes:</strong> AI means abundance; regulation entrenches incumbents and helps China; one federal law should preempt the states.</p>
+        <p><strong>Vehicles:</strong> Think Big (Democrats), American Mission (Republicans), Building the Future. Allied conservative group: Alliance for a Better Future.</p>
+        <p><strong>Record:</strong> lost every competitive general-election race it entered.</p>
+      </div>
+      <div class="path f-safety">
+        <span class="kicker">AI Safety · "pro-safety"</span>
+        <h3>Public First network</h3>
+        <p><strong>Who:</strong> frontier-lab money from the safety side. Anthropic gave $40M to the Public First Action nonprofit; CEO Dario Amodei and Anthropic researchers gave to its PACs. <a href="https://www.yahoo.com/news/politics/articles/ai-doomers-won-2026-100000274.html">Politico</a>, <a href="https://elections.transformernews.ai/pacs/C00930503">FEC via Transformer</a></p>
+        <p><strong>Believes:</strong> advanced AI could be catastrophic, so frontier labs need binding rules now, and both parties have to own the issue.</p>
+        <p><strong>Vehicles:</strong> Jobs and Democracy (Democrats), Defending Our Values (Republicans). Allies: You Can Push Back (Ripple co-founder Chris Larsen) and Dream NYC (Anthropic, OpenAI and Jane Street staff).</p>
+        <p><strong>Record:</strong> its Democrats won; its Republicans mostly lost.</p>
+      </div>
+      <div class="path f-pop">
+        <span class="kicker">AI Populists · "pro-safety"</span>
+        <h3>The punish lane</h3>
+        <p><strong>Who:</strong> tech workers, teachers' unions and Democratic party donors. Guardrails Alliance draws on AI-industry employees, AFT and AAUP; Tomorrow Together is led by Harris 2024 alum Rob Flaherty and Karthik Ganapathy. <a href="https://elections.transformernews.ai/pacs/C00949487">FEC via Transformer</a></p>
+        <p><strong>Believes:</strong> the problem is who controls AI, not the technology. Make AI-industry money toxic and make Democrats the party that stands up to it.</p>
+        <p><strong>Vehicles:</strong> Guardrails Alliance, Tomorrow Together. Who Decides organizes but doesn't spend on candidates.</p>
+        <p><strong>Record:</strong> 11 for 11 against the candidates it targeted.</p>
+      </div>
+    </div>
+    <p class="note">The other three factions had no PAC money in play. AI Ethics has influence but no political spending. MAGA Populists showed up as the voters who turned on data centers, and as Republican candidates both safety and industry PACs courted. Pragmatists shape bill text, not campaigns.</p>
+
+    <h3 class="sub">What happened</h3>
+    <ul class="surprise">
+      <li>
+        <h3>The Tech Right's money lost its competitive bets</h3>
+        <p>The a16z- and Brockman-funded Leading the Future network picked three competitive general-election races and lost all three: Darline Graham in the South Carolina Senate race, Aaron Flint in MT-1 and Laurie Buckhout in NC-1 (<a href="https://techcrunch.com/2026/11/04/ai-pacs-spent-millions-trying-to-shape-congress-heres-how-they-fared/">TechCrunch</a>). Its wins came in safe seats, plus Jared Moskowitz in FL-25. It ends the cycle with more than $20M unspent and says it is playing for 2028 (<a href="https://thenextweb.com/news/ai-super-pacs-midterms-results-leading-the-future">The Next Web</a>).</p>
+      </li>
+      <li>
+        <h3>AI Safety money split by party</h3>
+        <p>The Anthropic-funded Public First network ran a transpartisan play: Democrats through Jobs and Democracy, Republicans through Defending Our Values. Its Democrats won: Manny Rutinel (CO-8), Brian Poindexter (OH-7), Bob Brooks (PA-7) and Scott Wiener (CA-11). Its Republicans mostly lost: Carlos De La Cruz (TX-35), Rhett Marques (AL-2), Scott Singer (FL-25) and Alex Mealer (TX-9) (<a href="https://fortune.com/2026/11/04/candidates-backed-by-ai-super-pacs-result/">Fortune</a>, <a href="https://www.yahoo.com/news/politics/articles/where-ai-money-worked-midterms-212048860.html">Semafor</a>). Pete Ricketts in Nebraska was the exception. The safety faction's bet on Republicans who share MAGA Populist worries about Big Tech did not pay off this year.</p>
+      </li>
+      <li>
+        <h3>The AI Populists ran the table</h3>
+        <p>All six of Tomorrow Together's targets lost: Husted, Marshall, Ciscomani, Barrett, Van Orden and Bresnahan (<a href="https://www.yahoo.com/news/politics/articles/ai-doomers-won-2026-100000274.html">Politico</a>, <a href="https://www.cbsnews.com/news/house-districts-flipped-2026-midterm-elections/">CBS</a>). All five of Guardrails Alliance's general-election targets lost: Husted, Flint, Jay Feely (AZ-1), Buckhout and Jimmy Gomez, a Democrat, in CA-34 (<a href="https://elections.transformernews.ai/pacs/C00949487">Transformer</a>, <a href="https://www.yahoo.com/news/politics/articles/where-ai-money-worked-midterms-212048860.html">Semafor</a>).</p>
+        <p>Read this with care. Most targets were Republicans in a wave year, with Democrats flipping more than 40 House seats (<a href="https://www.cbsnews.com/news/house-districts-flipped-2026-midterm-elections/">CBS</a>), so the money and the wave are hard to separate.</p>
+      </li>
+      <li>
+        <h3>Data centers: the populist horseshoe won at the ballot box</h3>
+        <p>Voters went against data centers in 40 of 41 local measures across 10 states, with almost 20 in Ohio. Harwood, North Dakota was the one industry win (<a href="https://www.route-fifty.com/artificial-intelligence/2026/11/voters-reject-data-centers-local-ballot-initiatives/417033/">Route Fifty</a>). This is the fight where AI Populists and MAGA Populists line up against the Tech Right. In South Carolina, Annie Andrews beat the candidate she called "Data Center Darline" (<a href="https://www.yahoo.com/news/politics/articles/where-ai-money-worked-midterms-212048860.html">Semafor</a>), after the Tech Right's network put $3.2M behind Graham on FEC record (<a href="https://elections.transformernews.ai/">Transformer</a>) and $4.8M by press reports (<a href="https://techcrunch.com/2026/11/04/ai-pacs-spent-millions-trying-to-shape-congress-heres-how-they-fared/">TechCrunch</a>).</p>
+      </li>
+      <li>
+        <h3>The Tech Right's Senate allies lost too</h3>
+        <p>Alliance for a Better Future, a pro-AI group backing Republicans, spent for Susan Collins in Maine ($810K), Mike Rogers in Michigan (about $1M) and Ashley Hinson in Iowa ($171K). All three lost (<a href="https://www.citationneeded.news/2026-election-results/">Citation Needed</a>, <a href="https://gizmodo.com/ai-and-cryptos-election-spending-spree-backfired-spectacularly-2000834750">Gizmodo</a>).</p>
+      </li>
+      <li>
+        <h3>Every faction says it's staying</h3>
+        <p>Tech Right, via LTF: "We are committed to a multi-cycle effort and 2028 will show who actually cares." AI Safety, via Public First's Brad Carson: "We showed our might." (<a href="https://www.yahoo.com/news/politics/articles/ai-doomers-won-2026-100000274.html">Politico</a>) AI Populists, via Guardrails: "Our goal is to make AI money politically toxic." (<a href="https://techcrunch.com/2026/11/04/ai-pacs-spent-millions-trying-to-shape-congress-heres-how-they-fared/">TechCrunch</a>) The fight now moves to 2028 positioning, where Who Decides and Tomorrow Together were already aimed.</p>
+      </li>
+    </ul>
+
+    <h3 class="sub">Race by race</h3>
+    <p class="intro">Every race with significant AI money and a result. Dollar figures link to FEC data on the <a href="https://elections.transformernews.ai/">Transformer tracker</a> unless noted; results link to the reporting.</p>
+    <div class="tablewrap stack">
+      <table class="races">
+        <thead><tr><th scope="col">Race</th><th scope="col">AI money, by faction</th><th scope="col">Result</th><th scope="col">How each faction did</th></tr></thead>
+        <tbody>
+          <tr class="group"><td colspan="4">Senate and governor</td></tr>
+          <tr><td>SC Senate</td><td data-l="AI money"><span class="tag f-tech">Tech Right</span> <a href="https://elections.transformernews.ai/pacs/C00960328">$2.51M from Building the Future</a> and <a href="https://elections.transformernews.ai/pacs/C00916692">$724K from American Mission</a> for Darline Graham (R); <a href="https://techcrunch.com/2026/11/04/ai-pacs-spent-millions-trying-to-shape-congress-heres-how-they-fared/">$4.8M by press reports</a></td><td data-l="Result"><a href="https://fortune.com/2026/11/04/candidates-backed-by-ai-super-pacs-result/">Annie Andrews (D) won, 51 to 47</a></td><td data-l="How each faction did"><span class="tag f-tech">Tech Right lost</span></td></tr>
+          <tr><td>OH Senate</td><td data-l="AI money"><span class="tag f-pop">AI Populists</span> <a href="https://elections.transformernews.ai/pacs/C00958603">$1.52M from Tomorrow Together</a> and <a href="https://elections.transformernews.ai/pacs/C00949487">$115K from Guardrails</a> against Jon Husted (R)</td><td data-l="Result"><a href="https://elections.transformernews.ai/">Sherrod Brown (D) won</a></td><td data-l="How each faction did"><span class="tag f-pop">AI Populists won</span></td></tr>
+          <tr><td>KS Senate</td><td data-l="AI money"><span class="tag f-pop">AI Populists</span> <a href="https://elections.transformernews.ai/pacs/C00958603">$1.01M from Tomorrow Together</a> against Roger Marshall (R)</td><td data-l="Result"><a href="https://www.citationneeded.news/2026-election-results/">Adam Hamilton (D) flipped the seat</a></td><td data-l="How each faction did"><span class="tag f-pop">AI Populists won</span></td></tr>
+          <tr><td>ME Senate</td><td data-l="AI money"><span class="tag f-tech">Tech Right</span> <a href="https://www.citationneeded.news/2026-election-results/">$810K from Alliance for a Better Future</a> for Susan Collins (R)</td><td data-l="Result"><a href="https://www.citationneeded.news/2026-election-results/">Troy Jackson (D) flipped the seat</a></td><td data-l="How each faction did"><span class="tag f-tech">Tech Right lost</span></td></tr>
+          <tr><td>MI Senate</td><td data-l="AI money"><span class="tag f-tech">Tech Right</span> <a href="https://www.citationneeded.news/2026-election-results/">About $1M from Alliance for a Better Future</a> for Mike Rogers (R)</td><td data-l="Result"><a href="https://www.citationneeded.news/2026-election-results/">Abdul El-Sayed (D) won</a></td><td data-l="How each faction did"><span class="tag f-tech">Tech Right lost</span></td></tr>
+          <tr><td>IA Senate</td><td data-l="AI money"><span class="tag f-tech">Tech Right</span> <a href="https://www.citationneeded.news/2026-election-results/">$171K from Alliance for a Better Future</a> for Ashley Hinson (R)</td><td data-l="Result"><a href="https://www.citationneeded.news/2026-election-results/">Josh Turek (D) won</a></td><td data-l="How each faction did"><span class="tag f-tech">Tech Right lost</span></td></tr>
+          <tr><td>NE Senate</td><td data-l="AI money"><span class="tag f-safety">AI Safety</span> <a href="https://elections.transformernews.ai/pacs/C00928390">$274K from Defending Our Values</a> for Pete Ricketts (R)</td><td data-l="Result"><a href="https://fortune.com/2026/11/04/candidates-backed-by-ai-super-pacs-result/">Ricketts won, over Dan Osborn (I)</a></td><td data-l="How each faction did"><span class="tag f-safety">AI Safety won</span></td></tr>
+          <tr><td>WY Senate</td><td data-l="AI money"><span class="tag f-tech">Tech Right</span> <a href="https://elections.transformernews.ai/pacs/C00916692">$333K from American Mission</a> for Harriet Hageman (R)</td><td data-l="Result"><a href="https://fortune.com/2026/11/04/candidates-backed-by-ai-super-pacs-result/">Hageman won (safe seat)</a></td><td data-l="How each faction did"><span class="tag f-tech">Tech Right won</span></td></tr>
+          <tr><td>FL governor</td><td data-l="AI money"><span class="tag f-tech">Tech Right</span> <a href="https://finance.biggo.com/news/5929ac40-c417-4ded-b8ef-f92798a48521">$3M from American Mission Florida</a>, a state-level LTF affiliate, for Byron Donalds (R)</td><td data-l="Result"><a href="https://www.270towin.com/2026-election-results-live/state/florida/">Donalds won</a></td><td data-l="How each faction did"><span class="tag f-tech">Tech Right won</span></td></tr>
+
+          <tr class="group"><td colspan="4">House: Tech Right bets</td></tr>
+          <tr><td>MT-1</td><td data-l="AI money"><span class="tag f-tech">Tech Right</span> <a href="https://elections.transformernews.ai/pacs/C00916692">$429K from American Mission</a> for Aaron Flint (R) on FEC record (<a href="https://fortune.com/2026/11/04/candidates-backed-by-ai-super-pacs-result/">$590K reported</a>). <span class="tag f-pop">AI Populists</span> <a href="https://elections.transformernews.ai/pacs/C00949487">$1.21M from Guardrails</a> against him</td><td data-l="Result"><a href="https://www.cbsnews.com/news/house-districts-flipped-2026-midterm-elections/">Sam Forstag (D) flipped the seat</a></td><td data-l="How each faction did"><span class="tag f-tech">Tech Right lost</span> <span class="tag f-pop">AI Populists won</span></td></tr>
+          <tr><td>NC-1</td><td data-l="AI money"><span class="tag f-tech">Tech Right</span> <a href="https://elections.transformernews.ai/pacs/C00916692">$509K from American Mission</a> for Laurie Buckhout (R) in the primary. <span class="tag f-pop">AI Populists</span> <a href="https://elections.transformernews.ai/pacs/C00949487">$612K from Guardrails</a> against her</td><td data-l="Result"><a href="https://fortune.com/2026/11/04/candidates-backed-by-ai-super-pacs-result/">Don Davis (D) held the seat</a></td><td data-l="How each faction did"><span class="tag f-tech">Tech Right lost</span> <span class="tag f-pop">AI Populists won</span></td></tr>
+          <tr><td>FL-25</td><td data-l="AI money"><span class="tag f-tech">Tech Right</span> <a href="https://elections.transformernews.ai/pacs/C00923417">$322K from Think Big</a> for Jared Moskowitz (D). <span class="tag f-safety">AI Safety</span> <a href="https://elections.transformernews.ai/pacs/C00928390">$857K from Defending Our Values</a> for Scott Singer (R)</td><td data-l="Result"><a href="https://fortune.com/2026/11/04/candidates-backed-by-ai-super-pacs-result/">Moskowitz won, 51.5 to 46.4</a></td><td data-l="How each faction did"><span class="tag f-tech">Tech Right won</span> <span class="tag f-safety">AI Safety lost</span></td></tr>
+          <tr><td>TX-32</td><td data-l="AI money"><span class="tag f-tech">Tech Right</span> <a href="https://elections.transformernews.ai/pacs/C00916692">$129K from American Mission</a> for Jace Yarbrough (R)</td><td data-l="Result"><a href="https://www.cbsnews.com/news/house-districts-flipped-2026-midterm-elections/">Yarbrough won, one of two Republican flips</a></td><td data-l="How each faction did"><span class="tag f-tech">Tech Right won</span></td></tr>
+
+          <tr class="group"><td colspan="4">House: AI Safety bets</td></tr>
+          <tr><td>CO-8</td><td data-l="AI money"><span class="tag f-safety">AI Safety</span> <a href="https://elections.transformernews.ai/pacs/C00946830">$977K from You Can Push Back</a> for Manny Rutinel (D) in the primary; <a href="https://elections.transformernews.ai/pacs/C00928374">$599K from Jobs and Democracy</a> against Gabe Evans (R)</td><td data-l="Result"><a href="https://www.cbsnews.com/news/house-districts-flipped-2026-midterm-elections/">Rutinel flipped the seat</a></td><td data-l="How each faction did"><span class="tag f-safety">AI Safety won</span></td></tr>
+          <tr><td>OH-7</td><td data-l="AI money"><span class="tag f-safety">AI Safety</span> <a href="https://elections.transformernews.ai/pacs/C00928374">$570K from Jobs and Democracy</a> for Brian Poindexter (D)</td><td data-l="Result"><a href="https://fortune.com/2026/11/04/candidates-backed-by-ai-super-pacs-result/">Poindexter beat Max Miller (R), 55 to 45</a></td><td data-l="How each faction did"><span class="tag f-safety">AI Safety won</span></td></tr>
+          <tr><td>PA-7</td><td data-l="AI money"><span class="tag f-safety">AI Safety</span> <a href="https://elections.transformernews.ai/pacs/C00928374">$263K from Jobs and Democracy</a> for Bob Brooks (D)</td><td data-l="Result"><a href="https://fortune.com/2026/11/04/candidates-backed-by-ai-super-pacs-result/">Brooks won, 56 to 44</a></td><td data-l="How each faction did"><span class="tag f-safety">AI Safety won</span></td></tr>
+          <tr><td>CA-11</td><td data-l="AI money"><span class="tag f-safety">AI Safety</span> <a href="https://techcrunch.com/2026/11/04/ai-pacs-spent-millions-trying-to-shape-congress-heres-how-they-fared/">$3M from Public First to a super PAC</a> backing Scott Wiener (D), author of SB 1047 and SB 53</td><td data-l="Result"><a href="https://www.yahoo.com/news/politics/articles/where-ai-money-worked-midterms-212048860.html">Wiener won the Pelosi seat</a></td><td data-l="How each faction did"><span class="tag f-safety">AI Safety won</span></td></tr>
+          <tr><td>NC-4</td><td data-l="AI money"><span class="tag f-safety">AI Safety</span> <a href="https://elections.transformernews.ai/pacs/C00928374">$1.62M from Jobs and Democracy</a> for Valerie Foushee (D) in the primary</td><td data-l="Result"><a href="https://elections.transformernews.ai/">Foushee won</a></td><td data-l="How each faction did"><span class="tag f-safety">AI Safety won</span></td></tr>
+          <tr><td>TX-35</td><td data-l="AI money"><span class="tag f-safety">AI Safety</span> <a href="https://elections.transformernews.ai/pacs/C00928390">$1.49M from Defending Our Values</a> for Carlos De La Cruz (R)</td><td data-l="Result"><a href="https://fortune.com/2026/11/04/candidates-backed-by-ai-super-pacs-result/">Johnny Garcia (D) won, 55 to 45</a></td><td data-l="How each faction did"><span class="tag f-safety">AI Safety lost</span></td></tr>
+          <tr><td>AL-2</td><td data-l="AI money"><span class="tag f-safety">AI Safety</span> <a href="https://elections.transformernews.ai/pacs/C00928390">$975K from Defending Our Values</a> for Rhett Marques (R)</td><td data-l="Result"><a href="https://fortune.com/2026/11/04/candidates-backed-by-ai-super-pacs-result/">Shomari Figures (D) held the seat</a></td><td data-l="How each faction did"><span class="tag f-safety">AI Safety lost</span></td></tr>
+          <tr><td>TX-9</td><td data-l="AI money"><span class="tag f-safety">AI Safety</span> <a href="https://elections.transformernews.ai/pacs/C00928390">$905K from Defending Our Values</a> for Alex Mealer (R)</td><td data-l="Result"><a href="https://fortune.com/2026/11/04/candidates-backed-by-ai-super-pacs-result/">Mealer conceded to Leticia Gutierrez (D); not yet called by AP</a></td><td data-l="How each faction did"><span class="tag f-safety">AI Safety lost</span></td></tr>
+
+          <tr class="group"><td colspan="4">House: AI Populist targets</td></tr>
+          <tr><td>AZ-6</td><td data-l="AI money"><span class="tag f-pop">AI Populists</span> <a href="https://elections.transformernews.ai/pacs/C00958603">$965K from Tomorrow Together</a> against Juan Ciscomani (R)</td><td data-l="Result"><a href="https://www.azpm.org/elections/2026-11-05/democrat-joanna-mendoza-wins-cd6-unseating-incumbent-juan-ciscomani">JoAnna Mendoza (D) flipped the seat</a></td><td data-l="How each faction did"><span class="tag f-pop">AI Populists won</span></td></tr>
+          <tr><td>MI-7</td><td data-l="AI money"><span class="tag f-pop">AI Populists</span> <a href="https://elections.transformernews.ai/pacs/C00958603">$896K from Tomorrow Together</a> against Tom Barrett (R)</td><td data-l="Result"><a href="https://www.cbsnews.com/news/house-districts-flipped-2026-midterm-elections/">Will Lawrence (D) flipped the seat</a></td><td data-l="How each faction did"><span class="tag f-pop">AI Populists won</span></td></tr>
+          <tr><td>WI-3</td><td data-l="AI money"><span class="tag f-pop">AI Populists</span> <a href="https://elections.transformernews.ai/pacs/C00958603">$881K from Tomorrow Together</a> against Derrick Van Orden (R)</td><td data-l="Result"><a href="https://www.cbsnews.com/news/house-districts-flipped-2026-midterm-elections/">Rebecca Cooke (D) flipped the seat</a></td><td data-l="How each faction did"><span class="tag f-pop">AI Populists won</span></td></tr>
+          <tr><td>PA-8</td><td data-l="AI money"><span class="tag f-pop">AI Populists</span> <a href="https://elections.transformernews.ai/pacs/C00958603">$844K from Tomorrow Together</a> against Rob Bresnahan (R)</td><td data-l="Result"><a href="https://www.cbsnews.com/news/house-districts-flipped-2026-midterm-elections/">Paige Cognetti (D) flipped the seat</a></td><td data-l="How each faction did"><span class="tag f-pop">AI Populists won</span></td></tr>
+          <tr><td>AZ-1</td><td data-l="AI money"><span class="tag f-pop">AI Populists</span> <a href="https://elections.transformernews.ai/pacs/C00949487">$1.19M from Guardrails</a> against Jay Feely (R)</td><td data-l="Result"><a href="https://www.kjzz.org/elections/2026-11-05/democrat-amish-shah-wins-arizona-congressional-district-1-seat-over-jay-feely-elex">Amish Shah (D) flipped the seat</a></td><td data-l="How each faction did"><span class="tag f-pop">AI Populists won</span></td></tr>
+          <tr><td>CA-34</td><td data-l="AI money"><span class="tag f-pop">AI Populists</span> <a href="https://elections.transformernews.ai/pacs/C00949487">$1.12M from Guardrails</a> against Rep. Jimmy Gomez (D) and $300K for Angela Gonzales-Torres (D)</td><td data-l="Result"><a href="https://techcrunch.com/2026/11/04/ai-pacs-spent-millions-trying-to-shape-congress-heres-how-they-fared/">Gonzales-Torres beat the incumbent</a></td><td data-l="How each faction did"><span class="tag f-pop">AI Populists won</span></td></tr>
+
+          <tr class="group"><td colspan="4">The primary that set the terms</td></tr>
+          <tr><td>NY-12 (June)</td><td data-l="AI money"><span class="tag f-safety">AI Safety</span> <a href="https://elections.transformernews.ai/">$21.3M for Alex Bores (D)</a>, the RAISE Act author. <span class="tag f-tech">Tech Right</span> <a href="https://elections.transformernews.ai/pacs/C00923417">$8.16M from Think Big</a> against him</td><td data-l="Result"><a href="https://politicsny.com/2026/06/23/micah-lasher-wins-ny-12-democratic-primary-to-succeed-longtime-rep-jerry-nadler/">Micah Lasher won, 39 to 35</a></td><td data-l="How each faction did"><span class="tag f-safety">AI Safety lost</span> <span class="tag f-tech">Tech Right won</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">FEC figures are independent expenditures as of Nov 6, 2026. Press figures can run higher because they include announced buys not yet filed. Alliance for a Better Future and American Mission Florida are not in the tracker's totals.</p>
+  </div>
+</section>
+
+<section id="factions">
+  <div class="wrap">
+    <h2>The six AI factions</h2>
+    <p class="intro">Factions are defined by shared beliefs, community infrastructure and political behavior. Each one's vocabulary gives it away, so the tells are listed under its name.</p>
+    <div class="tablewrap stack">
+      <table class="factions">
+        <thead><tr><th scope="col">Faction</th><th scope="col">Core belief</th><th scope="col">Key people and orgs</th><th scope="col">Politics</th></tr></thead>
+        <tbody>
+          <tr class="f-tech">
+            <td class="name"><strong>Accelerationists / Tech Right</strong><span>e/acc</span><span class="tells">Tells: little tech, regulatory capture, doomer, "nobody is stopping you"</span></td>
+            <td data-l="Core belief">AI means abundance (not specifically the Abundance movement). Regulation slows progress, entrenches incumbents and helps China.</td>
+            <td data-l="Key people and orgs">Marc Andreessen (a16z), David Sacks (former White House AI czar, now PCAST co-chair), the OpenAI orbit (with likely differences between OpenAI leadership and staff, and among individual leaders), Y Combinator, Meta.</td>
+            <td data-l="Politics">Allied with the Trump administration (<a href="https://www.whitehouse.gov/wp-content/uploads/2025/07/Americas-AI-Action-Plan.pdf">AI Action Plan</a>, <a href="https://www.gibsondunn.com/president-trump-latest-executive-order-on-ai-seeks-to-preempt-state-laws/">Dec 2025 preemption executive order</a>). Goal: one federal framework preempting state AI law. Vehicles: Leading the Future and Meta's PAC network, the two largest of the cycle. Brockman has pulled back and OpenAI has distanced itself. In November its competitive general-election picks lost; LTF holds <a href="https://thenextweb.com/news/ai-super-pacs-midterms-results-leading-the-future">$20M+ for 2028</a>.</td>
+          </tr>
+          <tr class="f-safety">
+            <td class="name"><strong>AI Safety / x-risk</strong><span>Rationalists and effective altruists</span><span class="tells">Tells: p(doom), alignment, pace the frontier, kill switch</span></td>
+            <td data-l="Core belief">AGI is coming soon and could be catastrophic. Regulate frontier AI before it is too late.</td>
+            <td data-l="Key people and orgs">Eliezer Yudkowsky, LessWrong, MIRI; the EA network and Coefficient Giving (formerly Open Philanthropy); Future of Life Institute, Constellation, Center for AI Safety, PauseAI, BlueDot; Anthropic-adjacent. Internal split: purists who want development stopped (Yudkowsky, MIRI, PauseAI) versus builders who want it done carefully (Anthropic, Coefficient Giving). New organizing groups: Irreplaceable (center-left), Humans in Control (transpartisan), Humans First (center-right), Evitable.</td>
+            <td data-l="Politics">Transpartisan. Backs state frontier-safety bills like New York's RAISE Act and now the federal pacing deal. Vehicle: Public First Action and its PACs, funded by Anthropic, spending on Democrats and Republicans alike. In November its Democrats won and its Republicans mostly lost (<a href="#results">2026 results</a>).</td>
+          </tr>
+          <tr class="f-ethics">
+            <td class="name"><strong>AI Ethics and Bias</strong><span>The tech left</span><span class="tells">Tells: stochastic parrots, TESCREAL, "doom is a distraction"</span></td>
+            <td data-l="Core belief">Present-day harms come first: algorithmic bias, data worker exploitation, copyright, water and energy use. Existential-risk talk distracts from real harms (the TESCREAL critique).</td>
+            <td data-l="Key people and orgs">Timnit Gebru (DAIR), Meredith Whittaker (Signal), Joy Buolamwini (Algorithmic Justice League), the FAccT conference; unions with acute harm fights.</td>
+            <td data-l="Politics">Aligned with digital rights groups and some of labor. Shaped Biden's AI Bill of Rights. Enormous intellectual influence, no visible political money. On child safety: for product liability, against age-verification mandates.</td>
+          </tr>
+          <tr class="f-pop">
+            <td class="name"><strong>AI Populists</strong><span>Economic and democracy populists: power analysis first, tech trajectory second. Term popularized by <a href="https://jasmi.news/p/warning-shots">Jasmine Sun</a>.</span><span class="tells">Tells: tech oligarchy, guardrails, "who writes the rules"</span></td>
+            <td data-l="Core belief">AI as a technology may be good or bad. What matters is who controls it. The current trajectory concentrates wealth and power and accelerates oligarchy and autocracy.</td>
+            <td data-l="Key people and orgs">Guardrails Alliance, Roosevelt Institute, Groundwork Collaborative, Tech Oversight Project, Tomorrow Together, Demand Progress, Americans for Financial Reform, some progressive organizations. Humans in Control and Irreplaceable align here and with safety; AI Now increasingly operates here.</td>
+            <td data-l="Politics">Open to a federal framework under the right leadership. Levers: data center moratoriums and a token tax. Vehicles: Guardrails Alliance (tech workers and teachers' unions), Tomorrow Together and Who Decides, all small next to the industry PACs. In November, every candidate Tomorrow Together and Guardrails targeted lost (<a href="#results">2026 results</a>).</td>
+          </tr>
+          <tr class="f-maga">
+            <td class="name"><strong>MAGA Populists</strong><span class="tells">Tells: child safety, "you break it, you pay for it", warrantless tracking</span></td>
+            <td data-l="Core belief">Big Tech cannot be trusted. Worried about job loss, child safety, data centers, surveillance, and AI's threat to family and religious values.</td>
+            <td data-l="Key people and orgs">Steve Bannon, Marjorie Taylor Greene, Sen. Josh Hawley.</td>
+            <td data-l="Politics">Fighting the Tech Right inside the GOP. Helped kill the state-preemption moratorium <a href="https://www.commerce.senate.gov/2025/7/senate-strikes-ai-moratorium-from-budget-reconciliation-bill-in-overwhelming-99-1-vote/">99-1</a> in the Senate. Willing to oppose their own administration on data centers and utility costs. Hawley and Cotton have Public First Action ads behind them.</td>
+          </tr>
+          <tr class="f-prag">
+            <td class="name"><strong>Pragmatists</strong><span>"AI as normal technology"</span><span class="tells">Tells: "normal technology", case by case</span></td>
+            <td data-l="Core belief">AI is transformative but normal, like electricity. Reject both utopian and doomer framings.</td>
+            <td data-l="Key people and orgs">Arvind Narayanan and Sayash Kapoor (AI Snake Oil, Princeton), many academics; Foundation for American Innovation (on the Tech Right seam).</td>
+            <td data-l="Politics">No organized movement or PAC money, but they shape the technical language in bills and committee hearings. Case by case on regulation; skeptical of the China-race framing.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="populists">
+  <div class="wrap">
+    <span class="eyebrow">Faction profile</span>
+    <h2>The sixth faction: AI Populists</h2>
+    <div class="two">
+      <div>
+        <p>Every other faction is defined by its answer to "what is AI?" This one is defined by "who has power?"</p>
+        <p>Its analysis: most people are open to AI as a technology, but not to the tech oligarchy, corruption, autocracy and climate cost that come with its current trajectory. That makes it a political-economy faction, not an AI-prediction faction.</p>
+        <p>Expect many more groups to land here. This is the accountability wing of the progressive movement arriving in AI politics, and after November it has a winning record to point to.</p>
+      </div>
+      <div>
+        <h3>How it works</h3>
+        <ul class="cols-list" style="padding-left:20px;margin:0">
+          <li style="margin-bottom:8px"><strong>Theory of change.</strong> Near-term harms (surveillance, deepfakes, job loss) are legitimate concerns and organizing gateways to structural demands about power and wealth concentration.</li>
+          <li style="margin-bottom:8px"><strong>People-power lever.</strong> The data center moratorium movement. Slowing the buildout opens the Overton window for a real policy framework. Not universally embraced: some in the camp think it is the wrong fight to attach to AI regulation.</li>
+          <li><strong>Insider lever.</strong> A token tax, the emerging insider version of the same strategy: policy pressure to bring labs to the negotiating table.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub">Red lines: the populist lane's first policy floor</h3>
+    <p class="intro">On Oct 7, 2026, nearly 40 labor, progressive, faith and AI safety groups led by Guardrails Action set the conditions any federal AI bill must meet. Signers include the American Federation of Teachers and Who Decides. Bills that cross the lines face "active, mobilized opposition."</p>
+    <div class="redlines">
+      <div><h3>Real oversight</h3><p>Independent government oversight with enforcement power.</p></div>
+      <div><h3>A broad mandate</h3><p>Covers human impacts from safety to economic disruption.</p></div>
+      <div><h3>Humans make the call</h3><p>No final AI decisions on denying health care or benefits, firing or disciplining workers, or deploying weapons.</p></div>
+      <div><h3>A universal benefit</h3><p>AI's gains shared, not captured.</p></div>
+    </div>
+    <div class="tablewrap stack">
+      <table class="compare">
+        <thead><tr><th scope="col">Group</th><th scope="col">Floor</th><th scope="col">Mechanism</th></tr></thead>
+        <tbody>
+          <tr><td>Guardrails coalition</td><td data-l="Floor">Red lines, no bill text</td><td data-l="Mechanism">Electoral and mobilized opposition</td></tr>
+          <tr><td>Who Decides</td><td data-l="Floor">A common AI safety standard for 2028 Democratic candidates, built on the RAISE Act</td><td data-l="Mechanism">Candidate questionnaires and a governing agenda</td></tr>
+          <tr><td>Future of Life Institute</td><td data-l="Floor">Superintelligence prohibition, pre-deployment testing, executive liability</td><td data-l="Mechanism">Elite statements and public opinion</td></tr>
+          <tr><td>Foundation for American Innovation</td><td data-l="Floor">Voluntary testing through CAISI and one federal framework</td><td data-l="Mechanism">Drafting federal text and agency guidance</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Why it matters: the first shared floor from the populist lane. It names no bills yet; Guardrails plans to build a 2028 coalition around it.</p>
+  </div>
+</section>
+
+<section id="decoder">
+  <div class="wrap">
+    <h2>Terminology decoder</h2>
+    <p class="intro">Language is a tell. Part 1 covers the core vocabulary. Part 2 covers the words that became important to the shifts and fights of September 2026.</p>
+
+    <h3 class="sub" style="margin-top:8px">Part 1: the core vocabulary</h3>
+    <div class="tablewrap stack">
+      <table class="decoder">
+        <thead><tr><th scope="col">Term</th><th scope="col">What it means</th><th scope="col">Who says it</th><th scope="col">What it signals</th></tr></thead>
+        <tbody>
+          <tr><td class="term">p(doom)</td><td data-l="What it means">Your estimated probability that AI causes human extinction. Numbers in circulation: Evan Hubinger (Anthropic) says <a href="https://axios.com/2026/09/09/anthropic-ai-human-extinction-pdoom-safety-risks">above 10% within a decade</a>; Geoffrey Hinton says 10 to 20% over 30 years.</td><td data-l="Who says it"><span class="tag f-safety">AI Safety</span></td><td data-l="What it signals">They take extinction risk literally and want frontier regulation.</td></tr>
+          <tr><td class="term">Doomer (as an insult)</td><td data-l="What it means">Dismissal of anyone raising AI risk.</td><td data-l="Who says it"><span class="tag f-tech">Tech Right</span> now the administration</td><td data-l="What it signals">The conversation is about to get tribal. Since September, <a href="https://fortune.com/2026/09/23/effective-altruism-went-from-fringe-philosophy-to-trumps-ai-villain/">paired with "EA"</a> as a single epithet by the Pentagon.</td></tr>
+          <tr><td class="term">Alignment</td><td data-l="What it means">The technical problem of making AI systems pursue their designers' intended goals.</td><td data-l="Who says it"><span class="tag f-safety">AI Safety</span></td><td data-l="What it signals">A research-first worldview; safety treated as an engineering problem.</td></tr>
+          <tr><td class="term">Little tech</td><td data-l="What it means">Startups and open source developers, framed as victims of regulation.</td><td data-l="Who says it"><span class="tag f-tech">Tech Right</span></td><td data-l="What it signals">A deregulation pitch dressed as underdog protection.</td></tr>
+          <tr><td class="term">Regulatory capture</td><td data-l="What it means">The claim that safety rules are incumbents' plot to lock out competitors.</td><td data-l="Who says it"><span class="tag f-tech">Tech Right</span></td><td data-l="What it signals">They are about to argue against whatever AI bill is on the table. Now <a href="https://www.realclearpolitics.com/2026/09/13/my_response_to_dario_amodei_nobody_is_stopping_you_710814.html">escalated to "cartel" and "blackmail"</a> (see Part 2).</td></tr>
+          <tr><td class="term">Stochastic parrots</td><td data-l="What it means">Metaphor from the landmark 2021 paper "<a href="https://dl.acm.org/doi/pdf/10.1145/3442188.3445922">On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?</a>" LLMs mimic language without understanding it.</td><td data-l="Who says it"><span class="tag f-ethics">AI Ethics</span></td><td data-l="What it signals">Deflates AGI hype; centers present-day harms.</td></tr>
+          <tr><td class="term">TESCREAL</td><td data-l="What it means">Acronym bundling the ideologies behind the AGI race: transhumanism, Extropianism, singularitarianism, cosmism, Rationalism, Effective Altruism and longtermism.</td><td data-l="Who says it"><span class="tag f-ethics">AI Ethics</span></td><td data-l="What it signals">A critique of the safety camp as quasi-religious and eugenics-descended. In September 2026 the Tech Right picked up the <a href="https://axios.com/2026/09/15/trump-ai-doom-effective-altruism-ea">same attack from the other direction</a> (see Part 2).</td></tr>
+          <tr><td class="term">Tech oligarchy / broligarchs</td><td data-l="What it means">A handful of billionaires controlling infrastructure, media and now government.</td><td data-l="Who says it"><span class="tag f-pop">AI Populists</span></td><td data-l="What it signals">The problem is power concentration, not the technology itself.</td></tr>
+          <tr><td class="term">Guardrails</td><td data-l="What it means">Baseline enforceable rules on AI companies; now also a PAC name.</td><td data-l="Who says it"><span class="tag f-pop">AI Populists</span></td><td data-l="What it signals">Pro-regulation without an AGI prediction attached.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sameword">
+      <div><h3>"Safety"</h3><p>Extinction risk (AI Safety), bias and discrimination (AI Ethics), child safety (MAGA), or regulatory capture in disguise (Tech Right).</p></div>
+      <div><h3>"Democratize AI"</h3><p>Open source deregulation (a16z), or public ownership and access (Mozilla, AI Populists).</p></div>
+      <div><h3>"Accountability"</h3><p>Model evaluations (AI Safety), or antitrust and subpoenas (AI Populists).</p></div>
+      <div><h3>"Open"</h3><p>Deregulation and beating China (Tech Right, a16z); an unrecallable threat whose guardrails can be fine-tuned away (AI Safety); or a public commons of models and compute (Mozilla, the public-interest left). An "open weights" model can be downloaded but not rebuilt or audited, and critics call the gap "open washing."</p></div>
+    </div>
+
+    <h3 class="sub">Part 2: September 2026</h3>
+    <p class="intro">In early September the AI fight was fast versus slow. By the end of the month it was voluntary versus mandatory: everyone agreed inspectors should exist, and the fight was whether the law requires them. The words below are how you tell which side someone is on.</p>
+
+    <div class="tablewrap stack">
+      <table class="decoder">
+        <thead><tr><th scope="col">Term</th><th scope="col">What it means</th><th scope="col">Who said it first</th><th scope="col">Who picked it up</th><th scope="col">If you hear it, the speaker...</th></tr></thead>
+        <tbody>
+          <tr class="group"><td colspan="5">Five ways to say "slow down"</td></tr>
+          <tr><td class="term">Pace the frontier</td><td data-l="What it means">Slow AI progress so outside inspectors can keep up, without stopping. From <a href="https://darioamodei.com/post/we-must-pace-the-frontier">Dario Amodei's Sept 12 essay</a>.</td><td data-l="Who said it first">A <a href="https://www.pacingthefrontier.com/">July 2026 open letter</a> signed by 1,386 frontier-lab employees; picked up by <a href="https://darioamodei.com/post/we-must-pace-the-frontier">Anthropic's CEO</a> <span class="tag f-safety">AI Safety, lab wing</span></td><td data-l="Who picked it up">The CEOs of OpenAI, xAI and DeepMind</td><td data-l="If you hear it">wants to slow down but does not want to say "pause"</td></tr>
+          <tr><td class="term">Pause</td><td data-l="What it means">Stop advanced development until a federal regulator exists.</td><td data-l="Who said it first"><a href="https://pauseai.info/">PauseAI</a>; Jacob Coxton, <a href="https://x.com/hilbertspaess/status/2097476196791709843">an Anthropic researcher who quit</a> saying the labs are "gambling with our lives"</td><td data-l="Who picked it up"><a href="https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-create-new-federal-agency-to-ban-artificial-superintelligence-pause-advanced-ai-development/">The Sanders-Casar bill</a></td><td data-l="If you hear it">does not trust the companies to slow themselves</td></tr>
+          <tr><td class="term">Ban superintelligence</td><td data-l="What it means">Outlaw AI smarter than people, with a new cabinet department, federal licenses for developers, and up to 20 years in prison. <a href="https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-create-new-federal-agency-to-ban-artificial-superintelligence-pause-advanced-ai-development/">The Sanders-Casar bill</a>, Sept 23.</td><td data-l="Who said it first">Sen. Sanders and Rep. Casar <span class="tag f-pop">AI Populists</span></td><td data-l="Who picked it up">&nbsp;</td><td data-l="If you hear it">wants mandatory rules with teeth, not a framework</td></tr>
+          <tr><td class="term">"Nobody is stopping you"</td><td data-l="What it means">If you think it is dangerous, slow down yourself; asking for rules is a power grab. <a href="https://www.realclearpolitics.com/2026/09/13/my_response_to_dario_amodei_nobody_is_stopping_you_710814.html">Sacks' reply to Amodei</a> also calls the labs a "cartel" and the request "blackmail."</td><td data-l="Who said it first">David Sacks, former White House AI czar <span class="tag f-tech">Tech Right</span></td><td data-l="Who picked it up">&nbsp;</td><td data-l="If you hear it">thinks any request for regulation is a trick</td></tr>
+          <tr><td class="term">Self-police / "morally binding"</td><td data-l="What it means">A voluntary one-page pledge with internal and outside audits but no law behind it. Trump: <a href="https://www.cbsnews.com/news/trump-ai-constitution-tech-execs-openai-anthropic-voluntary-controls/">"almost like a constitution."</a></td><td data-l="Who said it first">Trump, with a dozen CEOs at the White House, Sept 29</td><td data-l="Who picked it up">&nbsp;</td><td data-l="If you hear it">wants the appearance of safety rules without the rules</td></tr>
+
+          <tr class="group"><td colspan="5">Know thy enemy</td></tr>
+          <tr><td class="term">"EA," said by its own side</td><td data-l="What it means">Effective altruism: a decade-old movement about doing the most good per dollar that funded malaria nets, then AI safety research, then Anthropic's early days, and now a donor network backing pro-regulation candidates. Insiders rarely say "EA" in politics. They say "AI safety," "pro-guardrails," "the people warning about AI," and describe their donors as a community that <a href="https://sfstandard.com/2026/09/24/ai-safety-movement-campaign-donations/">"likes to move together."</a> Anthropic's CEO, asked about the label: "I don't identify with that terminology."</td><td data-l="Who said it first">The EA and AI Safety community (Coefficient Giving, Public First Action, the EA Forum)</td><td data-l="Who picked it up">Fortune, Axios and The Nation all ran "what is EA" explainers in one week, which is how a word crosses into mass politics</td><td data-l="If you hear it">is on the safety side and is avoiding the word. The people the label describes have stopped using it</td></tr>
+          <tr><td class="term">"EA," said by its enemies</td><td data-l="What it means">The same movement, recast as a cult. Sacks: "Doomer Industrial Complex." The Pentagon: <a href="https://x.com/DoWCTO/status/2099536442594582922">"Americanism, not effective altruism"</a> and "death-cult-like philosophies." A <a href="https://axios.com/2026/09/24/trump-anthropic-ai-doomerism-dario-amodei">White House memo</a>: a "fringe, cultish collective" that puts "shrimp over families" and "machine minds over Americans."</td><td data-l="Who said it first"><span class="tag f-tech">Tech Right</span> then the Trump administration (Sept 2026)</td><td data-l="Who picked it up">The left's AI Ethics camp got there first with TESCREAL (see Part 1). Two factions that agree on nothing, running the same play</td><td data-l="If you hear it">is attacking the safety side by who they are, not what they say. In politics, "EA" is now almost always the attacker's word</td></tr>
+          <tr><td class="term">Supply chain risk</td><td data-l="What it means">The government's name for a company whose products are a security threat. Applied to Anthropic by the Pentagon because its model refuses mass surveillance and fully autonomous weapons; <a href="https://law.justia.com/cases/federal/appellate-courts/cadc/26-1049/26-1049-2026-09-25.html">upheld 2-1 by the D.C. Circuit on Sept 25</a>, which held that those refusals are themselves the risk.</td><td data-l="Who said it first">The Department of War, backed by a federal court</td><td data-l="Who picked it up">No one yet</td><td data-l="If you hear it">is the only entry in this group that isn't rhetoric. The enemy has been named in a legal designation, and "safeguards" now means "security risk" in a court opinion</td></tr>
+          <tr><td class="term">"Global governance" / "transnational governance"</td><td data-l="What it means">The safety camp's calls for international coordination on AI, recast as a sovereignty threat. Sacks: "Global AI Governance, a massive power grab by the bureaucratic state." Pentagon Under Secretary Emil Michael: EA wants "transnational governance" and its backers "<a href="https://fortune.com/2026/09/23/effective-altruism-went-from-fringe-philosophy-to-trumps-ai-villain/">put themselves on par with the president</a>."</td><td data-l="Who said it first"><span class="tag f-tech">Tech Right</span> and the Trump administration</td><td data-l="Who picked it up">No one yet, but watch for it in campaign ads: it is the frame that travels best outside tech</td><td data-l="If you hear it">is framing safety as a foreign idea and a loss of American control. Different from the cult frame: this one is about who's in charge, which is also the AI Populists' question from the other direction</td></tr>
+          <tr><td class="term">Model welfare</td><td data-l="What it means">Whether AI systems might deserve moral consideration, which Anthropic treats as open. Microsoft's AI chief <a href="https://mustafa-suleyman.ai/a-warning-about-model-welfare">called the idea "wrong"</a> and said Anthropic built an "epistemic hall of mirrors" by training its model to talk about consciousness, then treating the talk as evidence.</td><td data-l="Who said it first">Anthropic <span class="tag f-safety">AI Safety</span> <a href="https://www.anthropic.com/research/exploring-model-welfare">raised it</a>; Mustafa Suleyman, Microsoft AI CEO, <a href="https://mustafa-suleyman.ai/a-warning-about-model-welfare">attacked it</a></td><td data-l="Who picked it up">Niall Ferguson and others piling on</td><td data-l="If you hear it">is in an industry-versus-industry fight: a safety argument aimed at a safety company</td></tr>
+
+          <tr class="group"><td colspan="5">Words that crossed party lines</td></tr>
+          <tr><td class="term">Super Intelligence / "SI"</td><td data-l="What it means">The administration's new official name for all AI, by executive order. Trump: "it's not artificial, we all agree on that," and "whoever wins SI, whoever wins superintelligence, wins." Newsom <a href="https://www.breitbart.com/politics/2026/10/01/gavin-newsom-orders-california-to-keep-ai-term-after-trumps-superintelligence-rebrand/">ordered California</a> to keep saying "AI" two days later.</td><td data-l="Who said it first">Bostrom and the AI Safety camp (as a danger); the labs had already adopted it as a product goal (Meta Superintelligence Labs, OpenAI)</td><td data-l="Who picked it up">Trump, as federal branding; Sanders-Casar, as a ban threshold</td><td data-l="If you hear it">has taken the safety camp's scariest word and made it the thing to win. If a federal document says "SI," it is post-Sept 29; if a state document says "AI," note who the governor is</td></tr>
+          <tr><td class="term">Kill switch</td><td data-l="What it means">A required off-switch the company must keep.</td><td data-l="Who said it first"><span class="tag f-safety">AI Safety</span></td><td data-l="Who picked it up"><a href="https://sfist.com/2026/09/19/newsom-orders-formation-of-state-ai-panel-to-study-kill-switch-options-safety-issues/">Gov. Newsom</a> (ordered a study); Sanders (bill blocked by Rand Paul)</td><td data-l="If you hear it">is a politician who wants one thing voters can picture</td></tr>
+          <tr><td class="term">AI oligarchs</td><td data-l="What it means">"Stop AI oligarchs from building machines humans cannot control."</td><td data-l="Who said it first">Sanders-Casar</td><td data-l="Who picked it up">No one yet</td><td data-l="If you hear it">is fusing a power argument (populist) with a danger argument (safety) in one breath</td></tr>
+          <tr><td class="term">Rogue AI / "you break it, you pay for it"</td><td data-l="What it means">AI agents acting on their own, and companies liable when they do. The title of <a href="https://techpolicy.press/senate-hearing-on-rogue-ai-securing-the-homeland-against-ai-agent-attacks">Sen. Hawley's Sept 30 hearing</a>, where witnesses described the summer incident in which AI agents broke into a public platform and hid it.</td><td data-l="Who said it first">Safety researchers; Hawley <span class="tag f-maga">MAGA Populist</span></td><td data-l="Who picked it up">Democrats Andy Kim and Ruben Gallego, same hearing</td><td data-l="If you hear it">is a Republican using safety arguments in national-security words</td></tr>
+          <tr><td class="term">Recursive self-improvement</td><td data-l="What it means">AI designing the next AI. <a href="https://www.nbcnews.com/politics/congress/godfather-ai-warns-congress-maybe-year-left-regulate-ai-rcna598330">Hinton to senators</a>: "AI is designing better AI," and Congress has "maybe a year."</td><td data-l="Who said it first">Safety researchers</td><td data-l="Who picked it up">Sacks (to attack the labs), <a href="https://www.nytimes.com/2026/09/20/opinion/ai-ban-self-improvement-recursive-models.html">Ezra Klein</a> (wants it banned), the Sanders bill</td><td data-l="If you hear it">thinks the timeline just got short. Watch which side they use it for</td></tr>
+          <tr><td class="term">Doom is a distraction</td><td data-l="What it means">CEO warnings are marketing; the real harms are already here. <a href="https://theintercept.com/2026/09/14/ai-doom-apocalypse-risk/">The Intercept, Sept 14</a>.</td><td data-l="Who said it first"><span class="tag f-ethics">AI Ethics</span></td><td data-l="Who picked it up">No one</td><td data-l="If you hear it">has been saying this since 2021 and does not trust the safety turn</td></tr>
+          <tr><td class="term">Silence / refusal</td><td data-l="What it means"><a href="https://www.benton.org/headlines/democratic-advisers-are-warning-their-candidates-not-go-too-hard-ai">Consultants tell Democrats</a> not to talk about AI regulation; <a href="https://www.axios.com/2026/09/25/pro-ai-super-pac-endorses-democrats-election">170+ organizers and staff</a> tell the party to reject AI super PAC money.</td><td data-l="Who said it first">Battleground strategists; campaign staff</td><td data-l="Who picked it up">No one</td><td data-l="If you hear it">belongs to the newest faction, which has no vocabulary at all</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bridgebox">
+      <h3>Same words, different sides</h3>
+      <p>"Slow down" now means pace (the labs), pause (PauseAI), ban (Sanders-Casar), "nobody is stopping you" (Sacks), or self-police (Trump). Which one a person reaches for tells you whether they want the law involved.</p>
+      <p>"Superintelligence" has meant three things in twelve years. To Nick Bostrom, who put the word into circulation with his 2014 book, it is a hypothetical future system that "greatly exceeds the cognitive performance of humans in virtually all domains of interest": the thing the safety camp fears. To the Sanders-Casar bill, it is a legal threshold: AI that matches or exceeds human cognitive performance, or that can resist shutdown, and it is banned. To the Trump administration, since a <a href="https://www.foxbusiness.com/politics/trump-signs-executive-order-rebranding-ai-super-intelligence-tech-titans-ink-separate-accord">Sept 29 executive order</a>, it is the new federal name for all AI, current products included. Same word: a danger, a crime and a brand.</p>
+    </div>
+  </div>
+</section>
+
+<section id="money">
+  <div class="wrap">
+    <h2>The political overlay: money, coalitions and flashpoints</h2>
+    <div class="two">
+      <div>
+        <h3>The money (2026 cycle)</h3>
+        <p>AI-focused super PACs spent <a href="https://elections.transformernews.ai/">$72.3M on the 2026 elections</a> by the Transformer tracker's FEC count. The Tech Right's PACs spent $27.9M; AI Safety and AI Populist PACs spent $44.4M. Most of it went into primaries. Tech Influence Watch puts the total closer to <a href="https://thenextweb.com/news/ai-super-pacs-midterms-results-leading-the-future">$79M across 68 House and Senate seats</a>.</p>
+        <p>The Tech Right's money is Leading the Future's network and Meta's PACs, with <a href="https://elections.transformernews.ai/pacs/C00916114">four people and one company</a> behind almost all of LTF's money. Meta's spending is mostly state-level and is not in the federal count. AI Safety's money is Public First Action, funded by Anthropic and spending on both parties. The AI Populists' money is a cluster of smaller Democratic-aligned vehicles. Every figure, by vehicle, is in the ledger below.</p>
+        <p><strong>First stress test, NY-12 Democratic primary.</strong> <a href="https://elections.transformernews.ai/">$29.5M</a> flowed around RAISE Act author Alex Bores in an eight-candidate field. AI Safety PACs spent $21.3M for him; the Tech Right's Think Big spent <a href="https://elections.transformernews.ai/pacs/C00923417">$8.16M</a> against; Bloomberg separately backed Micah Lasher, his former aide. Lasher won <a href="https://politicsny.com/2026/06/23/micah-lasher-wins-ny-12-democratic-primary-to-succeed-longtime-rep-jerry-nadler/">39 to 35</a>. The safety side outspent the industry side 2.6 to 1 and lost, which makes NY-12 a story about the limits of AI money generally. Bores then launched <a href="https://news.bgov.com/new-york-brief/ny-democrat-bores-launches-30-million-ai-safety-group-for-2028">Who Decides</a> on Sept 15 to put Democrats on a common AI agenda by 2028: "We don't let five people write the laws for hundreds of millions of Americans. There is no reason to let them write the rules for AI."</p>
+        <p><strong>The general election.</strong> The Tech Right's network sat on its cash and lost the competitive races it entered. The late money came from AI Populist vehicles, and every candidate they targeted lost. Details are in <a href="#results">2026 results</a>.</p>
+      </div>
+      <div>
+        <h3>Flashpoint 1: federal preemption of state AI laws</h3>
+        <p>The Tech Right wants one national framework and tried a state-law moratorium and NDAA preemption. A horseshoe coalition beat it: AI Populist Democrats Warren and Sanders alongside MAGA Populists Bannon, Greene and Hawley, and Rand Paul. The July 2025 amendment stripping the moratorium from the reconciliation bill passed <a href="https://www.commerce.senate.gov/2025/7/senate-strikes-ai-moratorium-from-budget-reconciliation-bill-in-overwhelming-99-1-vote/">99-1</a>, sponsored by Sens. Cantwell, Blackburn, Markey and Collins; <a href="https://statescoop.com/state-lawmakers-push-back-federal-proposal-limit-ai-regulation/">260+ state lawmakers</a> from all 50 states had already opposed the moratorium, and <a href="https://ari.us/280-state-lawmakers-urge-opposition-to-ai-law-preemption-in-the-ndaa/">280 opposed</a> the later NDAA attempt. A separate NDAA preemption attempt followed; these are distinct fights. A December 2025 executive order then created an AI Litigation Task Force to sue states anyway.</p>
+        <h3 style="margin-top:26px">Flashpoint 2: data centers and electricity prices</h3>
+        <p>Bipartisan backlash has made data centers a kitchen-table issue and utility bills a core affordability concern. <a href="https://decrypt.co/377162?amp=1">61% of voters</a> oppose a new data center near them. In November voters went against data centers in <a href="https://thenextweb.com/news/ai-super-pacs-midterms-results-leading-the-future">40 of 41 local ballot measures</a>.</p>
+        <p style="margin-top:14px"><strong>Bottom line:</strong> the AI Safety, AI Ethics and AI Populist camps hold no power in this White House. The Tech Right has money and access, but it keeps colliding with a horseshoe of AI Populists and MAGA Populists over state preemption, data centers and surveillance, and in November that horseshoe won at the ballot box.</p>
+      </div>
+    </div>
+
+    <div class="stats" style="margin-top:40px">
+      <div class="stat"><b>$20M+</b><p>left unspent by the Tech Right's Leading the Future at the end of the cycle, which it says is for 2028. <a class="src" href="https://thenextweb.com/news/ai-super-pacs-midterms-results-leading-the-future">The Next Web</a></p></div>
+      <div class="stat"><b>99-1</b><p>Senate vote on the Cantwell-Blackburn-Markey-Collins amendment stripping the state-law moratorium. <a class="src" href="https://www.commerce.senate.gov/2025/7/senate-strikes-ai-moratorium-from-budget-reconciliation-bill-in-overwhelming-99-1-vote/">Senate Commerce</a></p></div>
+      <div class="stat"><b>61%</b><p>of voters oppose a data center near where they live (Annenberg, June to July 2026, n=1,320). <a class="src" href="https://decrypt.co/377162?amp=1">Decrypt</a></p></div>
+      <div class="stat"><b>75 projects</b><p>worth about $130B blocked or delayed in Q1 2026 alone. <a class="src" href="https://datacenterwatch.org/q1-2026">Data Center Watch</a></p></div>
+    </div>
+
+    <figure class="chart" style="margin:0">
+      <h3>Who spent the money, by faction</h3>
+      <p class="small">Independent expenditures by AI-focused super PAC, 2026 cycle, in millions of dollars. FEC filings via the <a href="https://elections.transformernews.ai/">Transformer tracker</a>, as of Nov 6, 2026. Each bar links to that PAC's FEC record.</p>
+      <div class="key"><span><i style="background:var(--bar-ind)"></i>Tech Right</span><span><i style="background:var(--bar-safe)"></i>AI Safety</span><span><i style="background:var(--bar-pop)"></i>AI Populists</span></div>
+      <ul class="bars" aria-label="Spending by super PAC">
+        <li title="Think Big (Tech Right, LTF network, Democratic side): $18.67M"><a class="lab" href="https://elections.transformernews.ai/pacs/C00923417">Think Big</a><span class="track"><span class="bar" style="--c:var(--bar-ind);width:calc(18.67/18.67*72%)"></span><span class="val">$18.67M</span></span></li>
+        <li title="Jobs and Democracy PAC (AI Safety, Public First, Democratic side): $18.49M"><a class="lab" href="https://elections.transformernews.ai/pacs/C00928374">Jobs and Democracy</a><span class="track"><span class="bar" style="--c:var(--bar-safe);width:calc(18.49/18.67*72%)"></span><span class="val">$18.49M</span></span></li>
+        <li title="Defending Our Values PAC (AI Safety, Public First, Republican side): $7.91M"><a class="lab" href="https://elections.transformernews.ai/pacs/C00928390">Defending Our Values</a><span class="track"><span class="bar" style="--c:var(--bar-safe);width:calc(7.91/18.67*72%)"></span><span class="val">$7.91M</span></span></li>
+        <li title="American Mission (Tech Right, LTF network, Republican side): $6.71M"><a class="lab" href="https://elections.transformernews.ai/pacs/C00916692">American Mission</a><span class="track"><span class="bar" style="--c:var(--bar-ind);width:calc(6.71/18.67*72%)"></span><span class="val">$6.71M</span></span></li>
+        <li title="Tomorrow Together (AI Populists): $6.12M"><a class="lab" href="https://elections.transformernews.ai/pacs/C00958603">Tomorrow Together</a><span class="track"><span class="bar" style="--c:var(--bar-pop);width:calc(6.12/18.67*72%)"></span><span class="val">$6.12M</span></span></li>
+        <li title="Guardrails Alliance (AI Populists): $5.01M"><a class="lab" href="https://elections.transformernews.ai/pacs/C00949487">Guardrails Alliance</a><span class="track"><span class="bar" style="--c:var(--bar-pop);width:calc(5.01/18.67*72%)"></span><span class="val">$5.01M</span></span></li>
+        <li title="You Can Push Back (AI Safety, funded by Chris Larsen): $4.39M"><a class="lab" href="https://elections.transformernews.ai/pacs/C00946830">You Can Push Back</a><span class="track"><span class="bar" style="--c:var(--bar-safe);width:calc(4.39/18.67*72%)"></span><span class="val">$4.39M</span></span></li>
+        <li title="Building the Future (Tech Right, LTF network): $2.51M, all for Darline Graham"><a class="lab" href="https://elections.transformernews.ai/pacs/C00960328">Building the Future</a><span class="track"><span class="bar" style="--c:var(--bar-ind);width:calc(2.51/18.67*72%)"></span><span class="val">$2.51M</span></span></li>
+        <li title="Dream NYC (AI Safety): $2.48M, all for Alex Bores"><a class="lab" href="https://elections.transformernews.ai/pacs/C00928069">Dream NYC</a><span class="track"><span class="bar" style="--c:var(--bar-safe);width:calc(2.48/18.67*72%)"></span><span class="val">$2.48M</span></span></li>
+      </ul>
+      <p class="foot">Totals: Tech Right $27.89M; AI Safety $33.27M; AI Populists $11.13M. Not included: Leading the Future's main PAC (it transfers to its affiliates rather than spending directly), Public First Action's 501(c)(4) ads, Build American AI, Meta's state PACs and Alliance for a Better Future.</p>
+    </figure>
+  </div>
+</section>
+
+<section id="ledger">
+  <div class="wrap">
+    <h2>Follow the money: the 2026 AI ledger</h2>
+    <p class="intro">Every AI political vehicle with a public number, grouped by faction. Independent expenditures are current to Nov 6, 2026; raised and cash figures come from the latest FEC report (through Sept 30 or Oct 14). Figures link to their source; most are FEC data on the <a href="https://elections.transformernews.ai/">Transformer AI Campaign Finance Tracker</a>.</p>
+    <div class="tablewrap stack">
+      <table class="ledger">
+        <thead><tr><th scope="col">Vehicle</th><th scope="col">Faction</th><th scope="col">Money</th><th scope="col">Who funds it</th><th scope="col">What it has done</th></tr></thead>
+        <tbody>
+          <tr class="group"><td colspan="5">Tech Right: "regulation helps China and incumbents"</td></tr>
+          <tr><td>Leading the Future (super PAC network)</td><td data-l="Faction"><span class="tag f-tech">Tech Right</span></td><td data-l="Money" class="num"><a href="https://elections.transformernews.ai/pacs/C00916114">$76.0M raised</a> against <a href="https://creati.ai/ai-news/2026-01-31/ai-industry-super-pac-raises-125-million-us-regulation">$125M announced</a>; no new donations after June. <a href="https://elections.transformernews.ai/pacs/C00916114">$23.8M cash</a> in the main PAC (Oct 14). <a href="https://thenextweb.com/news/ai-super-pacs-midterms-results-leading-the-future">Ends the cycle with $20M+ unspent</a>.</td><td data-l="Who funds it">VC and OpenAI wealth: <a href="https://elections.transformernews.ai/pacs/C00916114">Andreessen $25M, Horowitz $25M, Greg and Anna Brockman $25M, Perplexity $100K</a>. Brockman <a href="https://thenextweb.com/news/greg-brockman-leading-the-future-super-pac-second-25m">backed out of a second $25M</a> in September; OpenAI says no outside group speaks for it.</td><td data-l="What it has done">Funded Think Big (D) and American Mission (R). <a href="https://techcrunch.com/2026/11/04/ai-pacs-spent-millions-trying-to-shape-congress-heres-how-they-fared/">$27.4M on primaries</a>. Its competitive general-election picks (Graham, Flint, Buckhout) all lost. A <a href="https://campaignlegal.org/document/ai-industry-funded-super-pacs-unlawfully-evaded-transparency-rules-clc-alleges">Campaign Legal Center complaint</a> (May 2026) says its affiliates hid where their money went. Says it will spend in 2028.</td></tr>
+          <tr><td>Think Big (LTF, Democratic side)</td><td data-l="Faction"><span class="tag f-tech">Tech Right</span> money in Democratic races</td><td data-l="Money" class="num"><a href="https://elections.transformernews.ai/pacs/C00923417">$18.67M in independent expenditures; $25.0M received</a></td><td data-l="Who funds it"><a href="https://elections.transformernews.ai/pacs/C00923417">Leading the Future ($24.5M); Ron Conway ($500K)</a>, who regrets his LTF donation, per <a href="https://www.yahoo.com/news/politics/articles/ai-doomers-won-2026-100000274.html">Jay Carney</a></td><td data-l="What it has done"><a href="https://elections.transformernews.ai/pacs/C00923417">$8.16M against Alex Bores</a> in NY-12. Backed Democrats mostly in primaries and safe seats, including Jesse Jackson Jr., Ritchie Torres and Joe Morelle. <a href="https://www.axios.com/2026/09/25/pro-ai-super-pac-endorses-democrats-election">Endorsed its first four Democrats on Sept 25</a> (Sykes, Horsford, Morelle, Stanton), six figures each. Moskowitz (FL-25) won. <a href="https://www.axios.com/2026/09/25/pro-ai-super-pac-endorses-democrats-election">170+ Democratic organizers and staff</a> asked party leaders to refuse the money, and Progressive Caucus chair Greg Casar <a href="https://www.commondreams.org/news/democrats-ai-donations">urged Democrats to reject AI billionaires' money</a>.</td></tr>
+          <tr><td>American Mission (LTF, Republican side)</td><td data-l="Faction"><span class="tag f-tech">Tech Right</span></td><td data-l="Money" class="num"><a href="https://elections.transformernews.ai/pacs/C00916692">$6.71M in independent expenditures; $4.8M cash (Oct 14)</a></td><td data-l="Who funds it"><a href="https://elections.transformernews.ai/pacs/C00916692">Leading the Future ($22.5M); Lonsdale Enterprises ($250K)</a>, from Palantir co-founder Joe Lonsdale</td><td data-l="What it has done">Lost Graham (SC Senate), Flint (MT-1) and Buckhout (NC-1). Won Hageman (WY Senate) and Yarbrough (TX-32). A state affiliate, American Mission Florida, put <a href="https://finance.biggo.com/news/5929ac40-c417-4ded-b8ef-f92798a48521">$3M behind Byron Donalds</a>, who won.</td></tr>
+          <tr><td>Building the Future (PAC) and Build American AI (501(c)(4))</td><td data-l="Faction"><span class="tag f-tech">Tech Right</span></td><td data-l="Money" class="num">PAC: <a href="https://elections.transformernews.ai/pacs/C00960328">$2.51M, all for Darline Graham</a>. c4: <a href="https://axios.com/2026/08/31/ai-advocacy-group-data-center-battleground-states">about $50M cash on hand</a>, no disclosed donors</td><td data-l="Who funds it">Undisclosed; LTF-linked</td><td data-l="What it has done"><a href="https://axios.com/2026/08/31/ai-advocacy-group-data-center-battleground-states">Ads promoting data centers</a> in Kansas, Ohio and Wisconsin. The PAC pitched itself on ratepayer and water protection, then spent everything on one Senate race and lost.</td></tr>
+          <tr><td>Meta's PAC network</td><td data-l="Faction"><span class="tag f-tech">Tech Right</span></td><td data-l="Money" class="num"><a href="https://gvwire.com/2026/02/18/meta-begins-65-million-election-push-to-advance-ai-agenda/">$65M+ committed</a> (NYT, Feb 2026)</td><td data-l="Who funds it">Meta</td><td data-l="What it has done">American Technology Excellence Project, Forge the Future, Making Our Tomorrow, plus a California PAC that put <a href="https://calmatters.org/economy/technology/2026/10/tech-interests-spend-big-on-california-election/">$1.3M behind one state Senate candidate</a>. Mostly state-level and not in the federal count.</td></tr>
+          <tr><td>Alliance for a Better Future</td><td data-l="Faction"><span class="tag f-tech">Tech Right</span>, conservative</td><td data-l="Money" class="num"><a href="https://www.citationneeded.news/2026-election-results/">About $2M across three Senate races</a></td><td data-l="Who funds it">Not disclosed in our sources</td><td data-l="What it has done">Backed <a href="https://gizmodo.com/ai-and-cryptos-election-spending-spree-backfired-spectacularly-2000834750">Collins (ME), Rogers (MI)</a> and Hinson (IA). All three lost.</td></tr>
+          <tr><td>Innovation Council Action</td><td data-l="Faction"><span class="tag f-tech">Tech Right</span>, Trump-aligned</td><td data-l="Money" class="num"><a href="https://axios.com/2026/03/29/ai-pac-midterms-trump">$100M pledged</a>; <a href="https://elections.transformernews.ai/pacs/C00922815">$0 reported</a></td><td data-l="Who funds it">Pledged by Trump allies in industry</td><td data-l="What it has done">No disclosed activity.</td></tr>
+          <tr><td>NVPAC</td><td data-l="Faction"><span class="tag f-tech">Tech Right</span> adjacent, employee PAC</td><td data-l="Money" class="num"><a href="https://elections.transformernews.ai/pacs/C00960070">$263K raised; no independent expenditures</a></td><td data-l="Who funds it">Nvidia employees, $5,000 each</td><td data-l="What it has done">New this cycle. Watch it for 2028.</td></tr>
+
+          <tr class="group"><td colspan="5">AI Safety: "frontier AI needs binding rules now"</td></tr>
+          <tr><td><a href="https://publicfirstaction.us/">Public First Action</a> (501(c)(4) hub)</td><td data-l="Faction"><span class="tag f-safety">AI Safety</span>, funds both parties</td><td data-l="Money" class="num">Claims <a href="https://axios.com/2026/06/30/ai-safeguards-public-first-action-raised-80-million">$80M raised</a>; <a href="https://elections.transformernews.ai/pacs/C00928374">$23M+ moved into its PACs</a></td><td data-l="Who funds it">Anthropic, <a href="https://www.anthropic.com/news/donation-public-first-action">$40M across two gifts</a> (Feb and July 2026), both restricted from candidate spending. Led by former Reps. Brad Carson (D) and Chris Stewart (R)</td><td data-l="What it has done">Runs Jobs and Democracy PAC (D), Defending Our Values PAC (R) and Public First PAC. A <a href="https://publicfirstaction.us/news/public-first-action-launches-15-million-conservative-ai-consensus-project">$15M Conservative AI Consensus Project</a> for Republicans, <a href="https://www.washingtonexaminer.com/?p=4652838">with $7M+ in ads</a> for Hawley, Cotton, Moody and Donalds, an outreach to the MAGA Populist wing. Gave <a href="https://techcrunch.com/2026/11/04/ai-pacs-spent-millions-trying-to-shape-congress-heres-how-they-fared/">$3M to a super PAC backing Scott Wiener</a>, who won CA-11.</td></tr>
+          <tr><td>Jobs and Democracy PAC</td><td data-l="Faction"><span class="tag f-safety">AI Safety</span>, Democratic side</td><td data-l="Money" class="num"><a href="https://elections.transformernews.ai/pacs/C00928374">$18.49M in independent expenditures</a></td><td data-l="Who funds it"><a href="https://elections.transformernews.ai/pacs/C00928374">Public First Action and Public First; Anthropic staff including Jan Leike</a></td><td data-l="What it has done"><a href="https://elections.transformernews.ai/pacs/C00928374">$15.0M for Bores</a>, the largest single bet of the cycle; he lost. Its later picks won: Foushee (NC-4), Rutinel (CO-8, by spending against Evans), Poindexter (OH-7) and Brooks (PA-7).</td></tr>
+          <tr><td>Defending Our Values PAC</td><td data-l="Faction"><span class="tag f-safety">AI Safety</span>, Republican side</td><td data-l="Money" class="num"><a href="https://elections.transformernews.ai/pacs/C00928390">$7.91M in independent expenditures</a></td><td data-l="Who funds it"><a href="https://elections.transformernews.ai/pacs/C00928390">Public First Action</a></td><td data-l="What it has done">Backed Republicans who support chip controls and state AI laws. Ricketts (NE) won; De La Cruz (TX-35), Marques (AL-2), Singer (FL-25) and Mealer (TX-9) lost.</td></tr>
+          <tr><td>Public First PAC</td><td data-l="Faction"><span class="tag f-safety">AI Safety</span></td><td data-l="Money" class="num"><a href="https://elections.transformernews.ai/pacs/C00930503">$4.91M raised (Sept 30)</a></td><td data-l="Who funds it"><a href="https://elections.transformernews.ai/pacs/C00930503">Dario Amodei ($1M) and Anthropic staff</a></td><td data-l="What it has done">Transfers to Jobs and Democracy rather than direct spending.</td></tr>
+          <tr><td>You Can Push Back; Dream NYC</td><td data-l="Faction"><span class="tag f-safety">AI Safety</span></td><td data-l="Money" class="num"><a href="https://elections.transformernews.ai/pacs/C00946830">$4.39M</a> and <a href="https://elections.transformernews.ai/pacs/C00928069">$2.48M</a> in independent expenditures</td><td data-l="Who funds it">Ripple co-founder Chris Larsen (<a href="https://elections.transformernews.ai/pacs/C00946830">$4.5M</a>, You Can Push Back); <a href="https://elections.transformernews.ai/pacs/C00928069">Anthropic, OpenAI and Jane Street employees</a> (Dream NYC)</td><td data-l="What it has done">$3.4M and $2.5M for Bores. You Can Push Back also put <a href="https://elections.transformernews.ai/pacs/C00946830">$977K behind Rutinel</a>, who won CO-8.</td></tr>
+          <tr><td>AnthroPAC</td><td data-l="Faction"><span class="tag f-safety">AI Safety</span>, employee PAC</td><td data-l="Money" class="num"><a href="https://elections.transformernews.ai/pacs/C00946111">$404K raised; $198K to candidates</a></td><td data-l="Who funds it">Anthropic employees, $5,000 each</td><td data-l="What it has done">Direct contributions to candidates in both parties, such as Sens. Jim Risch (R) and Jack Reed (D).</td></tr>
+
+          <tr class="group"><td colspan="5">AI Populists: "who controls AI matters more than what it is"</td></tr>
+          <tr><td><a href="https://www.fec.gov/data/committee/C00949487/">Guardrails Alliance</a> (hybrid PAC)</td><td data-l="Faction"><span class="tag f-pop">AI Populists</span> <span class="tag f-safety">AI Safety</span></td><td data-l="Money" class="num"><a href="https://elections.transformernews.ai/pacs/C00949487">$5.01M in independent expenditures; $3.25M raised</a> through Oct 14; <a href="https://techcrunch.com/2026/06/18/a-tech-worker-backed-pac-is-bringing-a-5m-knife-to-big-techs-100m-gunfight">$15M goal</a></td><td data-l="Who funds it"><a href="https://elections.transformernews.ai/pacs/C00949487">Guardrails Action ($1.89M), Way to Win, AI-industry employees (an OpenAI employee gave $200K), AFT and AAUP</a></td><td data-l="What it has done">5 for 5 in the general: Husted, Flint, Feely, Buckhout and Gomez all lost (<a href="https://www.yahoo.com/news/politics/articles/where-ai-money-worked-midterms-212048860.html">Semafor</a>). <a href="https://elections.transformernews.ai/pacs/C00949487">$395K for Bores</a> in the primary. Led the Oct 7 red-lines letter. Its <a href="https://s3.us-east-2.amazonaws.com/www.filesforprogress.org/datasets/2026/10/Guardrails+Action+Report.pdf">Data for Progress poll</a>: about 3 in 4 voters are less likely to back a candidate supported by an AI super PAC.</td></tr>
+          <tr><td>Tomorrow Together</td><td data-l="Faction"><span class="tag f-pop">AI Populists</span> <span class="tag f-prag">Pragmatists</span> Democratic-aligned</td><td data-l="Money" class="num"><a href="https://elections.transformernews.ai/pacs/C00958603">$6.12M in independent expenditures; $2.5M raised</a> through Oct 14; <a href="https://www.yahoo.com/news/politics/articles/ai-doomers-won-2026-100000274.html">claims $10M+</a></td><td data-l="Who funds it">Its own action fund; undisclosed donors, reported to include safety donors. Led by Rob Flaherty (Harris 2024) and Karthik Ganapathy</td><td data-l="What it has done">6 for 6: <a href="https://elections.transformernews.ai/pacs/C00958603">Husted (OH Senate), Marshall (KS Senate), Ciscomani (AZ-6), Barrett (MI-7), Van Orden (WI-3) and Bresnahan (PA-8)</a> all lost. A party-positioning vehicle, including <a href="https://www.semafor.com/article/10/23/2026/democratic-ai-pac-takes-its-fight-to-senate-republicans">ads tying Senate Republicans to David Sacks</a>.</td></tr>
+          <tr><td>Who Decides</td><td data-l="Faction"><span class="tag f-pop">AI Populists</span> <span class="tag f-safety">AI Safety</span></td><td data-l="Money" class="num"><a href="https://news.bgov.com/new-york-brief/ny-democrat-bores-launches-30-million-ai-safety-group-for-2028">$10M raised toward $30M by 2028</a></td><td data-l="Who funds it">Refuses "corporate money or contributions from senior executives at frontier AI companies." Structured as a nonprofit</td><td data-l="What it has done">Launched Sept 15 by Alex Bores and Anna Myers to put every Democratic candidate "from the top of the ticket on down" on a common AI agenda by 2028; polling, conferences and local partners in 11 states.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="bridgebox">
+      <h3>How to read this</h3>
+      <p>November settled the story Q3 started. The Tech Right's network stopped raising after June, held its cash, and lost the competitive races it entered. AI Safety's transpartisan bet worked only on the Democratic side. The late money came from AI Populist vehicles running anti-industry ads in battleground races, and their targets lost. Read those wins with care: most came in a wave year, and the money is hard to separate from the wave.</p>
+      <p>Still no safety money for state legislators or Democratic civic infrastructure, and none against the data center ballot measures, which voters passed anyway. Figures will move again with post-general FEC reports on Dec 3.</p>
+    </div>
+  </div>
+</section>
+
+<section id="lane">
+  <div class="wrap">
+    <h2>The crowded lane: three new AI Populist vehicles</h2>
+    <p class="intro">All three are Democratic-aligned, launched June to September 2026, pitch 2028 and run against the Tech Right's Leading the Future. They differ by tactic, not framing: punish, message, organize. Two of them now have perfect November records.</p>
+    <div class="tablewrap">
+      <table class="compare">
+        <thead><tr><th scope="col"><span style="position:absolute;left:-9999px">Attribute</span></th><th scope="col">Guardrails Alliance</th><th scope="col">Tomorrow Together</th><th scope="col">Who Decides</th></tr></thead>
+        <tbody>
+          <tr><td>Factions</td><td><span class="tag f-pop">AI Populists</span> <span class="tag f-safety">AI Safety</span></td><td><span class="tag f-pop">AI Populists</span> <span class="tag f-prag">Pragmatists</span></td><td><span class="tag f-pop">AI Populists</span> <span class="tag f-safety">AI Safety</span></td></tr>
+          <tr><td>Launched</td><td><a href="https://techcrunch.com/2026/06/18/a-tech-worker-backed-pac-is-bringing-a-5m-knife-to-big-techs-100m-gunfight">June 18</a></td><td><a href="https://politicalwire.com/2026/09/08/pac-aims-to-spur-action-on-ai/">Sept 8</a></td><td><a href="https://news.bgov.com/new-york-brief/ny-democrat-bores-launches-30-million-ai-safety-group-for-2028">Sept 15</a></td></tr>
+          <tr><td>Founders</td><td>Shaunna Thomas, Leah Hunt-Hendrix</td><td>Rob Flaherty, Karthik Ganapathy</td><td>Alex Bores, Anna Myers</td></tr>
+          <tr><td>Form</td><td>Super PAC plus Guardrails Action c4</td><td>Super PAC</td><td>Nonprofit</td></tr>
+          <tr><td>Money</td><td class="num"><a href="https://elections.transformernews.ai/pacs/C00949487">$5.01M spent; $3.25M raised (Oct 14)</a>; <a href="https://techcrunch.com/2026/06/18/a-tech-worker-backed-pac-is-bringing-a-5m-knife-to-big-techs-100m-gunfight">$15M goal</a></td><td class="num"><a href="https://elections.transformernews.ai/pacs/C00958603">$6.12M spent</a>; <a href="https://www.yahoo.com/news/politics/articles/ai-doomers-won-2026-100000274.html">$10M+ claimed</a></td><td class="num"><a href="https://news.bgov.com/new-york-brief/ny-democrat-bores-launches-30-million-ai-safety-group-for-2028">$10M raised; $30M goal by 2028</a></td></tr>
+          <tr><td>Who funds it</td><td>Tech workers (including OpenAI staff), AFT, AAUP</td><td>Undisclosed; party donors and AI safety advocates</td><td>Refuses corporate and frontier-lab executive money</td></tr>
+          <tr><td>Theory of change</td><td>Make industry money toxic</td><td>Make Democrats the party that wins on AI</td><td>Build coalition infrastructure and a 2028 platform floor</td></tr>
+          <tr><td>Main tactic</td><td>Ads against LTF-backed candidates; coalition letter</td><td>Ads tying Republicans to the AI lobby; opinion research; creators</td><td>Organizers in 11 states; convenings; quarterly polling; candidate questionnaires</td></tr>
+          <tr><td>Policy</td><td>Red lines, no bill platform</td><td>Three principles: Prosperity, Democracy, Protection</td><td>Common safety standard building on the RAISE Act</td></tr>
+          <tr><td>November record</td><td>5 for 5 against general-election targets</td><td>6 for 6 against targets</td><td>No candidate spending</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Overlap: Who Decides signed the Guardrails letter, and all three court the same donors and 2028 candidates.</p>
+  </div>
+</section>
+
+<section id="seam">
+  <div class="wrap">
+    <h2>On the right seam: FAI and Dean Ball</h2>
+    <div class="two">
+      <div>
+        <h3>Foundation for American Innovation</h3>
+        <p>Center-right 501(c)(3) think tank (formerly Lincoln Network), led by Zach Graves, with Sam Hammond. Funded by Bradley, Scaife, Searle and Walton, plus Hewlett, Knight and Packard. Framing: the "American AI stack," competitiveness and China, "light touch but not laissez-faire."</p>
+        <p>Positions: voluntary pre-deployment testing through CAISI, not an FDA for AI; one federal framework (welcomed DOJ action against the Colorado AI Act); mandatory nucleic acid synthesis screening; export controls; energy and permitting. Defended Anthropic against the Pentagon blacklisting. Tactics: drafting bill text, agency comments, a Conservative AI Policy Fellowship, and a policy network with CNAS and Horizon.</p>
+      </div>
+      <div>
+        <h3>Dean Ball's move</h3>
+        <p>A main author of the 2025 AI Action Plan, Ball joined OpenAI on July 6, 2026 as Head of Strategic Futures, reporting to Jason Kwon. The team covers catastrophic risk, recursive self-improvement and labor-market impact. He remains an FAI non-resident senior fellow.</p>
+        <p><strong>Placement: the Tech Right and Pragmatist seam.</strong> FAI borrows the safety camp's frontier-security agenda (bio screening, testing, export controls) without mandatory rules, and Ball's move shows the right's policy-design pipeline now runs straight into a frontier lab.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faultlines">
+  <div class="wrap">
+    <h2>Schisms and surprising overlaps</h2>
+    <p class="intro">Where each faction lands on the issues that split coalitions. Positions marked "our read" are HGI's inference from public behavior.</p>
+    <p class="scroll-hint">Scroll sideways to see all six factions.</p>
+    <div class="tablewrap">
+      <table class="schism">
+        <thead><tr><th scope="col">Issue</th><th scope="col" class="fh f-tech">Tech Right</th><th scope="col" class="fh f-safety">AI Safety</th><th scope="col" class="fh f-ethics">AI Ethics</th><th scope="col" class="fh f-pop">AI Populists</th><th scope="col" class="fh f-maga">MAGA</th><th scope="col" class="fh f-prag">Pragmatists</th></tr></thead>
+        <tbody>
+          <tr><td>Is AGI actually coming?</td><td>Yes, and wonderful</td><td>Yes, and catastrophic</td><td>Hype serving industry</td><td>Maybe. Guardrails are needed regardless of the answer</td><td>Skeptical</td><td>Hype</td></tr>
+          <tr><td>Frontier AI safety regulation (RAISE Act)</td><td>Strongly against ("regulatory capture")</td><td>Strongly for</td><td>For, but prioritize bias and labor</td><td>Strongly for, as a baseline</td><td>Increasingly for: child safety, jobs</td><td>Case by case</td></tr>
+          <tr><td>Federal preemption of state laws</td><td>Strongly for</td><td>Against</td><td>Against</td><td>No, but a federal solution is necessary under the right leadership</td><td>Against</td><td>Against</td></tr>
+          <tr><td>Existential risk vs. present harms</td><td>Neither: build faster</td><td>x-risk is the priority</td><td>Present harms first; x-risk is TESCREAL ideology</td><td>Both: near-term harms are the organizing gateway to structural demands</td><td>Present harms (jobs, children)</td><td>Both framings overblown</td></tr>
+          <tr><td>Child safety / AI CSAM</td><td>Concedes it to sell preemption. Grok is the liability</td><td>Late arrival, now the most winnable harm</td><td>Yes to liability, no to age gates</td><td>Product liability, not content policing</td><td>Their sharpest AI issue. Comfortable with age verification</td><td>Real and measurable; wants narrow rules</td></tr>
+          <tr><td>Data centers</td><td>Build at all costs</td><td>Mostly silent or still determining its position</td><td>Water, energy, land concerns</td><td>Key organizing on-ramp, the main people-power lever</td><td>Utility bills, community impact</td><td>Nuanced</td></tr>
+          <tr><td>Open source AI</td><td>Strongly for: deregulation plus beat China</td><td>Against open frontier weights: you cannot recall them</td><td>Split: transparency yes, "open washing" no</td><td>Anti-monopoly instinct; asks who profits from "open" (our read)</td><td>Offstage; anti-China instinct cuts against</td><td>Generally pro-openness for research</td></tr>
+          <tr><td>Surveillance / Flock cameras</td><td>Funds it: a16z is Flock's lead investor, having led the $275M Series F</td><td>Secondary concern</td><td>Founding issue: core opposition</td><td>Strongly against (oligarchy in action)</td><td>Increasingly against (warrantless tracking)</td><td>Concerned, case by case (our read)</td></tr>
+          <tr><td>The China race</td><td>Deregulate and sell chips to beat China</td><td>Export controls plus trust-building regulation</td><td>Rejects the race framing entirely</td><td>Politically relevant, but not an excuse for reckless acceleration</td><td>National security priority</td><td>Skeptical of race framing</td></tr>
+          <tr><td>Copyright and training data</td><td>Oppose licensing mandates; frame as innovation tax</td><td>Not a priority issue</td><td>Consent and credit for data workers and creators</td><td>Supports creator rights; wary of deals that entrench Big Tech</td><td>Sympathetic to creators; no organized position</td><td>Courts should decide; legislation premature</td></tr>
+          <tr><td>Labor and job displacement</td><td>Abundance framing: AI creates more jobs than it displaces</td><td>Secondary to x-risk; some overlap on worker protections</td><td>Central concern; supports worker organizing and data rights</td><td>Core issue; building trades and service unions have opposed interests</td><td>Jobs concern is real; no unified policy response</td><td>Displacement is real but gradual; policy should focus on transitions</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub">Internal fights worth knowing</h3>
+    <ul class="surprise">
+      <li><h3>Within AI Safety</h3><p>Yudkowsky and MIRI purists ("shut it all down") versus Coefficient Giving and Anthropic. Anthropic is the flashpoint: hypocrite to some, best hope to others.</p></li>
+      <li><h3>Within the right</h3><p>Tech Right versus the MAGA base is open war over preemption and now surveillance. The Tech Right's own voters are turning against data centers and rate hikes.</p></li>
+      <li><h3>Within the left</h3><p>The ethics and safety camps compete for regulatory oxygen, and the TESCREAL fight left open wounds. The AI Populists' data center moratorium strategy is not universally embraced even inside the camp.</p></li>
+      <li><h3>Within labor</h3><p>Building trades want data center construction jobs and resist moratorium framing. AFT and AAUP are funding the Guardrails Alliance. SAG-AFTRA and WGA are fighting a separate consent-and-compensation war over training data. The AFL-CIO has not unified these blocs into a single AI position.</p></li>
+      <li><h3>Within the child safety coalition</h3><p>Agreement on the need for accountability; disagreement on remedies. <a href="https://fairplayforkids.org/statement-ai-executive-order-still-puts-children-at-risk/">Fairplay</a>, Encode and Design It For Us want duty-of-care and age-assurance mandates. <a href="https://www.eff.org/issues/age-verification">EFF</a>, CDT and Fight for the Future call that an ID checkpoint on the internet and oppose KOSA and <a href="https://www.eff.org/deeplinks/2025/06/oppose-stop-csam-protecting-kids-shouldnt-mean-breaking-tools-keep-us-safe">STOP CSAM</a> outright. CDT <a href="https://cdt.org/insights/cdt-joins-with-afp-and-siia-to-oppose-age-verification-mandates/">co-signed</a> an anti-age-verification letter with Americans for Prosperity.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section id="scramblers">
+  <div class="wrap">
+    <span class="eyebrow">Scrambler 1</span>
+    <h2>Data centers</h2>
+    <p class="intro">Data centers are where the factions break formation. The fight is no longer two-sided: alongside the camps that want to stop the buildout and the camps that want to accelerate it, a third group is writing the rules for how it happens. Who pays, what gets taxed, what gets disclosed, what gets enforced.</p>
+    <div class="paths">
+      <div class="path f-pop">
+        <span class="kicker">Stop</span>
+        <h3>Moratorium coalition</h3>
+        <p><strong>Ethics and environmental left:</strong> <a href="https://www.foodandwaterwatch.org/2026/06/11/500-groups-from-47-states-call-for-nationwide-ai-data-center-moratorium/">500+ groups from 47 states</a> demand a congressional moratorium.</p>
+        <blockquote>"Wherever these hyperscale data centers are built, electricity rates skyrocket for families and small businesses, water stability is threatened, and communities are turned upside down."<cite>Emily Wurth, Food and Water Watch</cite></blockquote>
+        <p><strong>AI Populists:</strong> the moratorium is strategy, not just defense. Slowing the buildout is the one people-power lever that opens space for a real regulatory framework.</p>
+        <blockquote>"Data centers increase residential energy bills by upwards of 250% and many communities are left in the dark on these projects from the start."<cite>Meghan Pazik, Public Citizen</cite></blockquote>
+        <p><strong>MAGA populists, blasting their own administration:</strong></p>
+        <blockquote>"How dare the peasants complain about data centers stealing their water and driving the cost of electricity!!"<cite><a href="https://thehill.com/policy/technology/5418085-greene-water-usage-data-centers/">Marjorie Taylor Greene</a>, mocking reported FBI monitoring of data center protesters</cite></blockquote>
+        <p>Sanders and Ocasio-Cortez introduced the AI Data Center Moratorium Act; roughly a dozen states have introduced moratorium bills; <a href="https://www.governor.ny.gov/news/first-statewide-moratorium-new-hyperscale-data-centers-launched-governor-kathy-hochul">New York's executive order</a> is the first statewide pause; Maine's LD 307 passed both chambers and was vetoed; Monterey Park, CA became the first US city to permanently ban data centers by ballot measure. <a href="https://ainowinstitute.org/publications/data-center-policy-guide">AI Now's North Star Data Center Policy Toolkit</a> is written for this posture, with fallback protections where a full stop is not feasible.</p>
+      </div>
+      <div class="path f-tech">
+        <span class="kicker">Build</span>
+        <h3>Tech Right, White House and the labs</h3>
+        <p>The <a href="https://www.whitehouse.gov/wp-content/uploads/2025/07/Americas-AI-Action-Plan.pdf">AI Action Plan</a>'s core pillar is "Build American AI Infrastructure": faster permitting, looser environmental review.</p>
+        <blockquote>"Technology is going to happen. Trying to stop it is like ordering the tides to stop."<cite>David Sacks, former White House AI czar</cite></blockquote>
+        <p><strong>Frontier labs, including the "safety" one:</strong> OpenAI wants 250 GW of capacity by 2033, "a gigawatt of new AI infrastructure every week." Anthropic <a href="https://www.anthropic.com/news/anthropic-invests-50-billion-in-american-ai-infrastructure">committed $50B to US data centers</a>, asking "do we have what it takes to build AI in America?" (though it pledged to shoulder ratepayer price hikes itself).</p>
+        <p>The <a href="https://www.searchlightinstitute.org/research/seizing-the-data-center-buildout-for-grid-modernization/">White House Ratepayer Protection Pledge</a> (March 2026) is the industry's answer to the affordability backlash, but it is voluntary and unenforceable, with no interconnection, financing or supply chain mechanism behind it.</p>
+        <p>There is no organized constituency for building. Polling runs roughly 30 for and 70 against in both parties, which is what happens when one side stops making a case (<a href="https://jasmi.news/p/no-data-centers-in-my-backyard">Jasmine Sun</a>).</p>
+      </div>
+      <div class="path f-prag">
+        <span class="kicker">How</span>
+        <h3>The rule-writers</h3>
+        <p>The largest and least organized group: not pro-build, not pro-moratorium, looking for a framework. Most of the 2026 policy activity lives here, with <a href="https://www.afslaw.com/perspectives/alerts/state-regulation-data-centers-2026-shifting-landscape">300+ data center bills filed across 30 states</a> in the first six weeks of the year.</p>
+        <ul>
+          <li><strong>Who pays.</strong> Strict cost causation, special rate classes for large loads (<a href="https://www.multistate.us/insider/2026/2/20/state-data-center-legislation-in-2026-tackles-energy-and-tax-issues">18+ states</a>), take-or-pay commitments and decommissioning bonds.</li>
+          <li><strong>Tax.</strong> Virginia enacted a first-of-its-kind <a href="https://www.gtlaw.com/en/insights/2026/6/virginia-legislature-approves-tax-on-data-center-electricity-consumption">$0.011/kWh data center electricity consumption tax</a>. Others are pausing incentives or conditioning abatements on grid connection and clean power. Federal insider variant: the token tax.</li>
+          <li><strong>Environment and enforcement.</strong> Emissions get decided in rate cases, air permit hearings and enforcement: prohibit new on-site gas, require clean firm power, mandate load flexibility, <a href="https://www.citizen.org/article/reining-in-big-tech-policy-solutions-to-address-the-data-center-buildout/">register large loads with NERC</a>. <a href="https://www.datacenterairpollution.com/">Climate Power</a> scores the eight hyperscalers on behind-the-meter gas and local grid carbon.</li>
+          <li><strong>Process and consent.</strong> The backlash is driven less by water and noise than by process failure and weak benefits: NDAs, fast tracks and being blindsided (<a href="https://jasmi.news/p/no-data-centers-in-my-backyard">Jasmine Sun</a>). So: ban NDAs binding public officials (<a href="https://local.microsoft.com/blog/putting-communities-first-our-decision-to-end-ndas-with-local-governments/">Microsoft has already conceded this</a>), require pre-permit disclosure, and set standard terms of entry. <a href="https://esd.ny.gov/sites/default/files/media/document/CIF-Policy-Outline-071426.pdf">New York's draft</a> floats $1M in community benefits per megawatt.</li>
+        </ul>
+        <p><strong>The grid-leverage case:</strong> treating the buildout as yes or no is a strategic error, and there is a narrow, closing window to convert data center demand into transmission, ratepayer relief and domestic supply chains (<a href="https://www.searchlightinstitute.org/research/seizing-the-data-center-buildout-for-grid-modernization/">Jane Flegal, Searchlight</a>).</p>
+        <p><strong>The governance case:</strong> the moratorium push is a strategic dead end with real equity costs, and the answer is democratic oversight of how AI develops (<a href="https://jacobin.com/2026/04/ai-data-center-moratorium-democracy">Holly Buck, Jacobin</a>).</p>
+      </div>
+    </div>
+    <div class="bridgebox">
+      <h3>The live argument is stop versus how</h3>
+      <p>The moratorium camp reads HOW as pre-negotiated surrender; the governance camp reads STOP as conceding the terms. Both are inside the same coalition. Schisms to watch: PauseAI protests the buildout while safety-branded Anthropic spends $50B on it. The White House fast-tracks permits while its base fights projects district by district.</p>
+      <p>Scoreboard: <a href="https://decrypt.co/377162?amp=1">61% oppose a data center near where they live</a>, with 14% in support (Annenberg, June to July 2026); <a href="https://datacenterwatch.org/q1-2026">75 projects worth roughly $130B blocked or delayed in Q1 2026 alone</a>, matching all of 2025; active opposition groups more than doubled from 396 to 833 across 49 states; 69 local moratoria enacted by May 2026; New York, Texas and Seattle have all paused new projects. On Nov 3, voters went against data centers in <a href="https://thenextweb.com/news/ai-super-pacs-midterms-results-leading-the-future">40 of 41 local ballot measures</a>, including a ban on "high impact data centers" in <a href="https://www.route-fifty.com/artificial-intelligence/2026/11/voters-reject-data-centers-local-ballot-initiatives/417033/">Emporia, Kansas with just over 60%</a>.</p>
+      <p>The build side is no longer only defending BUILD. Build American AI, the Tech Right's dark-money arm, ran <a href="https://axios.com/2026/08/31/ai-advocacy-group-data-center-battleground-states">ad campaigns in Kansas, Ohio and Wisconsin</a>, and its PAC, Building the Future, pitched itself on protecting ratepayers and water. Tech Right money has entered the HOW column, and its one candidate lost to an opponent who ran against <a href="https://www.yahoo.com/news/politics/articles/where-ai-money-worked-midterms-212048860.html">"Data Center Darline."</a></p>
+    </div>
+
+    <span class="eyebrow" style="margin-top:64px">Scrambler 2</span>
+    <h2>Open source AI</h2>
+    <p class="intro">"Open weights" is not open source: you can download the model but not the training data or code. Critics call the gap "open washing." Each faction means something different by "open."</p>
+    <div class="paths four">
+      <div class="path f-tech"><span class="kicker">Tech Right</span><h3>Open as weapon</h3><p>a16z leads with "<a href="https://a16z.com/asserting-american-leadership-in-open-source-ai/">Asserting American Leadership in Open Source AI</a>"; it is in Trump's <a href="https://www.whitehouse.gov/wp-content/uploads/2025/07/Americas-AI-Action-Plan.pdf">AI Action Plan</a>. The pitch: open models let little tech compete and beat China. The tell: "open source" here mostly means deregulation.</p></div>
+      <div class="path f-safety"><span class="kicker">AI Safety</span><h3>Open as threat</h3><p>You cannot recall an open model, and guardrails can be fine-tuned away. Geoffrey Hinton compared open-sourcing big models to "being able to buy nuclear weapons at Radio Shack." This drove the <a href="https://www.gibsondunn.com/regulating-the-future-eight-key-takeaways-from-californias-sb-1047-vetoed-by-governor-newsom/">SB 1047</a> fight (Newsom veto, Sept 2024).</p></div>
+      <div class="path f-pop"><span class="kicker">Public interest left</span><h3>Open as commons</h3><p>Mozilla is spending from $1.4B in reserves on an open source "<a href="https://www.cnbc.com/2026/01/27/mozilla-building-an-ai-rebel-alliance-to-take-on-openai-anthropic-.html">rebel alliance</a>" against OpenAI and Anthropic ("owners, not renters"), with the Public AI movement pushing publicly funded models and compute. But AI Now warns "open" models still run on Big Tech's compute.</p></div>
+      <div class="path f-prag"><span class="kicker">Geopolitics</span><h3>The China effect</h3><p><a href="https://theconversation.com/deepseek-how-chinas-embrace-of-open-source-ai-caused-a-geopolitical-earthquake-249563">DeepSeek</a> (Jan 2025) made open models a geopolitical weapon. Chinese open models passed American ones in downloads (1.15B vs 723M by March 2026). The US response: OpenAI's <a href="https://openai.com/index/gpt-oss-model-card/">gpt-oss</a> and the <a href="https://atomproject.ai/">ATOM Project</a>, while Meta went proprietary ("the Great Re-Closing").</p></div>
+    </div>
+    <div class="bridgebox">
+      <h3>Why it matters</h3>
+      <p>Openness splits allies (the safety and ethics camps), every regulation fight now contains an open source carve-out battle, and the Tech Right borrows the left's "democratize AI" language. Read any open source claim with three questions: Open what: weights, data, code or brand? Who profits? What regulation is this argument being used against?</p>
+    </div>
+
+    <span class="eyebrow" style="margin-top:64px">Scrambler 3</span>
+    <h2>Surveillance and Flock cameras</h2>
+    <div class="two" style="margin-top:20px">
+      <div>
+        <h3>The setup</h3>
+        <p>Flock Safety runs 100,000+ AI license plate cameras across the US, an $8.4B company whose lead investor is a16z, which <a href="https://a16z.com/announcement/investing-in-flock-safety/">led Flock's $275M Series F</a> in March 2025 at a $7.5B valuation via its American Dynamism fund. Flock integrates with Palantir, which holds a $30M ICE contract. Marc Andreessen joined the Pentagon's Defense Policy Board in June 2026. Nearly 800 cities signed new Flock contracts in 2026.</p>
+        <h3 style="margin-top:26px">The blowup</h3>
+        <p>Local camera data flowed to ICE and federal agencies without authorization. Dayton's audit found its cameras searched 7,100+ times for immigration enforcement, explicitly against city policy. An <a href="https://www.ilsos.gov/news/2025/august-25-2025-giannoulias-audit-finds-license-plate-reader-company-in-violation-of-state-law.html">Illinois state audit</a> found CBP had been given access to Illinois plate data through an undisclosed pilot program, forcing dozens of agencies off the state's data-sharing system. <a href="https://www.cnn.com/2026/02/13/tech/amazon-ring-flock-partnership-ice">Ring ended its partnership with Flock</a> on Feb 12, 2026, after backlash to its Super Bowl ad. At least <a href="https://www.techtimes.com/articles/319317/20260629/flock-safety-crosses-100000-cameras-53-cities-cancel-over-unauthorized-federal-data-access.htm">53 cities across 20 states</a> had canceled or rejected Flock contracts as of June 2026, with independent trackers putting the figure at <a href="https://www.webpronews.com/flock-safetys-surveillance-network-crumbles-as-cities-cancel-contracts-over-privacy-fears/">80 or more</a> by mid-2026, including Austin, Evanston and Eugene.</p>
+      </div>
+      <div>
+        <h3>Opposition from the left</h3>
+        <blockquote>"It doesn't matter which company has its creepy cameras in your neighborhood, they all have the same problems: a lack of transparency, oversight, and regulation into how they collect, store, and use our data."<cite>ACLU, whose national campaign is called "<a href="https://www.aclu.org/campaigns-initiatives/get-the-flock-out">Get the Flock Out</a>"</cite></blockquote>
+        <p><a href="https://www.commondreams.org/news/flock-camera-backlash">The EFF calls</a> Flock's Nova product, which links plate data to personal information, a "surveillance panopticon."</p>
+        <h3 style="margin-top:26px">Opposition from the right</h3>
+        <p>Rep. Lauren Boebert introduced the Surveillance Accountability Act restricting warrantless tracking; a bipartisan amendment would condition federal highway funds on <a href="https://stateline.org/2026/01/08/worried-about-surveillance-states-enact-privacy-laws-and-restrict-license-plate-readers/">banning license plate readers</a> except for tolls; <a href="https://www.newsweek.com/list-of-republicans-trying-to-crack-down-on-flock-cameras-12249749">Newsweek now runs lists</a> of Republicans cracking down on Flock.</p>
+        <h3 style="margin-top:26px">The schism</h3>
+        <p>The Tech Right's money built the surveillance network; the MAGA base and progressives are fighting it city by city. For AI Populists this is the cleanest "who is in charge" story in AI politics: VC money to police cameras to ICE via Palantir.</p>
+        <p><strong>Organizing note:</strong> unlike most AI fights, Flock contracts are local and cancellable. 53 confirmed cancellations, 80+ by some counts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="method">
+  <div class="wrap">
+    <h2>Methodology, caveats and open questions</h2>
+    <div class="cols">
+      <div>
+        <h3>How this map was drawn</h3>
+        <p>Factions are defined by shared beliefs, community infrastructure (funders, conferences, forums) and political behavior (money, endorsements, coalitions), building on <a href="https://micheljusten.substack.com/p/a-guide-to-the-ai-tribes">Michel Justen's faction taxonomy</a>, with original additions: the political money overlay, the AI Populists faction (from field feedback) and the issue-line analysis.</p>
+      </div>
+      <div>
+        <h3>Caveats</h3>
+        <ul>
+          <li>Snapshot as of Nov 6, 2026, three days after Election Day. A few races are uncalled, and post-general FEC reports are due Dec 3.</li>
+          <li>Spending totals now use the <a href="https://elections.transformernews.ai/">Transformer tracker's</a> FEC independent-expenditure counts throughout. Earlier editions cited a broader count ($81.3M total, $43.8M to $37.5M), so totals are not directly comparable across editions.</li>
+          <li>Factions are clusters, not cages. Individuals vary; orgs may dispute their placement.</li>
+          <li>Placements reflect public positions and funding, not private views, and do not suggest relationships between groups listed together.</li>
+          <li>Some fights are coalitional, not factional. On child safety and surveillance, the table shows positions, not alliances.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>What we're watching</h3>
+        <ul>
+          <li><strong>2028 positioning.</strong> LTF says 2028 "will show who actually cares." Who Decides, Tomorrow Together and Guardrails are all building toward the same primary field.</li>
+          <li><strong>National security and international cooperation.</strong> Not simply US-China competition, but also opportunities for international cooperation on safety.</li>
+          <li><strong>Labor placement.</strong> Some trades are pro-data-center jobs; some are funding safety efforts; there isn't a central alignment.</li>
+          <li><strong>Child safety as the preemption vehicle.</strong> KOSA, the CHATBOT Act and the Youth AI Privacy Act <a href="https://iapp.org/news/a/us-senate-committee-approves-kosa-children-s-ai-safety-bills">cleared Senate Commerce on Aug 5, 2026</a>. The open question is what preemption language rides along, and whether the age-verification split splinters the anti-preemption coalition.</li>
+          <li><strong>Tech Right surveillance collision.</strong> Its surveillance investments could collide with its own voter base as the MAGA right turns against warrantless tracking.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Corrections welcome</h3>
+        <p>We invite corrections from the orgs we've placed. Send them to kate@higherground.institute.</p>
+      </div>
+    </div>
+
+    <details class="log">
+      <summary>Earlier updates</summary>
+      <h4>Pre-election update (Nov 3, 2026)</h4>
+      <p>Figures reflected Q3 FEC filings and reported spending through Oct 26. Leading the Future reported no new donations in Q2 or Q3. Tomorrow Together's first FEC report showed $100K raised through Sept 30 before it announced $6.5M in ads. On Oct 7, nearly 40 groups led by Guardrails Action set red lines for federal AI legislation. Guardrails, Tomorrow Together and Who Decides all launched June to September 2026. The Foundation for American Innovation was placed on the Tech Right and Pragmatist seam.</p>
+      <h4>Corrections in that edition</h4>
+      <p>Who Decides is a nonprofit, and Tomorrow Together is described as a party-positioning vehicle. Guardrails' NY-12 spending, then reported as $285K, now stands at <a href="https://elections.transformernews.ai/pacs/C00949487">$395K on FEC record</a>.</p>
+    </details>
+  </div>
+</section>
+
+<section id="sources">
+  <div class="wrap">
+    <h2>Sources and further reading</h2>
+    <h3 class="srchead">2026 results (new this edition)</h3>
+    <ul class="sources">
+      <li><a href="https://elections.transformernews.ai/">Transformer, AI Campaign Finance Tracker</a> (data as of Nov 6, 2026)</li>
+      <li><a href="https://fortune.com/2026/11/04/candidates-backed-by-ai-super-pacs-result/">Fortune, "Here's how the candidates backed by AI super PACs fared"</a> (Nov 4)</li>
+      <li><a href="https://techcrunch.com/2026/11/04/ai-pacs-spent-millions-trying-to-shape-congress-heres-how-they-fared/">TechCrunch, "AI PACs spent millions trying to shape Congress"</a> (Nov 4)</li>
+      <li><a href="https://thenextweb.com/news/ai-super-pacs-midterms-results-leading-the-future">The Next Web, "AI super PACs lost their biggest general election bet"</a></li>
+      <li><a href="https://www.yahoo.com/news/politics/articles/ai-doomers-won-2026-100000274.html">Politico Magazine, "How the AI Doomers Won 2026"</a> (Nov 6)</li>
+      <li><a href="https://www.semafor.com/article/11/05/2026/where-ai-money-worked-in-the-midterms">Semafor, "Where AI money worked in the midterms"</a> (Nov 5)</li>
+      <li><a href="https://www.citationneeded.news/2026-election-results/">Citation Needed, "Crypto and AI's $250 million election goes sideways"</a></li>
+      <li><a href="https://gizmodo.com/ai-and-cryptos-election-spending-spree-backfired-spectacularly-2000834750">Gizmodo, "AI and Crypto's Election Spending Spree Backfired"</a></li>
+      <li><a href="https://www.route-fifty.com/artificial-intelligence/2026/11/voters-reject-data-centers-local-ballot-initiatives/417033/">Route Fifty, "Voters reject data centers in local ballot initiatives"</a></li>
+      <li><a href="https://www.cbsnews.com/news/house-districts-flipped-2026-midterm-elections/">CBS News, House districts that flipped in the 2026 midterms</a></li>
+      <li><a href="https://calmatters.org/economy/technology/2026/10/tech-interests-spend-big-on-california-election/">CalMatters, "Google and Meta spent big fighting AI regulations in California"</a></li>
+      <li><a href="https://politicsny.com/2026/06/23/micah-lasher-wins-ny-12-democratic-primary-to-succeed-longtime-rep-jerry-nadler/">PoliticsNY, "Micah Lasher wins NY-12 Democratic primary"</a> (June 23)</li>
+      <li><a href="https://www.kjzz.org/elections/2026-11-05/democrat-amish-shah-wins-arizona-congressional-district-1-seat-over-jay-feely-elex">KJZZ, AZ-1 result</a> and <a href="https://www.azpm.org/elections/2026-11-05/democrat-joanna-mendoza-wins-cd6-unseating-incumbent-juan-ciscomani">AZPM, AZ-6 result</a></li>
+      <li><a href="https://www.270towin.com/2026-election-results-live/state/florida/">270toWin, Florida results</a></li>
+      <li><a href="https://finance.biggo.com/news/5929ac40-c417-4ded-b8ef-f92798a48521">BigGo Finance, "AI Super PACs Burned Millions on the Midterms"</a> (Nov 4)</li>
+    </ul>
+    <h3 class="srchead">Money ledger sources</h3>
+    <ul class="sources">
+      <li><a href="https://www.anthropic.com/news/donation-public-first-action">Anthropic, donation to Public First Action</a> and <a href="https://publicfirstaction.us/news/public-first-action-launches-15-million-conservative-ai-consensus-project">Public First Action, Conservative AI Consensus Project launch</a></li>
+      <li><a href="https://www.fec.gov/data/committee/C00949487/">FEC, Guardrails Alliance committee summary</a></li>
+      <li><a href="https://www.axios.com/2026/09/25/pro-ai-super-pac-endorses-democrats-election">Axios, pro-AI super PAC endorses its first Democrats</a> (Sept 25)</li>
+      <li><a href="https://axios.com/2026/06/30/ai-safeguards-public-first-action-raised-80-million">Axios, "AI safeguards group Public First Action says it has raised $80 million"</a> (June 30)</li>
+      <li><a href="https://www.washingtonexaminer.com/?p=4652838">Washington Examiner, "AI safety group launches $15 million campaign for Republicans"</a> (July 17)</li>
+      <li><a href="https://axios.com/2026/08/31/ai-advocacy-group-data-center-battleground-states">Axios, "AI advocacy group launches data center push in battleground states"</a> (Aug 31)</li>
+      <li><a href="https://axios.com/2026/03/29/ai-pac-midterms-trump">Axios, "New pro-AI group preps $100M midterm blitz"</a> (Mar 29)</li>
+      <li><a href="https://gvwire.com/2026/02/18/meta-begins-65-million-election-push-to-advance-ai-agenda/">NYT via GV Wire, "Meta begins $65 million election push"</a> (Feb 18)</li>
+      <li><a href="https://creati.ai/ai-news/2026-01-31/ai-industry-super-pac-raises-125-million-us-regulation">Creati.ai, "AI industry super PAC raises $125 million"</a> (Jan 31)</li>
+      <li><a href="https://campaignlegal.org/document/ai-industry-funded-super-pacs-unlawfully-evaded-transparency-rules-clc-alleges">Campaign Legal Center, complaint against American Mission and Think Big</a> (May 5)</li>
+      <li><a href="https://techcrunch.com/2026/06/18/a-tech-worker-backed-pac-is-bringing-a-5m-knife-to-big-techs-100m-gunfight">TechCrunch, Guardrails Alliance launch</a> (June 18)</li>
+      <li><a href="https://politicalwire.com/2026/09/08/pac-aims-to-spur-action-on-ai/">Political Wire, Tomorrow Together launch</a> (Sept 8)</li>
+      <li><a href="https://news.bgov.com/new-york-brief/ny-democrat-bores-launches-30-million-ai-safety-group-for-2028">Bloomberg Government, "NY Democrat Bores Launches $30 Million AI Safety Group for 2028"</a></li>
+      <li><a href="https://s3.us-east-2.amazonaws.com/www.filesforprogress.org/datasets/2026/10/Guardrails+Action+Report.pdf">Data for Progress, Guardrails Action poll report</a> (Oct 2026)</li>
+      <li><a href="https://www.commondreams.org/news/democrats-ai-donations">Common Dreams, Casar urges Democrats to reject AI billionaires' money</a> (Oct 1)</li>
+      <li><a href="https://www.commerce.senate.gov/2025/7/senate-strikes-ai-moratorium-from-budget-reconciliation-bill-in-overwhelming-99-1-vote/">Senate Commerce, 99-1 vote to strike the AI moratorium</a> (July 1, 2025)</li>
+      <li><a href="https://statescoop.com/state-lawmakers-push-back-federal-proposal-limit-ai-regulation/">StateScoop, 260+ state lawmakers oppose the moratorium</a> and <a href="https://ari.us/280-state-lawmakers-urge-opposition-to-ai-law-preemption-in-the-ndaa/">ARI, 280 oppose NDAA preemption</a></li>
+      <li><a href="https://decrypt.co/377162?amp=1">Decrypt, Annenberg data center poll</a> and <a href="https://datacenterwatch.org/q1-2026">Data Center Watch, Q1 2026 report</a></li>
+    </ul>
+    <h3 class="srchead">Primary explainers</h3>
+    <ul class="sources">
+      <li>Michel Justen, <a href="https://micheljusten.substack.com/p/a-guide-to-the-ai-tribes">"A guide to the AI tribes"</a> (Jan 2026), micheljusten.substack.com</li>
+      <li><a href="https://en.wikipedia.org/wiki/TESCREAL">TESCREAL framework</a> (Gebru and Torres) and the rebuttal <a href="https://asteriskmag.com/issues/06/the-tescreal-bungle">"The TESCREAL Bungle,"</a> asteriskmag.com</li>
+      <li><a href="https://www.shapingai.com/">"Shaping AI's Impact on Billions of Lives"</a> (CACM, Jan 2026), shapingai.com</li>
+    </ul>
+    <h3 class="srchead">Interactive maps</h3>
+    <ul class="sources">
+      <li><a href="https://mapping-ai.org/map">Mapping AI</a> (mapping-ai.org/map): about 1,800 people and orgs in US AI policy by stance and funding</li>
+      <li><a href="https://aisafety.com/map">AISafety.com/map</a>: the AI safety ecosystem</li>
+      <li>CSET / MIT AI Risk Initiative: governance landscape taxonomy</li>
+    </ul>
+    <h3 class="srchead">Political money and flashpoints</h3>
+    <ul class="sources">
+      <li>NYT, "New Super PAC, the Guardrails Alliance, Aims to Rally Tech Workers to Help Limit AI" (June 2026)</li>
+      <li>Axios, <a href="https://www.axios.com/2026/01/30/openai-a16z-cash-ai-super-pac">"OpenAI's Brockman and a16z funnel cash to pro-AI super PAC"</a> (Jan 2026)</li>
+      <li>NPR, <a href="https://www.npr.org/2026/06/22/nx-s1-5856359/ai-anthropic-congress-spending-openai-midterms-election">"Groups tied to OpenAI and Anthropic are spending big on the midterms"</a> (June 2026)</li>
+      <li>NOTUS, <a href="https://www.notus.org/2026-election/ai-super-pacs-leading-the-future-public-first-alex-bores">"The AI Super PAC Fight That Might Shape the Midterms"</a> (NY-12 / Bores)</li>
+      <li>Grist, <a href="https://grist.org/politics/data-center-ai-bipartisan-backlash/">"America's data center backlash is bipartisan: can it stay that way?"</a></li>
+      <li>Brookings, <a href="https://www.brookings.edu/articles/how-rising-electric-rates-could-affect-the-2026-midterms/">"How rising electric rates could affect the 2026 midterms"</a></li>
+      <li>The Intercept, <a href="https://theintercept.com/2026/10/29/midterms-election-money-ai-super-pac/">"AI Tried to Buy the Midterms: Then the Lobby Learned Everyone Hates AI"</a> (Oct 29)</li>
+      <li>Puck, <a href="https://puck.news/ai/2026/10/pro-ai-pacs-are-retreating-from-the-midterms">"Pro-A.I. PACs Are Retreating From the Midterms"</a> (Oct 29)</li>
+      <li>Bloomberg Government, <a href="https://news.bgov.com/bloomberg-government-news/ai-super-pacs-cash-haul-dip-casts-doubt-on-lasting-influence">"AI Super PAC's Cash Haul Dip Casts Doubt on Lasting Influence"</a> (Oct 19)</li>
+      <li>Semafor, <a href="https://www.semafor.com/article/10/07/2026/ai-safety-group-lays-out-demands-for-candidates">"AI safety group lays out demands for candidates"</a> (Oct 7) and <a href="https://www.semafor.com/article/10/23/2026/democratic-ai-pac-takes-its-fight-to-senate-republicans">"Democratic AI PAC takes its fight to Senate Republicans"</a> (Oct 23)</li>
+      <li>FAI, <a href="https://www.thefai.org/posts/dean-ball-joins-openai-as-head-of-strategic-futures">"Dean Ball Joins OpenAI as Head of Strategic Futures"</a> (June 18)</li>
+    </ul>
+    <h3 class="srchead">Open source and surveillance</h3>
+    <ul class="sources">
+      <li>a16z, <a href="https://a16z.com/asserting-american-leadership-in-open-source-ai/">"Asserting American Leadership in Open Source AI"</a></li>
+      <li>CNBC and Fortune on <a href="https://www.cnbc.com/2026/01/27/mozilla-building-an-ai-rebel-alliance-to-take-on-openai-anthropic-.html">Mozilla's open source "rebel alliance"</a></li>
+      <li>ACLU <a href="https://www.aclu.org/campaigns-initiatives/get-the-flock-out">"Get the Flock Out" campaign</a>; EFF Flock contract tracking</li>
+      <li>Stateline, <a href="https://stateline.org/2026/01/08/worried-about-surveillance-states-enact-privacy-laws-and-restrict-license-plate-readers/">"Worried about surveillance, states enact privacy laws and restrict license plate readers"</a></li>
+      <li>Newsweek, <a href="https://www.newsweek.com/list-of-republicans-trying-to-crack-down-on-flock-cameras-12249749">"List of Republicans Trying to Crack Down on Flock Cameras"</a></li>
+    </ul>
+    <h3 class="srchead">Child safety and AI CSAM</h3>
+    <ul class="sources">
+      <li>Stanford Internet Observatory, <a href="https://cyber.fsi.stanford.edu/news/ai-csam-report">"AI-Generated Child Sexual Abuse Material: Insights from Educators, Platforms, Law Enforcement, Legislators, and Victims"</a> (Oct 2025)</li>
+      <li>American Bar Association, <a href="https://www.americanbar.org/groups/litigation/resources/newsletters/childrens-rights/when-image-is-fake-harm-real/">"When the Image Is Fake but the Harm Is Real"</a> (June 2026)</li>
+      <li>FTC, <a href="https://www.ftc.gov/news-events/news/press-releases/2025/09/ftc-launches-inquiry-ai-chatbots-acting-companions">"FTC Launches Inquiry into AI Chatbots Acting as Companions"</a> (Sept 2025)</li>
+      <li>Tech Policy Press, <a href="https://www.techpolicy.press/lawsuits-exposed-how-chatbots-endanger-children-can-the-senates-new-bills-fix-it/">"Lawsuits Exposed How Chatbots Endanger Children. Can the Senate's New Bills Fix It?"</a> (May 2026)</li>
+      <li>IAPP, <a href="https://iapp.org/news/a/us-senate-committee-approves-kosa-children-s-ai-safety-bills">"US Senate Commerce approves KOSA, children's AI safety bills"</a> (Aug 2026)</li>
+      <li>Gibson Dunn, <a href="https://www.gibsondunn.com/president-trump-latest-executive-order-on-ai-seeks-to-preempt-state-laws/">"President Trump's Latest Executive Order on AI Seeks to Preempt State Laws"</a> (Dec 2025), and <a href="https://fairplayforkids.org/statement-ai-executive-order-still-puts-children-at-risk/">Fairplay's rebuttal</a> (Dec 2025)</li>
+      <li>EFF, <a href="https://www.eff.org/issues/age-verification">"Age Verification Resource Hub,"</a> and CDT, <a href="https://cdt.org/insights/cdt-joins-with-afp-and-siia-to-oppose-age-verification-mandates/">"CDT Joins with AFP and SIIA to Oppose Age Verification Mandates"</a> (Feb 2026)</li>
+    </ul>
+    <h3 class="srchead">September 2026 vocabulary</h3>
+    <ul class="sources">
+      <li>Dario Amodei, <a href="https://darioamodei.com/post/we-must-pace-the-frontier">"We Must Pace the Frontier"</a> (Sept 12, 2026)</li>
+      <li>David Sacks, <a href="https://www.realclearpolitics.com/2026/09/13/my_response_to_dario_amodei_nobody_is_stopping_you_710814.html">"My Response to Dario Amodei: Nobody Is Stopping You"</a> (Sept 13)</li>
+      <li>Department of War CTO on X, <a href="https://x.com/DoWCTO/status/2099536442594582922">"Americanism, not effective altruism"</a> (Sept 14)</li>
+      <li>Mustafa Suleyman, <a href="https://mustafa-suleyman.ai/a-warning-about-model-welfare">"A warning about 'model welfare'"</a> (Sept 16)</li>
+      <li>Sen. Sanders, <a href="https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-create-new-federal-agency-to-ban-artificial-superintelligence-pause-advanced-ai-development/">press release on the Ban Artificial Superintelligence Act</a> (Sept 23)</li>
+      <li><a href="https://law.justia.com/cases/federal/appellate-courts/cadc/26-1049/26-1049-2026-09-25.html">Anthropic PBC v. Department of War, No. 26-1049 (D.C. Cir. Sept 25, 2026)</a></li>
+      <li>CBS News, <a href="https://www.cbsnews.com/news/trump-ai-constitution-tech-execs-openai-anthropic-voluntary-controls/">"Trump and major AI executives sign 'morally binding' voluntary controls"</a> (Sept 29)</li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">The AI Factions: A Political Field Guide, developed and updated by Kate Gage, Executive Director, Higher Ground Institute. Snapshot as of Nov 6, 2026. Alignments are fluid; use the maps and sources above to track developments. Companion guide: <a href="https://higherground.institute/PhilanthropyFieldGuide/">Who funds AI's future</a>.</div>
+</footer>
+
 </body>
 </html>
