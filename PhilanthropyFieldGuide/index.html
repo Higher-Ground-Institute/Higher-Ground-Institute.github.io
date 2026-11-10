@@ -13,7 +13,7 @@
 :root{
   --deep:#002E4A; --electric:#55C5E5; --accent-text:#0A7FA3;
   --bg:#F9F9F9; --surface:#FFFFFF; --text:#002E4A; --muted:#334A52; --rule:#D3E1E8; --zebra:#F0F6F9;
-  --c-counter:#B4235A; --c-state:#2E7D5B; --c-security:#4C56B8; --c-safety:#A86E10; --c-discovery:#7C4DB0; --c-lab:#5C6B78;
+  --c-counter:#B4235A; --c-state:#2E7D5B; --c-security:#4C56B8; --c-safety:#A86E10; --c-discovery:#7C4DB0; --c-lab:#5C6B78; --c-public:#0E7C86;
   --focus:#0B7FA3;
   color-scheme:light; box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
@@ -21,13 +21,13 @@
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --bg:#06192A; --surface:#0C2437; --text:#E6F1F6; --muted:#9DB4C2; --rule:#1E3A50; --zebra:#0F2A40; --accent-text:#55C5E5;
-    --c-counter:#F07AA6; --c-state:#6CCB9E; --c-security:#9AA3F5; --c-safety:#E5B65A; --c-discovery:#C29BEF; --c-lab:#A9B6C1;
+    --c-counter:#F07AA6; --c-state:#6CCB9E; --c-security:#9AA3F5; --c-safety:#E5B65A; --c-discovery:#C29BEF; --c-lab:#A9B6C1; --c-public:#5FD3DD;
     --focus:#55C5E5; color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
   --bg:#06192A; --surface:#0C2437; --text:#E6F1F6; --muted:#9DB4C2; --rule:#1E3A50; --zebra:#0F2A40; --accent-text:#55C5E5;
-  --c-counter:#F07AA6; --c-state:#6CCB9E; --c-security:#9AA3F5; --c-safety:#E5B65A; --c-discovery:#C29BEF; --c-lab:#A9B6C1;
+  --c-counter:#F07AA6; --c-state:#6CCB9E; --c-security:#9AA3F5; --c-safety:#E5B65A; --c-discovery:#C29BEF; --c-lab:#A9B6C1; --c-public:#5FD3DD;
   --focus:#55C5E5; color-scheme:dark;
 }
 *,*::before,*::after{box-sizing:inherit}
@@ -153,7 +153,7 @@ blockquote{margin:0 0 8px;padding:0 0 0 16px;border-left:4px solid var(--electri
 footer{padding:32px 0 48px;color:var(--muted);font-size:14.5px}
 
 .c-counter{--cc:var(--c-counter)}.c-state{--cc:var(--c-state)}.c-security{--cc:var(--c-security)}
-.c-safety{--cc:var(--c-safety)}.c-discovery{--cc:var(--c-discovery)}.c-lab{--cc:var(--c-lab)}
+.c-safety{--cc:var(--c-safety)}.c-discovery{--cc:var(--c-discovery)}.c-lab{--cc:var(--c-lab)}.c-public{--cc:var(--c-public)}
 </style>
 </head>
 <body>
@@ -169,7 +169,7 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14.5px}
 
 <nav class="jump" aria-label="Sections">
   <div class="wrap">
-    <a href="#camps">Six camps</a>
+    <a href="#camps">Seven camps</a>
     <a href="#surprise">Findings</a>
     <a href="#migration">Migration</a>
     <a href="#bridges">Bridge funders</a>
@@ -197,7 +197,7 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14.5px}
 
 <section id="camps">
   <div class="wrap">
-    <h2>The six camps at a glance</h2>
+    <h2>The seven camps at a glance</h2>
     <p class="intro">Each camp lists the political faction it sits closest to, so the two guides connect. The two populist factions are folded together here because neither has a meaningful philanthropic base.</p>
     <div class="tablewrap stack">
       <table class="camps">
@@ -205,15 +205,21 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14.5px}
         <tbody>
           <tr class="c-counter">
             <td class="name"><strong>Counterweights</strong><span>Nearest faction: AI Ethics, AI Populists</span></td>
-            <td data-l="Core belief">AI concentrates power in a few companies. Philanthropy should pay for checks on that power, such as accountability research and public alternatives to the labs.</td>
-            <td data-l="Key people and orgs">Heather Gerken (Ford), John Palfrey (MacArthur), Martin Tisné (Omidyar’s AI Collaborative, Current AI); grantees AI Now, DAIR, Data &amp; Society</td>
-            <td data-l="Key funding"><ul><li>Humanity AI: $500M over five years, ten foundations</li><li>Current AI: $400M with governments and Google</li><li>Ford: new $60M for democracy</li></ul></td>
+            <td data-l="Core belief">AI concentrates power in a few companies. Philanthropy should pay for checks on that power: accountability research, advocacy and the civil society groups that do both.</td>
+            <td data-l="Key people and orgs">Heather Gerken (Ford), John Palfrey (MacArthur), Martin Tisné (Omidyar’s AI Collaborative); grantees AI Now, DAIR, Data &amp; Society</td>
+            <td data-l="Key funding"><ul><li>Humanity AI: $500M over five years, ten foundations</li><li>Omidyar’s AI Collaborative: grants still being traced</li><li>Ford: new $60M for democracy</li></ul></td>
+          </tr>
+          <tr class="c-public">
+            <td class="name"><strong>Public builders</strong><span>Nearest faction: AI Ethics, Pragmatists</span></td>
+            <td data-l="Core belief">AI infrastructure should exist outside the companies: public compute, open models, public-interest data. Don’t just check the labs, build the alternative.</td>
+            <td data-l="Key people and orgs">Mark Surman (Mozilla), Martin Tisné (Current AI), the Public AI Network; Empire AI in New York; the CalCompute consortium in California</td>
+            <td data-l="Key funding"><ul><li>Current AI: $400M with the French government, philanthropies and Google</li><li>Empire AI: $400M+ public and private, including a $250M New York grant, Simons/Flatiron and Tom Secunda</li><li>CalCompute: written into SB 53 with no appropriation yet; framework report due January 2027</li></ul></td>
           </tr>
           <tr class="c-state">
-            <td class="name"><strong>State builders</strong><span>Nearest faction: Pragmatists</span></td>
-            <td data-l="Core belief">Government has to be able to use and govern AI itself, or democracy loses public trust. Fund the people and systems that let agencies deliver.</td>
+            <td class="name"><strong>State capacity</strong><span>Nearest faction: Pragmatists</span></td>
+            <td data-l="Core belief">Government has to be able to use and govern AI itself, or democracy loses public trust. Fund the people and systems that let agencies deliver. This camp is about how government works, not how big it should be: it has no position on what the state should do, only on whether it can deliver.</td>
             <td data-l="Key people and orgs">Jennifer Pahlka (Recoding America), Tom Kalil and Kumar Garg (Renaissance Philanthropy); Packard, Rockefeller, Arnold Ventures</td>
-            <td data-l="Key funding"><ul><li>Recoding America Fund: $120M goal</li><li>Cities Deliver: $50M (Rockefeller and OpenAI Foundation)</li><li>Public Benefit Innovation Fund: $10M round</li></ul></td>
+            <td data-l="Key funding"><ul><li>Recoding America Fund: $120M goal over six years, a third raised at launch; AI is the backdrop, not the program. Funders include Arnold Ventures, Packard and Jed McCaleb’s Astera, so some safety money is in it</li><li>Cities Deliver: $50M (Rockefeller and OpenAI Foundation)</li><li>Public Benefit Innovation Fund: $10M round</li></ul></td>
           </tr>
           <tr class="c-security">
             <td class="name"><strong>Security establishment</strong><span>Nearest faction: Pragmatists, Tech Right seam</span></td>
@@ -251,10 +257,10 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14.5px}
     <h2>What the grants show</h2>
     <p class="intro">Four findings that don’t fit the two-sides story about AI money.</p>
     <ul class="surprise">
-      <li><h3>The same foundations fund both sides</h3><p>Packard, Hewlett and Knight fund progressive accountability groups and the center-right Foundation for American Innovation, which in turn helps steer AI safety grants.</p></li>
+      <li><h3>The same foundations fund both sides</h3><p>Packard and Hewlett fund the accountability groups; Knight funds information and civic-capacity research; all three fund the center-right Foundation for American Innovation, which in turn helps steer AI safety grants.</p></li>
       <li><h3>Most new funds trace back to the same few foundations</h3><p>Four of the five newer international funds traced back to the same funders: Omidyar, Ford, MacArthur, Hewlett and Open Society. Omidyar alone sits behind all four.</p></li>
       <li><h3>AI profits now pay for AI safety</h3><p>The Navigation Fund is funded by the AI computing company it started, now merged with Lightning AI in a $2.5B deal.</p></li>
-      <li><h3>The populists have no foundations</h3><p>AI Populist money runs through PACs like Guardrails and Tomorrow Together. There is no charitable side to it, and MAGA Populists have no philanthropic base either. The <a href="#prowords">pro-human coalition</a> is the first exception: FLI and Frank McCourt now fund populist-style AI campaigns from the charitable side.</p></li>
+      <li><h3>The populists have no foundations</h3><p>AI Populist money runs through PACs like Guardrails and Tomorrow Together, and MAGA Populists have no philanthropic base of their own. What they have is borrowed: the <a href="#prowords">pro-human coalition</a> runs on FLI and Frank McCourt, and the two street-level groups, Humans First and Irreplaceable, were both incubated at the Center for AI Safety. The populists have no foundations; they have safety money wearing a movement jacket.</p></li>
     </ul>
   </div>
 </section>
@@ -272,7 +278,7 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14.5px}
       <div class="path">
         <div class="move"><b class="c-safety">Catastrophe</b><svg viewBox="0 0 28 16" aria-hidden="true"><path d="M1 8h22M17 2l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5"/></svg><b class="to c-counter">Power</b></div>
         <h3>Safety funders now ask who controls AI</h3>
-        <p class="who"><strong>Longview</strong> ran a 2026 call on extreme power concentration. <strong>SFF</strong> added new Freedom and Fairness tracks.</p>
+        <p class="who"><strong>Longview</strong> ran a 2026 call on extreme power concentration. <strong>SFF</strong> added new Freedom and Fairness tracks. An addition, not a swap: the catastrophic-risk concern hasn’t softened.</p>
       </div>
       <div class="path">
         <div class="move"><b class="c-counter">Watchdog</b><svg viewBox="0 0 28 16" aria-hidden="true"><path d="M1 8h22M17 2l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5"/></svg><b class="to c-state">Delivery</b></div>
@@ -295,13 +301,13 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14.5px}
       <table>
         <thead><tr><th scope="col">Funder</th><th scope="col">Money lands in</th><th scope="col">What that looks like</th></tr></thead>
         <tbody>
-          <tr><td class="term">Packard</td><td data-l="Money lands in"><span class="tag c-counter">Counterweights</span><span class="tag c-state">State builders</span><span class="tag c-security">Security</span></td><td data-l="What that looks like">Humanity AI member; about $1.7M to FAI’s federal government project; funds the Horizon fellowship. The “democracy that delivers” framing in its AI and Democracy report covers all three.</td></tr>
+          <tr><td class="term">Packard</td><td data-l="Money lands in"><span class="tag c-counter">Counterweights</span><span class="tag c-state">State capacity</span><span class="tag c-security">Security</span></td><td data-l="What that looks like">Humanity AI member; funds work to reimagine how the federal government operates, which will have to include AI; funds the Horizon fellowship. The “democracy that delivers” framing in its AI and Democracy report covers all three.</td></tr>
           <tr><td class="term">Hewlett</td><td data-l="Money lands in"><span class="tag c-security">Security</span><span class="tag c-counter">Counterweights</span></td><td data-l="What that looks like">The security initiative at home; founding funder of the Global Fund for a New Economy and a European AI &amp; Society Fund member abroad.</td></tr>
-          <tr><td class="term">Omidyar</td><td data-l="Money lands in"><span class="tag c-counter">Counterweights</span></td><td data-l="What that looks like">Funds through more vehicles than anyone else: Humanity AI, Current AI, the Global Fund for a New Economy, the European AI &amp; Society Fund and Reset.Tech.</td></tr>
+          <tr><td class="term">Omidyar</td><td data-l="Money lands in"><span class="tag c-counter">Counterweights</span><span class="tag c-public">Public builders</span></td><td data-l="What that looks like">Funds through more vehicles than anyone else: its own AI Collaborative (Martin Tisné), Humanity AI, Current AI, the Global Fund for a New Economy, the European AI &amp; Society Fund and Reset.Tech.</td></tr>
           <tr><td class="term">Coefficient Giving</td><td data-l="Money lands in"><span class="tag c-safety">Safety science</span><span class="tag c-security">Security</span></td><td data-l="What that looks like">The largest AI safety funder; also seeded Georgetown CSET and funds the Institute for Progress and FAI.</td></tr>
-          <tr><td class="term">Rockefeller</td><td data-l="Money lands in"><span class="tag c-state">State builders</span><span class="tag c-lab">Lab foundations</span></td><td data-l="What that looks like">AI readiness work in all 50 states; co-funds Cities Deliver with the OpenAI Foundation.</td></tr>
-          <tr><td class="term">Renaissance Philanthropy</td><td data-l="Money lands in"><span class="tag c-state">State builders</span><span class="tag c-discovery">Discovery</span></td><td data-l="What that looks like">Manages funds for other donors, including government innovation funds and the AI for Math Fund. Also funds FAI and Horizon.</td></tr>
-          <tr><td class="term">Knight</td><td data-l="Money lands in"><span class="tag c-state">State builders</span><span class="tag c-counter">Counterweights</span></td><td data-l="What that looks like">Funded the institute that published “AI as Normal Technology”; $3M+ for city AI fellows; also an FAI funder.</td></tr>
+          <tr><td class="term">Rockefeller</td><td data-l="Money lands in"><span class="tag c-state">State capacity</span><span class="tag c-lab">Lab foundations</span></td><td data-l="What that looks like">AI readiness work in all 50 states; co-funds Cities Deliver with the OpenAI Foundation.</td></tr>
+          <tr><td class="term">Renaissance Philanthropy</td><td data-l="Money lands in"><span class="tag c-state">State capacity</span><span class="tag c-discovery">Discovery</span></td><td data-l="What that looks like">Manages funds for other donors, including government innovation funds and the AI for Math Fund. Also funds FAI and Horizon.</td></tr>
+          <tr><td class="term">Knight</td><td data-l="Money lands in"><span class="tag c-state">State capacity</span><span class="tag c-counter">Counterweights</span></td><td data-l="What that looks like">Funded the institute that published “AI as Normal Technology”; the Knight Research Network, its 2019 bet of about $50M on tech-and-democracy research that grew out of the disinformation fight and now covers AI; $3M+ for city AI fellows; also an FAI funder.</td></tr>
         </tbody>
       </table>
     </div>
@@ -316,14 +322,16 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14.5px}
       <table class="decoder">
         <thead><tr><th scope="col">Grantee</th><th scope="col">Camps funding it</th><th scope="col">Who pays</th><th scope="col">What it tells you</th></tr></thead>
         <tbody>
-          <tr><td class="term">Foundation for American Innovation</td><td data-l="Camps funding it"><span class="tag c-state">State builders</span><span class="tag c-security">Security</span><span class="tag c-safety">Safety science</span><span class="tag c-discovery">Discovery</span></td><td data-l="Who pays">Packard, Hewlett, Knight, Coefficient Giving, SFF, Renaissance Philanthropy, the Recoding America Fund, Arnold Ventures, Stand Together, plus Bradley, Scaife and Searle; a16z, Anthropic, OpenAI and Meta as sponsors</td><td data-l="What it tells you">The one grantee every camp funds. A center-right think tank is the hub of the whole network</td></tr>
-          <tr><td class="term">Horizon Institute for Public Service</td><td data-l="Camps funding it"><span class="tag c-safety">Safety science</span><span class="tag c-state">State builders</span><span class="tag c-discovery">Discovery</span></td><td data-l="Who pays">Coefficient, Longview ($2.1M in 2024 and 2025), Navigation Fund, Packard, Renaissance, the Lonsdale family fund</td><td data-l="What it tells you">Fellows placed in government is the product every camp wants. The pipeline was built with safety money and now runs on state-builder money too</td></tr>
+          <tr><td class="term">Foundation for American Innovation</td><td data-l="Camps funding it"><span class="tag c-state">State capacity</span><span class="tag c-security">Security</span><span class="tag c-safety">Safety science</span><span class="tag c-discovery">Discovery</span></td><td data-l="Who pays">Packard, Hewlett, Knight, Coefficient Giving, SFF, Renaissance Philanthropy, the Recoding America Fund, Arnold Ventures, Stand Together, plus Bradley, Scaife and Searle; a16z, Anthropic, OpenAI and Meta as sponsors</td><td data-l="What it tells you">The one grantee every camp funds. A center-right think tank has become the network’s common ground, with every camp in the room and on the donor list</td></tr>
+          <tr><td class="term">Horizon Institute for Public Service</td><td data-l="Camps funding it"><span class="tag c-safety">Safety science</span><span class="tag c-state">State capacity</span><span class="tag c-discovery">Discovery</span></td><td data-l="Who pays">Coefficient, Longview ($2.1M in 2024 and 2025), Navigation Fund, Packard, Renaissance, the Lonsdale family fund</td><td data-l="What it tells you">Fellows placed in government is the product every camp wants. The pipeline was built with safety money and now runs on state-capacity money too</td></tr>
           <tr><td class="term">Georgetown CSET</td><td data-l="Camps funding it"><span class="tag c-safety">Safety science</span><span class="tag c-security">Security</span></td><td data-l="Who pays">Open Philanthropy, now Coefficient: more than $100M for 2019 to 2025; Hewlett; the Public Interest Technology University Network</td><td data-l="What it tells you">The original safety-to-security bridge, built with one grant</td></tr>
-          <tr><td class="term">Institute for Progress</td><td data-l="Camps funding it"><span class="tag c-safety">Safety science</span><span class="tag c-state">State builders</span><span class="tag c-discovery">Discovery</span></td><td data-l="Who pays">Coefficient ($9M over three years from 2023, now through its $120M Abundance and Growth Fund), Arnold Ventures, Astera, Sloan, Heising-Simons, Smith Richardson</td><td data-l="What it tells you">Abundance is where Safety money and Discovery money agree</td></tr>
+          <tr><td class="term">Institute for Progress</td><td data-l="Camps funding it"><span class="tag c-safety">Safety science</span><span class="tag c-state">State capacity</span><span class="tag c-discovery">Discovery</span></td><td data-l="Who pays">Coefficient ($9M over three years from 2023, now through its $120M Abundance and Growth Fund), Arnold Ventures, Astera, Sloan, Heising-Simons, Smith Richardson</td><td data-l="What it tells you">Abundance is where Safety money and Discovery money agree</td></tr>
           <tr><td class="term">Center for Humane Technology</td><td data-l="Camps funding it"><span class="tag c-counter">Counterweights</span><span class="tag c-safety">Safety science</span></td><td data-l="Who pays">Omidyar, Ford, Open Society, Knight, Craig Newmark; Packard ($600K in 2025); Good Ventures ($750K in 2025 for AI safety communications)</td><td data-l="What it tells you">The social media reform brand, now carrying Moskovitz money and a seat in the pro-human coalition. The clearest Counterweights-to-Safety crossover</td></tr>
           <tr><td class="term">Encode</td><td data-l="Camps funding it"><span class="tag c-safety">Safety science</span><span class="tag c-counter">Counterweights</span></td><td data-l="Who pays">Future of Life Institute ($250K in 2024), SFF, Heising-Simons, Omidyar and the Omidyar-led Responsible Technology Youth Power Fund; takes no corporate or frontier-lab executive money</td><td data-l="What it tells you">A youth group with both camps’ money, and the first grantee to be targeted for it: OpenAI subpoenaed Encode over its funders in 2025</td></tr>
           <tr><td class="term">Americans for Responsible Innovation</td><td data-l="Camps funding it"><span class="tag c-safety">Safety science</span></td><td data-l="Who pays">Coefficient Giving</td><td data-l="What it tells you">The DC shop that built the 2025 coalition against federal preemption of state AI laws. Where safety grants turn into lobbying</td></tr>
-          <tr><td class="term">Public AI Network</td><td data-l="Camps funding it"><span class="tag c-counter">Counterweights</span><span class="tag c-state">State builders</span></td><td data-l="Who pays">Mozilla, Aspen Digital, Open Future, Rockefeller, Patrick J. McGovern Foundation, Bertelsmann</td><td data-l="What it tells you">“Public AI” as infrastructure draws state-builder and AI-for-good money that accountability work doesn’t. Also a pro-human coalition member</td></tr>
+          <tr><td class="term">Public AI Network</td><td data-l="Camps funding it"><span class="tag c-public">Public builders</span><span class="tag c-state">State capacity</span></td><td data-l="Who pays">Mozilla, Aspen Digital, Open Future, Rockefeller, Patrick J. McGovern Foundation, Bertelsmann</td><td data-l="What it tells you">“Public AI” as infrastructure draws state-capacity and AI-for-good money that accountability work doesn’t. Also a pro-human coalition member</td></tr>
+          <tr><td class="term">Humans First</td><td data-l="Camps funding it"><span class="tag c-safety">Safety science</span></td><td data-l="Who pays">Started in 2026 with a loan from the Center for AI Safety, per NBC News; chair Amy Kremer says the donors are private individuals “who believe in AI safety.” No donor list</td><td data-l="What it tells you">The MAGA-branded anti-AI group was incubated by a safety nonprofit. The populist street campaign has a safety-science birth certificate</td></tr>
+          <tr><td class="term">Irreplaceable</td><td data-l="Camps funding it"><span class="tag c-safety">Safety science</span></td><td data-l="Who pays">Launched August 2026 by Phil Aroneanu, a 350.org co-founder; runs an Education Fund and an Action Fund and discloses no donors; a strategist also serves at the Center for AI Safety, per The Atlantic</td><td data-l="What it tells you">Climate-movement organizers running safety-world strategy. Student walkouts at 100+ colleges in October</td></tr>
           <tr><td class="term">AI Now Institute</td><td data-l="Camps funding it"><span class="tag c-counter">Counterweights</span></td><td data-l="Who pays">Open Society, Ford, Mozilla, Omidyar, Luminate; MacArthur and Minderoo earlier; dropped Microsoft Research and DeepMind</td><td data-l="What it tells you">The control case. The accountability flagship takes no safety or lab-adjacent money, and its funder list is the Counterweights camp in miniature</td></tr>
         </tbody>
       </table>
@@ -358,7 +366,7 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14.5px}
 
     <div class="bridgebox">
       <h3>Where grants become politics</h3>
-      <p>Three of the grantees above have crossed from research into campaigns. FLI ran an $8M state campaign in 2026 and co-founded the pro-human coalition. ARI helped build the coalition that beat federal preemption of state AI laws, 99 to 1 in the Senate. Encode worked state bills and got subpoenaed by OpenAI for it; Omidyar, named as its funder, stopped signing public letters and pulled its grantee list. Coefficient has started a program to train AI safety political operatives. By Politico’s tally, safety-affiliated groups outspent the industry side $44.4M to $27.9M in the 2026 midterms. That is the seam between this guide and the political one: the same foundations that fund the research now sit one step behind the PACs.</p>
+      <p>Five of the grantees above have crossed from research into campaigns. FLI ran an $8M state campaign in 2026 and co-founded the pro-human coalition. ARI helped build the coalition that beat federal preemption of state AI laws, 99 to 1 in the Senate. Encode worked state bills and got subpoenaed by OpenAI for it; Omidyar, named as its funder, stopped signing public letters and pulled its grantee list. The Center for AI Safety’s c4, the CAIS Action Fund, co-sponsored California’s SB 1047 and lobbied for the US AI Safety Institute. Coefficient has started a program to train AI safety political operatives. By Politico’s tally, safety-affiliated groups outspent the industry side $44.4M to $27.9M in the 2026 midterms. That is the seam between this guide and the political one: the same foundations that fund the research now sit one step behind the PACs.</p>
     </div>
     <p class="note">The crossover has its own critics inside the money. Vitalik Buterin said in March 2026 that FLI made “cultural and political action” its primary method after his gift, and warned that big-money political campaigns invite backlash.</p>
   </div>
@@ -376,14 +384,15 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14.5px}
           <tr><td class="term">Field-building</td><td data-l="What it means">Funding the people, fellowships and new organizations that grow a discipline</td><td data-l="Who says it">Coefficient, SFF, Longview</td><td data-l="What it signals">A long time horizon; betting on people over projects</td></tr>
           <tr><td class="term">AGI-pilled</td><td data-l="What it means">Convinced that very powerful AI is coming soon</td><td data-l="Who says it">Safety and lab circles, often about legacy foundations</td><td data-l="What it signals">The divide over timelines. Packard’s report quotes one interviewee wishing philanthropy were “more AGI-pilled”</td></tr>
           <tr><td class="term">Normal technology</td><td data-l="What it means">AI will spread slowly and unevenly, the way electricity did</td><td data-l="Who says it">Narayanan and Kapoor; Princeton CITP; Knight Institute</td><td data-l="What it signals">Skeptical of both the hype and the doom; favors existing institutions</td></tr>
-          <tr><td class="term">Public interest AI</td><td data-l="What it means">AI built or governed for public benefit, outside the profit motive</td><td data-l="Who says it">Omidyar, Current AI, MacArthur, Ford</td><td data-l="What it signals">Counterweights, often funding public alternatives to the labs</td></tr>
+          <tr><td class="term">Public interest AI</td><td data-l="What it means">AI built or governed for public benefit, outside the profit motive</td><td data-l="Who says it">Omidyar, Current AI, MacArthur, Ford</td><td data-l="What it signals">Counterweights when it means accountability; Public builders when it means public alternatives to the labs</td></tr>
           <tr><td class="term">People-centered AI</td><td data-l="What it means">Humanity AI’s banner: put people’s agency and rights first</td><td data-l="Who says it">Humanity AI coalition</td><td data-l="What it signals">Legacy foundations focused on present-day harms</td></tr>
           <tr><td class="term">Pro-human</td><td data-l="What it means">Keep humans in charge; no superintelligence until proven safe</td><td data-l="Who says it">Future of Life Institute, now the Pro-Human AI Coalition with Project Liberty and Omidyar</td><td data-l="What it signals">Safety goals with populist tactics; the banner that crossed camps in 2026 (see <a href="#prowords">the pro- words</a>)</td></tr>
-          <tr><td class="term">State capacity</td><td data-l="What it means">Government’s ability to actually deliver, including the people and the procurement rules to do it</td><td data-l="Who says it">Pahlka, Recoding America, Niskanen, IFP</td><td data-l="What it signals">State builders and the abundance movement</td></tr>
+          <tr><td class="term">State capacity</td><td data-l="What it means">Government’s ability to actually deliver, including the people and the procurement rules to do it</td><td data-l="Who says it">Pahlka, Recoding America, Niskanen, IFP</td><td data-l="What it signals">State capacity and the abundance movement</td></tr>
           <tr><td class="term">Democracy that delivers</td><td data-l="What it means">Democracies keep trust only by producing results people feel</td><td data-l="Who says it">Packard’s AI and Democracy report</td><td data-l="What it signals">Links democracy funding to government capacity</td></tr>
           <tr><td class="term">Political economy of AI</td><td data-l="What it means">Who owns the chips, data and infrastructure, and who benefits</td><td data-l="Who says it">Global Fund for a New Economy, AI Now, Packard’s report</td><td data-l="What it signals">Counterweights moving into antitrust and labor</td></tr>
           <tr><td class="term">Gradual disempowerment</td><td data-l="What it means">People slowly handing control to AI and the firms that own it</td><td data-l="Who says it">Safety researchers; adopted by Packard’s report</td><td data-l="What it signals">The bridge term between safety and accountability funders</td></tr>
           <tr><td class="term">Third wave / philanthropic VC</td><td data-l="What it means">Startup-style giving by new AI wealth: big, fast bets, often on new organizations rather than existing grantees</td><td data-l="Who says it">Nan Ransohoff, Renaissance, Project Tailwind</td><td data-l="What it signals">New money that prefers building to grantmaking</td></tr>
+          <tr><td class="term">TradPhil</td><td data-l="What it means">Shorthand for traditional philanthropy: legacy foundations seen as slow, process-heavy and risk-averse. Usually said with a sigh</td><td data-l="Who says it">New AI wealth and safety circles, about legacy foundations</td><td data-l="What it signals">The same divide as “AGI-pilled” from the money side: new donors who think the old donors are too slow for the moment</td></tr>
           <tr><td class="term">Regrantor / pooled fund</td><td data-l="What it means">An intermediary that moves other donors’ money</td><td data-l="Who says it">Manifund, Humanity AI, the European AI &amp; Society Fund</td><td data-l="What it signals">The original donor is one step removed, so trace the money back</td></tr>
         </tbody>
       </table>
@@ -402,17 +411,19 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14.5px}
       <div>
         <h3>“Capacity”</h3>
         <ul>
-          <li><b class="c-state">State builders:</b> government that delivers</li>
+          <li><b class="c-state">State capacity:</b> government that delivers</li>
           <li><b class="c-safety">Safety science:</b> a pipeline of researchers</li>
           <li><b class="c-counter">Counterweights:</b> stronger civil society groups</li>
+          <li><b class="c-lab">Lab foundations:</b> cities delivering services with AI (Cities Deliver)</li>
         </ul>
       </div>
       <div>
         <h3>“Public interest”</h3>
         <ul>
-          <li><b class="c-counter">Counterweights:</b> not controlled by companies</li>
+          <li><b class="c-counter">Counterweights:</b> accountable to the public</li>
+          <li><b class="c-public">Public builders:</b> owned and run outside the companies</li>
           <li><b class="c-lab">Lab foundations:</b> the company’s own giving</li>
-          <li><b class="c-state">State builders:</b> public services that work</li>
+          <li><b class="c-state">State capacity:</b> public services that work</li>
         </ul>
       </div>
     </div>
@@ -432,12 +443,13 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14.5px}
           <tr><td class="term">Pro-human AI</td><td data-l="What it means">Humans stay in charge: no superintelligence until proven safe, no concentration of power, liability for developers, protection for kids and workers</td><td data-l="Who says it">Future of Life Institute’s Pro-Human AI Declaration (March 2026); the Pro-Human AI Coalition (September 2026), co-founded with Project Liberty and Ergo Impact, with Omidyar and Mila on the steering committee</td><td data-l="What it signals">The phrase that won 2026. Safety science goals, Counterweights language, populist tactics, and new money behind all three. See below</td></tr>
           <tr><td class="term">People-centered AI</td><td data-l="What it means">Put people’s agency and rights first; fund civil society, not labs</td><td data-l="Who says it">Humanity AI coalition (Ford, MacArthur, Omidyar, Doris Duke and others)</td><td data-l="What it signals">Legacy foundations, present-day harms, pooled money</td></tr>
           <tr><td class="term">People-first AI</td><td data-l="What it means">Help local nonprofits adopt AI; “access is agency”</td><td data-l="Who says it">OpenAI Foundation’s $50M People-First AI Fund (June 2026)</td><td data-l="What it signals">Lab foundations. The same “people” word as Humanity AI, pointed at adoption rather than accountability</td></tr>
-          <tr><td class="term">Public interest AI / Public AI</td><td data-l="What it means">AI built, owned or governed outside the profit motive; public alternatives to the labs</td><td data-l="Who says it">Omidyar, Current AI, Ford, MacArthur; Mozilla and the Public AI Network for the “public AI” version</td><td data-l="What it signals">Counterweights, building wing. “Public AI” means public infrastructure, not just public benefit</td></tr>
+          <tr><td class="term">Public interest AI / Public AI</td><td data-l="What it means">AI built, owned or governed outside the profit motive; public alternatives to the labs</td><td data-l="Who says it">Omidyar, Current AI, Ford, MacArthur; Mozilla and the Public AI Network for the “public AI” version</td><td data-l="What it signals">Public builders. “Public AI” means public infrastructure, not just public benefit</td></tr>
           <tr><td class="term">Human-centered AI</td><td data-l="What it means">Design AI around human needs and oversight</td><td data-l="Who says it">Stanford HAI and the academic mainstream; Project Liberty’s “human-centric digital infrastructure”</td><td data-l="What it signals">The most neutral of the set. Industry can sign on, so it tells you least</td></tr>
           <tr><td class="term">Humane technology</td><td data-l="What it means">Products should not exploit attention, kids or mental health</td><td data-l="Who says it">Center for Humane Technology (Tristan Harris, Aza Raskin)</td><td data-l="What it signals">The social media fight carried into AI; now a core member of the pro-human coalition</td></tr>
-          <tr><td class="term">AI for good / public purpose</td><td data-l="What it means">Use AI to deliver on health, climate, journalism and crisis response; “AI must function as civic infrastructure”</td><td data-l="Who says it">Patrick J. McGovern Foundation ($75.8M across 149 grants, December 2025); Google.org; the UN’s AI for Good</td><td data-l="What it signals">Adoption and nonprofit capacity. Closest to State builders in spirit, rarely political</td></tr>
+          <tr><td class="term">AI for good / public purpose</td><td data-l="What it means">Use AI to deliver on health, climate, journalism and crisis response; “AI must function as civic infrastructure”</td><td data-l="Who says it">Patrick J. McGovern Foundation ($75.8M across 149 grants, December 2025); Google.org; the UN’s AI for Good</td><td data-l="What it signals">Adoption and nonprofit capacity. Closest to State capacity in spirit, rarely political</td></tr>
           <tr><td class="term">Human flourishing</td><td data-l="What it means">Judge AI by its effect on well-being, relationships, meaning and faith</td><td data-l="Who says it">Gloo’s Flourishing AI benchmark; Templeton-funded flourishing research; the Pro-Human AI Coalition’s own tagline</td><td data-l="What it signals">The bridge word to faith and conservative audiences. Watch for it in anything trying to reach the right</td></tr>
-          <tr><td class="term">Democratic AI</td><td data-l="What it means">Two meanings. Labs: US-led AI as “a clear alternative to authoritarian versions of AI.” Civil society: AI that is governed democratically</td><td data-l="Who says it">OpenAI for Countries; the Collective Intelligence Project and deliberation researchers for the second meaning</td><td data-l="What it signals">The clearest case of one phrase, two camps. Ask which one before you nod</td></tr>
+          <tr><td class="term">Democratic AI</td><td data-l="What it means">Two meanings. Labs: US-led AI as “a clear alternative to authoritarian versions of AI.” Civil society: AI that is governed democratically</td><td data-l="Who says it">OpenAI for Countries; the Collective Intelligence Project and deliberation researchers for the second meaning</td><td data-l="What it signals">The clearest case of one phrase, two camps. Ask which one before you nod; the second meaning is built by the participatory AI crowd below</td></tr>
+          <tr><td class="term">Participatory AI</td><td data-l="What it means">Let the public set the rules for AI through assemblies and deliberation, and use AI to run the deliberation itself</td><td data-l="Who says it">BLOOM’s Public Assembly on AI (up to 20 civic hosts, local assemblies February to July 2027, aiming at state and national assemblies in 2028); Unify Montrose in Colorado; Change.org’s $100M, three-year rebuild around AI for local democracy, paid for by its own contributors</td><td data-l="What it signals">The civic-tech wing. Small money except Change.org, and the place where the second meaning of “democratic AI” gets built</td></tr>
         </tbody>
       </table>
     </div>
@@ -447,9 +459,10 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14.5px}
         <h3>“Good for people” by camp</h3>
         <ul>
           <li><b class="c-counter">Counterweights:</b> not controlled by companies</li>
+          <li><b class="c-public">Public builders:</b> built outside the companies</li>
           <li><b class="c-safety">Safety science:</b> humans stay in charge</li>
           <li><b class="c-lab">Lab foundations:</b> access to the tools</li>
-          <li><b class="c-state">State builders:</b> services that work</li>
+          <li><b class="c-state">State capacity:</b> services that work</li>
           <li><b class="c-discovery">Discovery:</b> faster cures and growth</li>
         </ul>
       </div>
@@ -470,6 +483,7 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14.5px}
           <li><b class="c-counter">Omidyar:</b> steering committee seat</li>
           <li><b class="c-safety">Mila, Center for AI Safety:</b> steering committee and member</li>
           <li><b>Labor and faith:</b> AFT, AFL-CIO Tech Institute, SAG-AFTRA, Institute for Family Studies among the signatories</li>
+          <li><b class="c-safety">Humans First, Irreplaceable:</b> the street-level groups, both incubated at the Center for AI Safety; Amy Kremer and Phil Aroneanu spoke at the Assembly</li>
         </ul>
       </div>
     </div>
@@ -486,7 +500,7 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14.5px}
 <section id="democracy">
   <div class="wrap">
     <h2>Deep dive: AI and democracy</h2>
-    <p class="intro">This is where Counterweights and State builders overlap most. The central document is Packard’s March 2026 report, AI and Democracy: Perspectives from an Emerging Field, co-authored by Kelly Born, who leads Packard’s Democracy, Rights, and Governance work.</p>
+    <p class="intro">This is where Counterweights and State capacity overlap most. The central document is Packard’s March 2026 report, AI and Democracy: Perspectives from an Emerging Field, co-authored by Kelly Born, who leads Packard’s Democracy, Rights, and Governance work.</p>
     <div class="demo">
       <div>
         <blockquote>AI is an accelerant, amplifying both strengths and weaknesses across existing systems.</blockquote>
@@ -500,7 +514,7 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14.5px}
       </div>
       <div>
         <h3>Where it sits</h3>
-        <p>The report focuses on institutions rather than on the technology itself. The authors note their interviews lean toward near-term-risk funders, so this is the Counterweights and State builders view rather than the whole field.</p>
+        <p>The report focuses on institutions rather than on the technology itself. The authors note their interviews lean toward near-term-risk funders, so this is the Counterweights and State capacity view rather than the whole field.</p>
         <div class="gap">
           <h3>What the report leaves out</h3>
           <p>The report maps 130+ organizations, including safety groups like METR and Epoch. It lists no campaign or electoral infrastructure groups. Its elections category covers administration and integrity only.</p>
@@ -515,8 +529,8 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14.5px}
     <h2>What comes next</h2>
     <div class="cols">
       <div><h3>Still researching</h3><ul><li>Omidyar’s AI Collaborative grants</li><li>Who funds deliberative tech and antitrust work</li><li>Hewlett’s $19M democracy grants</li><li>Conservative foundation grants to AI think tanks, by name and amount</li><li>Who funds the Pro-Human AI Coalition, and how much</li></ul></div>
-      <div><h3>Watching</h3><ul><li>Who will run Anthropic’s fund</li><li>Humanity AI open call awards</li><li>How Ford frames AI in its new strategy</li><li>The pro-human coalition’s Geneva AI Summit deliverables (June 2027)</li></ul></div>
-      <div><h3>To write</h3><ul><li>A profile for each camp and bridge funder</li><li>Migration stories, named and dated</li><li>The people layer: Tisné, Bengio, Princeton CITP, the Packard report’s authors</li></ul></div>
+      <div><h3>Watching</h3><ul><li>Who will run Anthropic’s fund</li><li>Humanity AI open call awards</li><li>How Ford frames AI in its new strategy</li><li>The pro-human coalition’s Geneva AI Summit deliverables (June 2027)</li><li>Cities Deliver first awards, April 2027 (Round 1 proposals due November 29)</li></ul></div>
+      <div><h3>To write</h3><ul><li>A profile for each camp and bridge funder</li><li>Migration stories, named and dated</li><li>The people layer: Tisné, Bengio, Princeton CITP, the Packard report’s authors</li><li>The philanthropy decoder, with the pro- words, as its own post</li></ul></div>
     </div>
     <h3 style="font-size:19px;margin:42px 0 10px">Key sources</h3>
     <ul class="sources">
@@ -542,6 +556,15 @@ footer{padding:32px 0 48px;color:var(--muted);font-size:14.5px}
       <li><a href="https://sfstandard.com/2025/09/02/openai-sam-altman-elon-musk-ai-regulation/">SF Standard, OpenAI’s subpoenas of its critics</a></li>
       <li><a href="https://www.theblock.co/post/393525/vitalik-buterin-questions-political-pivot-by-ai-safety-group-that-cashed-out-roughly-500m-from-his-shib-donation">The Block, Buterin on FLI’s political pivot</a></li>
       <li><a href="https://www.yahoo.com/news/politics/articles/ai-doomers-won-2026-100000274.html">Politico Magazine, How the AI Doomers Won 2026</a></li>
+      <li><a href="https://sfstandard.com/2026/10/06/flag-wrapped-anti-ai-bus-sf-conservative-group-drove/">SF Standard on Humans First and its CAIS loan</a></li>
+      <li><a href="https://protos.com/effective-altruism-is-back-with-an-anti-ai-campaign/">Protos on Irreplaceable</a></li>
+      <li><a href="https://www.eatingpolicy.com/p/announcing-the-recoding-america-fund">Pahlka, Announcing the Recoding America Fund</a></li>
+      <li><a href="https://knightfoundation.org/press/releases/knight-fifty-million-develop-new-research-technology-impact-democracy">Knight, $50M for research on technology and democracy</a></li>
+      <li><a href="https://www.governor.ny.gov/news/governor-hochul-announces-90-million-plan-expand-historic-empire-ai-consortium-and-enhance">New York, Empire AI expansion</a></li>
+      <li><a href="https://www.californiacompute.org/history/">CalCompute, history and status</a></li>
+      <li><a href="https://bloomproject.substack.com/p/introducing-the-public-assembly-on">BLOOM, Public Assembly on AI</a></li>
+      <li><a href="https://www.prnewswire.com/news-releases/changeorg-invests-100-million-to-give-people-a-more-powerful-voice-in-local-democracy-302898489.html">Change.org, $100M for local democracy</a></li>
+      <li><a href="https://www.rockefellerfoundation.org/cities-deliver-ai-solutions-for-public-services/">Rockefeller, Cities Deliver</a></li>
     </ul>
   </div>
 </section>
